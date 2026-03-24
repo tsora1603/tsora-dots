@@ -5,3 +5,5 @@ mkdir -p .ssh
 cp -r /mnt/extrastuff2/.ssh-backup $HOME/.ssh
 
 echo "ssh keys in place!"
+
+rm -- "$0"
