@@ -1,0 +1,37 @@
+[flavor]
+light = "noctalia"
+dark  = "noctalia"
+
+[icon] 
+prepend_dirs = [
+  { name = "Games", text = "" },
+  { name = "Notes", text = "󱓩" },
+  { name = "Notepad", text = "󱓩"},
+  { name = "Quick Notes", text = "󱓩" },
+  { name = "Documents", text = "󱔘" },
+  { name = "powerlevel10k", text = "" },
+  { name = "cpu-undervolting", text = "" },
+  { name = "zsh-syntax-highlighting", text = "󰙒" },
+  { name = "fgmod", text = "" },
+]
+
+prepend_globs = [
+  { url = "**/Music/*/", text = "󱝠" },
+  { url = "**/Music/*/*/", text = "󰳩" },
+  { url = "**/Music/*/*/*/", text = "󰀥"},
+  { url = "**/Games/*/", text = "" },
+  { url = "**/Pictures/Screenshots/", text = "" },
+  { url = "**/Pictures/Wallpapers/", text = "󰸉" },
+  { url = "**/Videos/Recordings/", text = "" },
+]
+
+prepend_exts = [
+  { name = "mp3", text = "" },
+  { name = "flac", text = "" }, 
+]
+
+[indicator]
+parent  = { reversed = true }
+current = { reversed = true }
+preview = { underline = true }
+padding = { open = "██", close = "█" }

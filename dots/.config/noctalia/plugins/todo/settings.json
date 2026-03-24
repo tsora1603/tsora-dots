@@ -1,0 +1,24 @@
+{
+  "pages": [
+    {
+      "id": 0,
+      "name": "General"
+    }
+  ],
+  "current_page_id": 0,
+  "todos": [],
+  "count": 0,
+  "completedCount": 0,
+  "isExpanded": false,
+  "useCustomColors": false,
+  "exportPath": "~/Documents",
+  "exportFormat": "markdown",
+  "exportEmptySections": false,
+  "priorityColors": {
+    "high": "#ffb4ab",
+    "medium": "#ffb3b6",
+    "low": "#d7c1c2"
+  },
+  "showCompleted": true,
+  "showBackground": true
+}

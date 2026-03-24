@@ -1,0 +1,24 @@
+{
+  "mainIcon": "layout-grid",
+  "expandDirection": "right",
+  "primaryShowPill": false,
+  "primarySymbolColor": "none",
+  "primaryPillColor": "none",
+  "primarySize": 0.9,
+  "secondaryShowPill": true,
+  "secondarySymbolColor": "none",
+  "secondaryPillColor": "primary",
+  "secondarySize": 0.9,
+  "borderRadius": 1,
+  "focusBorderColor": "primary",
+  "workspaces": [
+    {
+      "name": "dev",
+      "icon": "code"
+    },
+    {
+      "name": "chat",
+      "icon": "messages"
+    }
+  ]
+}

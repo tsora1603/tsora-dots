@@ -1,0 +1,8 @@
+{
+  "updateIntervalMinutes": 30,
+  "updateTerminalCommand": "kitty -T arch-update -e",
+  "currentIconName": "download",
+  "hideOnZero": false,
+  "customCmdGetNumUpdates": "",
+  "customCmdDoSystemUpdate": "arch-update"
+}

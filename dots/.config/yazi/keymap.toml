@@ -1,0 +1,48 @@
+# === PLUGINS ===
+# ### BUNNY ###
+[[mgr.prepend_keymap]]
+desc = "Start bunny.yazi"
+on = ";"
+run = "plugin bunny"
+# Optionally, add another keymap to immediately fuzzy search bookmarks
+[[mgr.prepend_keymap]]
+desc = "Start bunny.yazi fuzzy search"
+on = "'"
+run = "plugin bunny fuzzy"
+
+# ### RECYCLE-BIN ###
+[[mgr.prepend_keymap]]
+desc = "Open Recycle Bin menu"
+on = ["R", "b"]
+run = "plugin recycle-bin"
+
+# ### MEDIAINFO ###
+[[mgr.prepend_keymap]]
+desc = "Toggle media preview metadata"
+on = "<F9>"
+run = "plugin mediainfo -- toggle-metadata"
+
+# ### OUCH ###
+[[mgr.prepend_keymap]]
+desc = "Compress with ouch"
+on = ["C"]
+run = "plugin ouch"
+
+# ### AUTOSESSION ###
+[[mgr.prepend_keymap]]
+desc = "Save session and quit"  
+on = [ "q" ] 
+run = "plugin autosession -- save-and-quit"
+
+# ### WHAT-SIZE ###
+[[mgr.prepend_keymap]]
+desc = "Calc size of selection or cwd"
+on = [ "S", "s" ]
+run  = "plugin what-size"
+
+# ### SMART-PASTE ###
+[[mgr.prepend_keymap]]
+desc = "Paste into the hovered directory or CWD"
+on   = "p"
+run  = "plugin smart-paste"
+

@@ -1,0 +1,120 @@
+2026-03-17T12:08:31 exception: Failed to commit /home/tsora/.config/mpd/state: File exists
+2026-03-17T12:09:28 ffmpeg/tty: Format tty detected only with low score of 1, misdetection possible!
+2026-03-17T12:09:28 ffmpeg/tty: Format tty detected only with low score of 1, misdetection possible!
+2026-03-17T12:09:28 update: removing Rock Music/Bad Omens/Finding God Before God Finds Me/Finding God Before God Finds Me.cue/track0010
+2026-03-17T12:09:28 update: removing Rock Music/Bad Omens/Finding God Before God Finds Me/Finding God Before God Finds Me.cue/track0009
+2026-03-17T12:09:28 update: removing Rock Music/Bad Omens/Finding God Before God Finds Me/Finding God Before God Finds Me.cue/track0008
+2026-03-17T12:09:28 update: removing Rock Music/Bad Omens/Finding God Before God Finds Me/Finding God Before God Finds Me.cue/track0007
+2026-03-17T12:09:28 update: removing Rock Music/Bad Omens/Finding God Before God Finds Me/Finding God Before God Finds Me.cue/track0006
+2026-03-17T12:09:28 update: removing Rock Music/Bad Omens/Finding God Before God Finds Me/Finding God Before God Finds Me.cue/track0005
+2026-03-17T12:09:28 update: removing Rock Music/Bad Omens/Finding God Before God Finds Me/Finding God Before God Finds Me.cue/track0004
+2026-03-17T12:09:28 update: removing Rock Music/Bad Omens/Finding God Before God Finds Me/Finding God Before God Finds Me.cue/track0003
+2026-03-17T12:09:28 update: removing Rock Music/Bad Omens/Finding God Before God Finds Me/Finding God Before God Finds Me.cue/track0002
+2026-03-17T12:09:28 update: removing Rock Music/Bad Omens/Finding God Before God Finds Me/Finding God Before God Finds Me.cue/track0001
+2026-03-17T12:10:12 player: played "Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/01 Hive Knight.flac"
+2026-03-17T12:10:26 player: played "Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/01 Hive Knight.flac"
+2026-03-17T12:10:47 player: played "Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/01 Hive Knight.flac"
+2026-03-17T12:14:28 player: played "Geek Music/Enygma/2025.eny/01. BERSERKER, Guts Pt. II.flac"
+2026-03-17T12:22:56 player: played "Geek Music/Anirap/2026.ani/01. Maldição Herdada, Itadori & Yuta.flac"
+2026-03-17T12:31:35 player: played "Geek Music/Anirap/2026.ani/01. Maldição Herdada, Itadori & Yuta.flac"
+2026-03-17T12:36:58 player: played "Geek Music/Anirap/2026.ani/01. Maldição Herdada, Itadori & Yuta.flac"
+2026-03-17T12:37:01 mixer: Failed to set mixer for "PulseAudio": disconnected
+2026-03-17T12:37:01 exception: Failed to set mixer for "PulseAudio"; disconnected
+2026-03-17T12:37:01 mixer: Failed to set mixer for "PulseAudio": disconnected
+2026-03-17T12:37:01 exception: Failed to set mixer for "PulseAudio"; disconnected
+2026-03-17T12:41:06 player: played "Rock Music/Fit For A King/Creation\\Destruction/02. Warpath.flac"
+2026-03-17T12:44:41 player: played "Rock Music/Fit For A King/Creation\\Destruction/03. Hollow King (Sound of the End).flac"
+2026-03-17T13:12:07 player: played "Rock Music/Fit For A King/Creation\\Destruction/04. Broken Fame.flac"
+2026-03-18T15:41:51 player: played "Rock Music/Fit For A King/Creation\\Destruction/04. Broken Fame.flac"
+2026-03-18T15:45:08 player: played "Rock Music/Fit For A King/Creation\\Destruction/05. Bitter End.flac"
+2026-03-18T15:49:04 player: played "Rock Music/Fit For A King/Creation\\Destruction/06. Skin & Bones.flac"
+2026-03-18T15:53:20 player: played "Rock Music/Fit For A King/Creation\\Destruction/07. The Resistance.flac"
+2026-03-18T15:56:24 player: played "Rock Music/Fit For A King/Creation\\Destruction/08. Identity.flac"
+2026-03-18T15:59:44 player: played "Rock Music/Fit For A King/Creation\\Destruction/09. The Lioness.flac"
+2026-03-18T16:02:46 player: played "Rock Music/Fit For A King/Creation\\Destruction/10. Eyes to See.flac"
+2026-03-18T16:06:13 player: played "Rock Music/Fit For A King/Creation\\Destruction/11. Destruction.flac"
+2026-03-18T16:21:55 mixer: Failed to set mixer for "PulseAudio": disconnected
+2026-03-18T16:21:55 exception: Failed to set mixer for "PulseAudio"; disconnected
+2026-03-18T16:25:11 player: played "Rock Music/Breaking Benjamin/Dear Agony/01. Fade Away.flac"
+2026-03-18T16:28:47 player: played "Rock Music/Breaking Benjamin/Dear Agony/02. I Will Not Bow.flac"
+2026-03-18T16:32:46 player: played "Rock Music/Breaking Benjamin/Dear Agony/03. Crawl.flac"
+2026-03-18T16:37:03 player: played "Rock Music/Breaking Benjamin/Dear Agony/04. Give Me A Sign.flac"
+2026-03-18T16:39:30 output: Failed to play on "PulseAudio" (pulse): disconnected
+2026-03-18T16:39:30 exception: Failed to open audio output
+2026-03-18T16:39:30 player: played "Rock Music/Breaking Benjamin/Dear Agony/05. Hopeless.flac"
+2026-03-18T16:40:52 player: played "Rock Music/Breaking Benjamin/Dear Agony/05. Hopeless.flac"
+2026-03-18T16:44:26 player: played "Rock Music/Breaking Benjamin/Dear Agony/06. What Lies Beneath.flac"
+2026-03-18T16:48:28 player: played "Rock Music/Breaking Benjamin/Dear Agony/07. Anthem Of The Angels.flac"
+2026-03-18T16:52:02 player: played "Rock Music/Breaking Benjamin/Dear Agony/08. Lights Out.flac"
+2026-03-18T16:56:20 player: played "Rock Music/Breaking Benjamin/Dear Agony/09. Dear Agony.flac"
+2026-03-18T17:44:32 player: played "Rock Music/Breaking Benjamin/Dear Agony/10. Into The Nothing.flac"
+2026-03-18T17:48:49 player: played "Rock Music/Breaking Benjamin/Dear Agony/11. Without You.flac"
+2026-03-18T19:13:02 mixer: Failed to set mixer for "PulseAudio": disconnected
+2026-03-18T19:13:02 exception: Failed to set mixer for "PulseAudio"; disconnected
+2026-03-18T19:16:18 player: played "Rock Music/Breaking Benjamin/Dear Agony/01. Fade Away.flac"
+2026-03-18T19:19:54 player: played "Rock Music/Breaking Benjamin/Dear Agony/02. I Will Not Bow.flac"
+2026-03-18T19:23:53 player: played "Rock Music/Breaking Benjamin/Dear Agony/03. Crawl.flac"
+2026-03-18T19:28:10 player: played "Rock Music/Breaking Benjamin/Dear Agony/04. Give Me A Sign.flac"
+2026-03-18T19:31:30 player: played "Rock Music/Breaking Benjamin/Dear Agony/05. Hopeless.flac"
+2026-03-18T19:35:04 player: played "Rock Music/Breaking Benjamin/Dear Agony/06. What Lies Beneath.flac"
+2026-03-18T19:39:07 player: played "Rock Music/Breaking Benjamin/Dear Agony/07. Anthem Of The Angels.flac"
+2026-03-18T19:42:40 player: played "Rock Music/Breaking Benjamin/Dear Agony/08. Lights Out.flac"
+2026-03-18T19:46:58 player: played "Rock Music/Breaking Benjamin/Dear Agony/09. Dear Agony.flac"
+2026-03-18T19:50:42 player: played "Rock Music/Breaking Benjamin/Dear Agony/10. Into The Nothing.flac"
+2026-03-18T19:54:58 player: played "Rock Music/Breaking Benjamin/Dear Agony/11. Without You.flac"
+2026-03-18T19:58:34 mixer: Failed to set mixer for "PulseAudio": disconnected
+2026-03-18T19:58:34 exception: Failed to set mixer for "PulseAudio"; disconnected
+2026-03-18T22:35:52 player: played "Rock Music/Breaking Benjamin/Dear Agony/01. Fade Away.flac"
+2026-03-19T10:06:42 player: played "Rock Music/Breaking Benjamin/Dear Agony/01. Fade Away.flac"
+2026-03-19T13:19:43 player: played "Rock Music/Breaking Benjamin/Dear Agony/01. Fade Away.flac"
+2026-03-20T00:29:46 player: played "Rock Music/Breaking Benjamin/Dear Agony/01. Fade Away.flac"
+2026-03-20T09:25:49 player: played "Rock Music/Breaking Benjamin/Dear Agony/01. Fade Away.flac"
+2026-03-20T09:29:26 player: played "Rock Music/Breaking Benjamin/Dear Agony/02. I Will Not Bow.flac"
+2026-03-20T09:33:24 player: played "Rock Music/Breaking Benjamin/Dear Agony/03. Crawl.flac"
+2026-03-20T09:37:42 player: played "Rock Music/Breaking Benjamin/Dear Agony/04. Give Me A Sign.flac"
+2026-03-20T09:41:02 player: played "Rock Music/Breaking Benjamin/Dear Agony/05. Hopeless.flac"
+2026-03-20T09:44:36 player: played "Rock Music/Breaking Benjamin/Dear Agony/06. What Lies Beneath.flac"
+2026-03-20T09:48:39 player: played "Rock Music/Breaking Benjamin/Dear Agony/07. Anthem Of The Angels.flac"
+2026-03-20T09:52:12 player: played "Rock Music/Breaking Benjamin/Dear Agony/08. Lights Out.flac"
+2026-03-20T09:56:30 player: played "Rock Music/Breaking Benjamin/Dear Agony/09. Dear Agony.flac"
+2026-03-20T10:00:13 player: played "Rock Music/Breaking Benjamin/Dear Agony/10. Into The Nothing.flac"
+2026-03-20T10:04:30 player: played "Rock Music/Breaking Benjamin/Dear Agony/11. Without You.flac"
+2026-03-20T10:05:20 mixer: Failed to set mixer for "PulseAudio": disconnected
+2026-03-20T10:05:20 exception: Failed to set mixer for "PulseAudio"; disconnected
+2026-03-20T10:08:35 player: played "Rock Music/Breaking Benjamin/Dear Agony/01. Fade Away.flac"
+2026-03-20T10:12:12 player: played "Rock Music/Breaking Benjamin/Dear Agony/02. I Will Not Bow.flac"
+2026-03-20T10:16:10 player: played "Rock Music/Breaking Benjamin/Dear Agony/03. Crawl.flac"
+2026-03-20T10:20:28 player: played "Rock Music/Breaking Benjamin/Dear Agony/04. Give Me A Sign.flac"
+2026-03-20T10:23:48 player: played "Rock Music/Breaking Benjamin/Dear Agony/05. Hopeless.flac"
+2026-03-20T10:27:22 player: played "Rock Music/Breaking Benjamin/Dear Agony/06. What Lies Beneath.flac"
+2026-03-20T10:31:25 player: played "Rock Music/Breaking Benjamin/Dear Agony/07. Anthem Of The Angels.flac"
+2026-03-20T10:34:58 player: played "Rock Music/Breaking Benjamin/Dear Agony/08. Lights Out.flac"
+2026-03-20T10:39:16 player: played "Rock Music/Breaking Benjamin/Dear Agony/09. Dear Agony.flac"
+2026-03-20T10:42:59 player: played "Rock Music/Breaking Benjamin/Dear Agony/10. Into The Nothing.flac"
+2026-03-20T10:47:16 player: played "Rock Music/Breaking Benjamin/Dear Agony/11. Without You.flac"
+2026-03-20T10:48:27 mixer: Failed to set mixer for "PulseAudio": disconnected
+2026-03-20T10:48:27 exception: Failed to set mixer for "PulseAudio"; disconnected
+2026-03-20T10:48:37 player: played "Rock Music/Breaking Benjamin/Dear Agony/01. Fade Away.flac"
+2026-03-20T15:02:59 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/01. Doomed (Live at the Royal Albert Hall).flac"
+2026-03-20T22:15:27 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/01. Doomed (Live at the Royal Albert Hall).flac"
+2026-03-20T22:20:09 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/02. Happy Song (Live at the Royal Albert Hall).flac"
+2026-03-20T22:25:18 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/03. Go to Hell, for Heaven's Sake (Live at the Royal Albert Hall).flac"
+2026-03-20T22:38:49 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/04. Avalanche (Live at the Royal Albert Hall).flac"
+2026-03-20T22:41:49 output: Failed to play on "PulseAudio" (pulse): disconnected
+2026-03-20T22:41:49 exception: Failed to open audio output
+2026-03-20T22:41:49 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/05. It Never Ends (Live at the Royal Albert Hall).flac"
+2026-03-20T22:49:20 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/05. It Never Ends (Live at the Royal Albert Hall).flac"
+2026-03-21T00:16:34 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/05. It Never Ends (Live at the Royal Albert Hall).flac"
+2026-03-21T22:28:52 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/05. It Never Ends (Live at the Royal Albert Hall).flac"
+2026-03-22T01:02:39 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/05. It Never Ends (Live at the Royal Albert Hall).flac"
+2026-03-22T12:01:06 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/05. It Never Ends (Live at the Royal Albert Hall).flac"
+2026-03-22T12:06:03 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/06. Sleepwalking (Live at the Royal Albert Hall).flac"
+2026-03-22T12:10:16 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/07. Empire (Let Them Sing) (Live at the Royal Albert Hall).flac"
+2026-03-22T12:14:21 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/08. Throne (Live at the Royal Albert Hall).flac"
+2026-03-22T12:19:30 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/09. Shadow Moses (Live at the Royal Albert Hall).flac"
+2026-03-22T12:25:44 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/10. True Friends (Live at the Royal Albert Hall).flac"
+2026-03-22T12:29:37 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/11. Follow You (Live at the Royal Albert Hall).flac"
+2026-03-22T12:35:37 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/12. Can You Feel My Heart (Live at the Royal Albert Hall).flac"
+2026-03-22T12:40:09 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/13. Antivist (Live at the Royal Albert Hall).flac"
+2026-03-22T12:47:17 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/14. Drown (Live at the Royal Albert Hall).flac"
+2026-03-22T12:55:43 player: played "Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/15. Oh No (Live at the Royal Albert Hall).flac"

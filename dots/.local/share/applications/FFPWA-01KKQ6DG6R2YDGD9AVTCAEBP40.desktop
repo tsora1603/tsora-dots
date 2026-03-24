@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Version=1.4
+Name=Proton Mail
+Comment=Proton Mail is based in Switzerland and uses advanced encryption to keep your data safe. Apps available for Android, iOS, and desktop devices.
+Keywords=;
+Categories=GTK;Email;Network;Office;
+Icon=protonmail
+Exec=/usr/bin/firefoxpwa site launch 01KKQ6DG6R2YDGD9AVTCAEBP40 --protocol %u
+Actions=
+MimeType=
+Terminal=false
+StartupNotify=true
+StartupWMClass=FFPWA-01KKQ6DG6R2YDGD9AVTCAEBP40
