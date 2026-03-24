@@ -36,3 +36,16 @@ sudo stow --target=/etc etc/
 
 cd ../pixora-icons
 ./install.sh
+
+echo "Rebooting in 5..."
+sleep 1s
+echo "4..."
+sleep 1s 
+echo "3..."
+sleep 1s 
+echo "2..."
+sleep 1s 
+echo "1..."
+sleep 1s
+
+reboot
