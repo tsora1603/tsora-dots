@@ -193,6 +193,20 @@
                     "id": "NotificationHistory",
                     "showUnreadBadge": true,
                     "unreadBadgeColor": "error"
+                },
+                {
+                    "defaultSettings": {
+                        "colorHistory": [
+                        ],
+                        "installedLangs": [
+                            "eng"
+                        ],
+                        "paletteColors": [
+                        ],
+                        "selectedOcrLang": "eng",
+                        "transAvailable": false
+                    },
+                    "id": "plugin:screen-toolkit"
                 }
             ]
         }
@@ -768,9 +782,9 @@
     },
     "ui": {
         "boxBorderEnabled": false,
-        "fontDefault": "Departure Mono",
+        "fontDefault": "DepartureMono Nerd Font",
         "fontDefaultScale": 1.05,
-        "fontFixed": "Departure Mono",
+        "fontFixed": "DepartureMono Nerd Font Mono",
         "fontFixedScale": 1.05,
         "panelBackgroundOpacity": 0.75,
         "panelsAttachedToBar": true,
