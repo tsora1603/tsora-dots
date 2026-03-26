@@ -103,7 +103,7 @@
                     "useDistroLogo": false
                 },
                 {
-                    "characterCount": 2,
+                    "characterCount": 1,
                     "colorizeIcons": false,
                     "emptyColor": "secondary",
                     "enableScrollWheel": true,

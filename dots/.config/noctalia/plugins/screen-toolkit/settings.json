@@ -1,0 +1,31 @@
+{
+  "stateIsRunning": false,
+  "stateActiveTool": "",
+  "transAvailable": true,
+  "paletteColors": [
+    "#121213",
+    "#0E0E43",
+    "#57555F",
+    "#7E7C8F",
+    "#EBE498",
+    "#FFF59B",
+    "#A9AEFE",
+    "#F1EBF5"
+  ],
+  "stateMirrorVisible": false,
+  "resultHex": "#3E3E41",
+  "resultRgb": "rgb(62, 62, 65)",
+  "resultHsv": "hsv(240, 5%, 25%)",
+  "resultHsl": "hsl(240, 2%, 25%)",
+  "colorCapturePath": "/tmp/screen-toolkit-colorpicker.png",
+  "colorHistory": [
+    "#3E3E41",
+    "#3B3B52"
+  ],
+  "ocrResult": "",
+  "ocrCapturePath": "",
+  "translateResult": "",
+  "installedLangs": [
+    "eng"
+  ]
+}
