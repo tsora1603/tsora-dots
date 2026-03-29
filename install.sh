@@ -3,6 +3,7 @@ set -e
 
 sudo pacman -Syu \
     cliphist \
+    feh \
     hyprland \
     imagemagick \
     inkscape \
