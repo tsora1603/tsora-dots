@@ -18,6 +18,7 @@
   ],
   "transAvailable": true,
   "selectedOcrLang": "eng",
+  "detectedRecorder": "wf-recorder",
   "stateIsRunning": false,
   "stateActiveTool": "",
   "stateMirrorVisible": false,
