@@ -85,6 +85,9 @@ systemctl --user enable mpd
 systemctl --user enable mpd-mpris
 sudo systemctl enable greetd
 
+# firefoxpwa runtime
+firefoxpwa runtime install
+
 # finishing
 echo "Rebooting in 5..."
 sleep 1s
