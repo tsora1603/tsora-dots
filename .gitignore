@@ -4,4 +4,5 @@ dots/.config/kitty/themes/
 dots/.config/noctalia/colors.json
 dots/.config/yazi/flavors/
 dots/.config/mpd/log
+dots/.config/mpd/state
 dots/.config/noctalia/plugins/assistant-panel/settings.json
