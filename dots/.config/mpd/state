@@ -1,7 +1,8 @@
-sw_volume: 0
+sw_volume: 100
 audio_device_state:1:PulseAudio
-state: stop
-current: 0
+state: play
+current: 5
+time: 120.19500000000001
 random: 0
 repeat: 0
 single: 0
@@ -11,19 +12,19 @@ mixrampdb: 0
 mixrampdelay: -1
 lastloadedplaylist: 
 playlist_begin
-0:Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/01. Doomed (Live at the Royal Albert Hall).flac
-1:Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/02. Happy Song (Live at the Royal Albert Hall).flac
-2:Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/03. Go to Hell, for Heaven's Sake (Live at the Royal Albert Hall).flac
-3:Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/04. Avalanche (Live at the Royal Albert Hall).flac
-4:Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/05. It Never Ends (Live at the Royal Albert Hall).flac
-5:Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/06. Sleepwalking (Live at the Royal Albert Hall).flac
-6:Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/07. Empire (Let Them Sing) (Live at the Royal Albert Hall).flac
-7:Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/08. Throne (Live at the Royal Albert Hall).flac
-8:Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/09. Shadow Moses (Live at the Royal Albert Hall).flac
-9:Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/10. True Friends (Live at the Royal Albert Hall).flac
-10:Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/11. Follow You (Live at the Royal Albert Hall).flac
-11:Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/12. Can You Feel My Heart (Live at the Royal Albert Hall).flac
-12:Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/13. Antivist (Live at the Royal Albert Hall).flac
-13:Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/14. Drown (Live at the Royal Albert Hall).flac
-14:Rock Music/Bring Me The Horizon/Live at the Royal Albert Hall/15. Oh No (Live at the Royal Albert Hall).flac
+0:Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/01 Hive Knight.flac
+1:Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/02 Truth, Beauty and Hatred.flac
+2:Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/03 Nightmare Lantern (interlude).flac
+3:Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/04 The Grimm Troupe.flac
+4:Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/05 Nightmare King.flac
+5:Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/06 White Defender.flac
+6:Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/07 Dreamers.flac
+7:Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/08 Pale Court.flac
+8:Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/09 Gods & Glory.flac
+9:Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/10 Daughter of Hallownest.flac
+10:Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/11 Godhome.flac
+11:Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/12 Sisters of Battle.flac
+12:Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/13 Haunted Foes.flac
+13:Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/14 Furious Gods.flac
+14:Game Music/Hollow Knight/Hollow Knight (Gods & Nightmares)/15 Pure Vessel.flac
 playlist_end
