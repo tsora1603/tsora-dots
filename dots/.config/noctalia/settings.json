@@ -20,7 +20,7 @@
         "pinnedApps": [
         ],
         "position": "center",
-        "screenshotAnnotationTool": "",
+        "screenshotAnnotationTool": "swappy -f - -o -",
         "showCategories": false,
         "showIconBackground": false,
         "sortByMostUsed": true,
@@ -44,7 +44,7 @@
     "bar": {
         "autoHideDelay": 500,
         "autoShowDelay": 150,
-        "backgroundOpacity": 0.6,
+        "backgroundOpacity": 1,
         "barType": "floating",
         "capsuleColorKey": "none",
         "capsuleOpacity": 0.19,
@@ -63,7 +63,8 @@
         "middleClickFollowMouse": true,
         "monitors": [
             "HDMI-A-1",
-            "DP-2"
+            "DP-2",
+            "DP-1"
         ],
         "mouseWheelAction": "workspace",
         "mouseWheelWrap": true,
@@ -89,7 +90,7 @@
         "showCapsule": false,
         "showOnWorkspaceSwitch": true,
         "showOutline": false,
-        "useSeparateOpacity": false,
+        "useSeparateOpacity": true,
         "widgetSpacing": 4,
         "widgets": {
             "center": [
@@ -103,23 +104,23 @@
                     "useDistroLogo": false
                 },
                 {
-                    "characterCount": 1,
+                    "characterCount": 2,
                     "colorizeIcons": false,
                     "emptyColor": "secondary",
                     "enableScrollWheel": true,
                     "focusedColor": "primary",
                     "followFocusedScreen": false,
-                    "fontWeight": "bold",
+                    "fontWeight": "regular",
                     "groupedBorderOpacity": 1,
-                    "hideUnoccupied": true,
+                    "hideUnoccupied": false,
                     "iconScale": 0.9,
                     "id": "Workspace",
                     "labelMode": "name",
                     "occupiedColor": "secondary",
                     "pillSize": 0.6,
-                    "showApplications": true,
+                    "showApplications": false,
                     "showApplicationsHover": false,
-                    "showBadge": true,
+                    "showBadge": false,
                     "showLabelsOnlyWhenOccupied": false,
                     "unfocusedIconsOpacity": 1
                 },
@@ -162,7 +163,7 @@
                 {
                     "clockColor": "none",
                     "customFont": "",
-                    "formatHorizontal": "h:mm AP ddd, MMM dd",
+                    "formatHorizontal": "h:mm AP",
                     "formatVertical": "HH mm - dd MM",
                     "id": "Clock",
                     "tooltipFormat": "HH:mm ddd, MMM dd",
@@ -174,17 +175,61 @@
                         "minimumThreshold": 10
                     },
                     "id": "plugin:catwalk"
+                },
+                {
+                    "colorizeIcons": false,
+                    "hideMode": "hidden",
+                    "iconScale": 0.8,
+                    "id": "Taskbar",
+                    "maxTaskbarWidth": 40,
+                    "onlyActiveWorkspaces": true,
+                    "onlySameOutput": true,
+                    "showPinnedApps": true,
+                    "showTitle": false,
+                    "smartWidth": true,
+                    "titleWidth": 120
+                },
+                {
+                    "colorizeIcons": false,
+                    "hideMode": "hidden",
+                    "id": "ActiveWindow",
+                    "maxWidth": 150,
+                    "scrollingMode": "hover",
+                    "showIcon": true,
+                    "showText": true,
+                    "textColor": "none",
+                    "useFixedWidth": false
                 }
             ],
             "right": [
                 {
                     "defaultSettings": {
-                        "currentIconName": "world-download",
-                        "hideOnZero": false,
-                        "updateIntervalMinutes": 30,
-                        "updateTerminalCommand": "foot -e"
+                        "catColor": "default",
+                        "catOffsetY": 0,
+                        "catSize": 1,
+                        "idleTimeout": 150,
+                        "raveMode": false,
+                        "tappyMode": false,
+                        "useMprisFilter": false,
+                        "waitingTimeout": 30000
                     },
-                    "id": "plugin:update-count"
+                    "id": "plugin:slowbongo"
+                },
+                {
+                    "compactMode": true,
+                    "hideMode": "hidden",
+                    "hideWhenIdle": false,
+                    "id": "MediaMini",
+                    "maxWidth": 190,
+                    "panelShowAlbumArt": true,
+                    "scrollingMode": "always",
+                    "showAlbumArt": true,
+                    "showArtistFirst": true,
+                    "showProgressRing": true,
+                    "showVisualizer": false,
+                    "textColor": "none",
+                    "useFixedWidth": false,
+                    "visualizerType": "mirrored"
                 },
                 {
                     "hideWhenZero": false,
@@ -196,17 +241,19 @@
                 },
                 {
                     "defaultSettings": {
-                        "colorHistory": [
-                        ],
-                        "installedLangs": [
-                            "eng"
-                        ],
-                        "paletteColors": [
-                        ],
-                        "selectedOcrLang": "eng",
-                        "transAvailable": false
+                        "desktopTip": true,
+                        "flatpak": true,
+                        "hideOnEmpty": false,
+                        "nameCmd": "(checkupdates; paru -Qua;) | awk '{print $1}'",
+                        "newVerCmd": "(checkupdates; paru -Qua;) | awk '{print $4}'",
+                        "noctalia": true,
+                        "oldVerCmd": "(checkupdates; paru -Qua;) | awk '{print $2}'",
+                        "refreshInterval": 120,
+                        "refreshTimer": true,
+                        "toast": true,
+                        "updateCmd": "ghostty -e bash -c 'echo \"Updating System...\";paru; flatpak update; read -n 1 -p \"Press any key to exit...\"'"
                     },
-                    "id": "plugin:screen-toolkit"
+                    "id": "plugin:arch-updater"
                 }
             ]
         }
@@ -236,7 +283,7 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "tonal-spot",
+        "generationMethod": "content",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
@@ -288,6 +335,9 @@
             ],
             "right": [
                 {
+                    "id": "Notifications"
+                },
+                {
                     "id": "PowerProfile"
                 },
                 {
@@ -318,7 +368,7 @@
                         "roundedCorners": true,
                         "scale": 0.6155950752393982,
                         "showBackground": true,
-                        "x": 1660,
+                        "x": 1680,
                         "y": 140
                     },
                     {
@@ -331,7 +381,7 @@
                         "scale": 1.4659685863874345,
                         "showBackground": true,
                         "useCustomFont": false,
-                        "x": 1620,
+                        "x": 1640,
                         "y": 20
                     },
                     {
@@ -384,39 +434,68 @@
             {
                 "name": "HDMI-A-1",
                 "widgets": [
-                    {
-                        "clockColor": "none",
-                        "clockStyle": "minimal",
-                        "customFont": "",
-                        "format": "HH:mm\\nd MMMM yyyy",
-                        "id": "Clock",
-                        "roundedCorners": true,
-                        "scale": 1.6549889007645828,
-                        "showBackground": true,
-                        "useCustomFont": false,
-                        "x": 20,
-                        "y": 20
-                    },
-                    {
-                        "id": "Weather",
-                        "roundedCorners": true,
-                        "scale": 0.5919348871624122,
-                        "showBackground": true,
-                        "x": 60,
-                        "y": 160
-                    },
+                ]
+            },
+            {
+                "name": "DP-1",
+                "widgets": [
                     {
                         "hideMode": "visible",
                         "id": "MediaPlayer",
                         "roundedCorners": true,
-                        "scale": 1.2499999999999996,
+                        "scale": 1.5,
                         "showAlbumArt": true,
-                        "showBackground": true,
+                        "showBackground": false,
                         "showButtons": true,
                         "showVisualizer": true,
                         "visualizerType": "linear",
-                        "x": 20,
+                        "x": 660,
                         "y": 960
+                    },
+                    {
+                        "clockColor": "tertiary",
+                        "clockStyle": "minimal",
+                        "customFont": "BigBlueTerm437 Nerd Font",
+                        "format": "dddd\\n MMMM dd yyyy",
+                        "id": "Clock",
+                        "roundedCorners": true,
+                        "scale": 3.1399521531100474,
+                        "showBackground": false,
+                        "useCustomFont": true,
+                        "x": 700,
+                        "y": 20
+                    },
+                    {
+                        "defaultSettings": {
+                            "completedCount": 0,
+                            "count": 0,
+                            "current_page_id": 0,
+                            "exportEmptySections": false,
+                            "exportFormat": "markdown",
+                            "exportPath": "~/Documents",
+                            "isExpanded": false,
+                            "pages": [
+                                {
+                                    "id": 0,
+                                    "name": "General"
+                                }
+                            ],
+                            "priorityColors": {
+                                "high": "#f44336",
+                                "low": "#9e9e9e",
+                                "medium": "#2196f3"
+                            },
+                            "showBackground": true,
+                            "showCompleted": true,
+                            "todos": [
+                            ],
+                            "useCustomColors": false
+                        },
+                        "id": "plugin:todo",
+                        "scale": 1.3333333333333333,
+                        "showBackground": true,
+                        "x": 1500,
+                        "y": 20
                     }
                 ]
             }
@@ -430,7 +509,7 @@
         "deadOpacity": 0.5,
         "displayMode": "auto_hide",
         "dockType": "floating",
-        "enabled": true,
+        "enabled": false,
         "floatingRatio": 0,
         "groupApps": false,
         "groupClickAction": "cycle",
@@ -504,7 +583,8 @@
         "lockScreenBlur": 0.5,
         "lockScreenCountdownDuration": 3000,
         "lockScreenMonitors": [
-            "DP-2"
+            "DP-2",
+            "DP-1"
         ],
         "lockScreenTint": 0.3,
         "passwordChars": true,
@@ -550,22 +630,24 @@
     },
     "location": {
         "analogClockInCalendar": true,
+        "autoLocate": true,
         "firstDayOfWeek": 0,
         "hideWeatherCityName": true,
         "hideWeatherTimezone": false,
-        "name": "Aracuai",
+        "name": "Araçuaí",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,
         "use12hourFormat": true,
         "useFahrenheit": false,
         "weatherEnabled": true,
-        "weatherShowEffects": true
+        "weatherShowEffects": true,
+        "weatherTaliaMascotAlways": true
     },
     "network": {
         "bluetoothAutoConnect": true,
         "bluetoothDetailsViewMode": "grid",
-        "bluetoothHideUnnamedDevices": false,
+        "bluetoothHideUnnamedDevices": true,
         "bluetoothRssiPollIntervalMs": 60000,
         "bluetoothRssiPollingEnabled": false,
         "disableDiscoverability": true,
@@ -604,7 +686,7 @@
         "respectExpireTimeout": true,
         "saveToHistory": {
             "critical": true,
-            "low": true,
+            "low": false,
             "normal": true
         },
         "sounds": {
@@ -763,10 +845,6 @@
             },
             {
                 "enabled": true,
-                "id": "steam"
-            },
-            {
-                "enabled": true,
                 "id": "cava"
             },
             {
@@ -776,6 +854,10 @@
             {
                 "enabled": true,
                 "id": "discord"
+            },
+            {
+                "enabled": true,
+                "id": "steam"
             }
         ],
         "enableUserTheming": false
@@ -786,7 +868,7 @@
         "fontDefaultScale": 1.05,
         "fontFixed": "DepartureMono Nerd Font Mono",
         "fontFixedScale": 1.05,
-        "panelBackgroundOpacity": 0.75,
+        "panelBackgroundOpacity": 0.8,
         "panelsAttachedToBar": true,
         "scrollbarAlwaysVisible": true,
         "settingsPanelMode": "attached",

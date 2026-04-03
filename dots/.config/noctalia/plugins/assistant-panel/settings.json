@@ -1,7 +1,7 @@
 {
   "maxHistoryLength": 100,
   "panelDetached": false,
-  "panelPosition": "bottom",
+  "panelPosition": "top",
   "panelHeightRatio": 0.85,
   "panelWidth": 800,
   "scale": 1,

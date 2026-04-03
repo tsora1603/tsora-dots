@@ -15,8 +15,8 @@
   "useCustomColors": false,
   "priorityColors": {
     "high": "#ffb4ab",
-    "medium": "#ffb3b6",
-    "low": "#d7c1c2"
+    "medium": "#cac6bb",
+    "low": "#cac6bc"
   },
   "exportPath": "~/Documents",
   "exportFormat": "markdown",

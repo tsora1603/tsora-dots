@@ -1,0 +1,9 @@
+{
+  "isSystemActive": true,
+  "borderSize": 2,
+  "overlayPath": "~/.cache/noctalia/HVE/overlay.conf",
+  "autoApply": true,
+  "activeAnimFile": "10_retro_arcade.conf",
+  "activeBorderFile": "02_diagonal.conf",
+  "activeShaderFile": "07_oled.frag"
+}

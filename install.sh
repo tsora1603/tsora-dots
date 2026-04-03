@@ -6,10 +6,13 @@ sudo pacman -Syu \
     cachyos-gaming-meta \
     cachyos-gaming-applications \
     cliphist \
+    curl \
     equibop \
     feh \
+    ffmpeg \
     firefoxpwa \
     greetd \
+    grim \
     hyprland \
     imagemagick \
     inkscape \
@@ -27,23 +30,34 @@ sudo pacman -Syu \
     pascube \
     protonplus \
     qt6ct \
+    resvg \
     rmpc \
     scour \
+    slurp \
     stow \
+    swappy \
+    tesseract \
+    tesseract-data-eng \
+    tesseract-data-por \
+    translate-shell \
     trash-cli \
     vlc \
     vscodium \
+    wl-clipboard \
     wtype \
     yazi \
+    zbar \
     zen-browser
 
 # installing AUR packages
 paru -S \
     hydra-launcher-bin \
     hyprshutdown \
+    millennium \
     noctalia-shell-git \
     otf-departure-mono-nerd \
     vtracer \
+    wl-screenrec-git \
     xdg-desktop-portal-termfilechooser-hunkyburrito-git \
     zoom
 
@@ -87,6 +101,15 @@ sudo systemctl enable greetd
 
 # firefoxpwa runtime
 firefoxpwa runtime install
+
+# steam stuff
+mkdir -p ~/.local/share/Steam
+
+if [ -d ~/.steam/steam ] && [ ! -L ~/.steam/steam ]; then
+    echo "Fixing broken Steam symlink..."
+    rm -rf ~/.steam/steam
+    ln -s ~/.local/share/Steam ~/.steam/steam
+fi
 
 # finishing
 echo "Rebooting in 5..."
