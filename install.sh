@@ -30,7 +30,7 @@ sudo pacman -Syu \
     pascube \
     protonplus \
     python-lxml \
-    qt6ct \
+    qt6ct-kde \
     resvg \
     rmpc \
     scour \
