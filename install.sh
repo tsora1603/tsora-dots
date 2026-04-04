@@ -29,6 +29,7 @@ sudo pacman -Syu \
     parui \
     pascube \
     protonplus \
+    python-lxml \
     qt6ct \
     resvg \
     rmpc \
@@ -43,6 +44,7 @@ sudo pacman -Syu \
     trash-cli \
     vlc \
     vscodium \
+    wf-recorder \
     wl-clipboard \
     wtype \
     yazi \
@@ -57,7 +59,6 @@ paru -S \
     noctalia-shell-git \
     otf-departure-mono-nerd \
     vtracer \
-    wl-screenrec-git \
     xdg-desktop-portal-termfilechooser-hunkyburrito-git \
     zoom
 
