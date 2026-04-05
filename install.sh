@@ -18,6 +18,7 @@ sudo pacman -Syu \
     inkscape \
     kitty \
     lact \
+    lazygit \
     libresprite \
     mediainfo \
     mpd \
@@ -26,11 +27,9 @@ sudo pacman -Syu \
     okular \
     onlyoffice \
     paru \
-    parui \
     pascube \
     protonplus \
     python-lxml \
-    qt6ct-kde \
     resvg \
     rmpc \
     scour \
@@ -58,6 +57,8 @@ paru -S \
     millennium \
     noctalia-shell-git \
     otf-departure-mono-nerd \
+    parui \
+    qt6ct-kde \
     vtracer \
     xdg-desktop-portal-termfilechooser-hunkyburrito-git \
     zoom
