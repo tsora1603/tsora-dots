@@ -958,10 +958,6 @@
             },
             {
                 "enabled": true,
-                "id": "steam"
-            },
-            {
-                "enabled": true,
                 "id": "code"
             },
             {
@@ -971,6 +967,10 @@
             {
                 "enabled": true,
                 "id": "zenBrowser"
+            },
+            {
+                "enabled": true,
+                "id": "steam"
             }
         ],
         "enableUserTheming": false
@@ -990,7 +990,7 @@
         "translucentWidgets": true
     },
     "wallpaper": {
-        "automationEnabled": true,
+        "automationEnabled": false,
         "directory": "/home/tsora/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": true,
         "enabled": true,
