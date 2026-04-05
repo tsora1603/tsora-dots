@@ -654,7 +654,7 @@
         "animationDisabled": false,
         "animationSpeed": 1.5,
         "autoStartAuth": false,
-        "avatarImage": "/home/tsora/.face/hornet.gif",
+        "avatarImage": "/home/tsora/.face/knight.png",
         "boxRadiusRatio": 1,
         "clockFormat": "hh\\nmm",
         "clockStyle": "analog",
@@ -966,11 +966,11 @@
             },
             {
                 "enabled": true,
-                "id": "zenBrowser"
+                "id": "steam"
             },
             {
                 "enabled": true,
-                "id": "steam"
+                "id": "zenBrowser"
             }
         ],
         "enableUserTheming": false
@@ -990,7 +990,7 @@
         "translucentWidgets": true
     },
     "wallpaper": {
-        "automationEnabled": false,
+        "automationEnabled": true,
         "directory": "/home/tsora/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": true,
         "enabled": true,
@@ -1021,7 +1021,7 @@
         "overviewEnabled": false,
         "overviewTint": 0.6,
         "panelPosition": "follow_bar",
-        "randomIntervalSec": 2700,
+        "randomIntervalSec": 1800,
         "setWallpaperOnAllMonitors": false,
         "showHiddenFiles": false,
         "skipStartupTransition": true,
@@ -1035,7 +1035,7 @@
         "useOriginalImages": false,
         "useSolidColor": false,
         "useWallhaven": false,
-        "viewMode": "single",
+        "viewMode": "browse",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
@@ -1046,6 +1046,6 @@
         "wallhavenResolutionMode": "atleast",
         "wallhavenResolutionWidth": "",
         "wallhavenSorting": "relevance",
-        "wallpaperChangeMode": "random"
+        "wallpaperChangeMode": "alphabetical"
     }
 }
