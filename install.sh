@@ -3,6 +3,7 @@ set -e
 
 # installing pacman packages
 sudo pacman -Syu \
+    dolphin \
     cachyos-gaming-meta \
     cachyos-gaming-applications \
     cliphist \
