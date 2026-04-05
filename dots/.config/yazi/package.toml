@@ -48,6 +48,21 @@ use = "Ape/simple-status"
 rev = "d0da104"
 hash = "68603fdd1dcaf415227e2c77a9317947"
 
+[[plugin.deps]]
+use = "MasouShizuka/projects"
+rev = "198c2ba"
+hash = "5eeb4f0919ce6be5d941a9290c131d7d"
+
+[[plugin.deps]]
+use = "Lil-Dank/lazygit"
+rev = "8c4086c"
+hash = "85316b5e9abeae2531d3e5d02a094381"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "e84f4fe"
+hash = "26db011a778f261d730d4f5f8bf24b3f"
+
 [[flavor.deps]]
 use = "gosxrgxx/flexoki-dark"
 rev = "25d28ce"
