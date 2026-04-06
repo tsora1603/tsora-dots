@@ -6,7 +6,8 @@
         "width": 23,
         "height": 10,
         "padding": {
-            "top": 4
+            "top": 4,
+            "left": 4
         }
     },
     "display": {
@@ -15,9 +16,11 @@
             "separator": "white"
         },
         "constants": [
-            "──────────────────────────────────────────────────────────────────",
-            "│\u001b[65C│\u001b[65D",
-            "\u001b[67C│\u001b[68D"
+            "╺╺╺───────────────────────────── {  󰆥   󰞇   󰆥   } ──────╺╺╺",
+            "╺╺╺─────────────────────────────────────────────────────────╺╺╺",
+            "│\u001b[65C│\u001b[65D",  
+            "\u001b[64C│\u001b[65D",
+            "\u001b[64C┇\u001b[65D"
         ],
         "percent": {
             "type": [
@@ -43,95 +46,132 @@
     },
     "modules": [
         {
-            "format": "{#1}{#keys}╭{$1}╮\u001b[60D {user-name-colored}{at-symbol-colored}{host-name-colored} 🖥 ",
+            "format": "{#1}{#red}╔{$1}╗\u001b[60D {#keys}[ {user-name}@{host-name} 🖥 ] ",
             "type": "title"
         },
         {
             "type": "os",
-            "key": "{$3}{icon} OS",
-            "keyColor": "yellow"
+            "key": "{$5} OS",
+            "keyColor": "red"
+        },
+        {
+            "type": "disk",
+            "key": "{$4}┇  ├",
+            "keyColor": "red",
+            "format": "{days-of-year} days",
+            "folders": "/"
         },
         {
             "type": "kernel",
-            "key": "{$3}│ ├",
-            "keyColor": "yellow"
+            "key": "{$4}│  ├",
+            "keyColor": "red"
         },
         {
             "type": "packages",
-            "key": "{$3}│ ├󰏖",
-            "keyColor": "yellow"
+            "key": "{$4}│  ├",
+            "keyColor": "red"
         },
         {
             "type": "shell",
-            "key": "{$3}│ ├󰈺",
-            "keyColor": "yellow"
+            "key": "{$4}│  ├",
+            "keyColor": "red"
         },
         {
             "type": "uptime",
-            "key": "{$3}│ └󰅐",
-            "keyColor": "yellow"
+            "key": "{$4}│  └",
+            "keyColor": "red"
         },
         {
             "type": "wm",
-            "key": "{$3} DE/WM",
-            "keyColor": "red"
+            "key": "{$4} WM",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "de",
+            "key": "{$4} DE",
+            "keyColor": "yellow"
         },
         {
             "type": "icons",
-            "key": "{$3}│ ├󰀻",
-            "keyColor": "red"
+            "key": "{$4}│  ├",
+            "keyColor": "yellow",
+            "format": "{icons1}"
         },
         {
             "type": "font",
-            "key": "{$3}│ ├",
-            "keyColor": "red"
+            "key": "{$4}│  ├",
+            "keyColor": "yellow",
+            "format": "{font1}"
         },
         {
             "type": "terminal",
-            "key": "{$3}│ └",
-            "keyColor": "red"
+            "key": "{$4}│  ├",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "media",
+            "key": "{$4}│  └",
+            "keyColor": "yellow",
+            "format": "[{artist}] - {title}"
         },
         {
             "type": "custom",
-            "format": "{$3}{#green} Hardware                                                         │"
+            "format": "{$4}{#green} Hardware                                                      │"
         },
         {
             "type": "cpu",
-            "key": "{$3}│ ├󰻠",
+            "key": "{$4}│  ├",
             "keyColor": "green"
         },
         {
             "type": "gpu",
-            "key": "{$3}│ ├󰍛",
+            "key": "{$4}│  ├󰾲",
             "keyColor": "green"
         },
         {
             "type": "memory",
-            "key": "{$3}│ └󰑭",
+            "key": "{$4}│  └",
             "keyColor": "green"
         },
         {
             "type": "custom",
-            "format": "{$3}{#blue} Disks                                                            │"
+            "format": "{$4}{#blue}󰋊 Disks                                                         │"
         },
         {
             "type": "disk",
-            "key": "{$3}│ ├",
+            "key": "{$4}│  ├ [{name}]",
             "keyColor": "blue",
-            "format": "[{mountpoint}] - {size-used} / {size-total}   {size-percentage-bar}"
+            "format": "{size-percentage-bar} {size-used} / {size-total}",
+            "folders": "/" 
         },
         {
-            "format": "{#blue}├{$1}┤",
+            "type": "disk",
+            "key": "{$4}│  ├ [{name}]",
+            "keyColor": "blue",
+            "format": "{size-percentage-bar} {size-used} / {size-total}",
+            "folders": "/mnt/extrastuff1",
+            "hideFS": "autofs"
+        },
+        {
+            "type": "disk",
+            "key": "{$5}┇  ├ [{name}]",
+            "keyColor": "blue",
+            "format": "{size-percentage-bar} {size-used} / {size-total}",
+            "folders": "/mnt/extrastuff2",
+            "hideFS": "autofs"
+        },
+        {
+            "format": "{#blue}╠{$2}╣",
             "type": "custom"
         },
         {
             "type": "colors",
-            "key": "{$3} colors",
+            "key": "{$4} colors",
             "keyColor": "white",
             "symbol": "circle"
         },
         {
-            "format": "{#blue}╰{$1}╯",
+            "format": "{#blue}╚{$1}╝",
             "type": "custom"
         }
     ]
