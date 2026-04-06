@@ -29,6 +29,7 @@ sudo pacman -Syu \
     onlyoffice \
     paru \
     pascube \
+    playerctl \
     protonplus \
     python-lxml \
     resvg \
