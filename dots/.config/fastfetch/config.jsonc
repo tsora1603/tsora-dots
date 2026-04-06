@@ -6,7 +6,7 @@
         "width": 23,
         "height": 10,
         "padding": {
-            "top": 4,
+            "top": 6,
             "left": 4
         }
     },
@@ -16,7 +16,7 @@
             "separator": "white"
         },
         "constants": [
-            "╺╺╺───────────────────────────── {  󰆥   󰞇   󰆥   } ──────╺╺╺",
+            "╺╺╺───────────────────────────────  󰆥   󰞇   󰆥   ────────╺╺╺",
             "╺╺╺─────────────────────────────────────────────────────────╺╺╺",
             "│\u001b[65C│\u001b[65D",  
             "\u001b[64C│\u001b[65D",
@@ -46,7 +46,7 @@
     },
     "modules": [
         {
-            "format": "{#1}{#red}╔{$1}╗\u001b[60D {#keys}[ {user-name}@{host-name} 🖥 ] ",
+            "format": "{#1}{#red}╔{$1}╗\u001b[59D {#keys}[ {user-name}@{host-name} 🖥 ] ",
             "type": "title"
         },
         {
@@ -56,29 +56,24 @@
         },
         {
             "type": "disk",
-            "key": "{$4}┇  ├",
+            "key": "{$4}│ ├ ",
             "keyColor": "red",
             "format": "{days-of-year} days",
             "folders": "/"
         },
         {
-            "type": "kernel",
-            "key": "{$4}│  ├",
-            "keyColor": "red"
-        },
-        {
             "type": "packages",
-            "key": "{$4}│  ├",
+            "key": "{$4}│ ├ ",
             "keyColor": "red"
         },
         {
             "type": "shell",
-            "key": "{$4}│  ├",
+            "key": "{$4}│ ├ ",
             "keyColor": "red"
         },
         {
             "type": "uptime",
-            "key": "{$4}│  └",
+            "key": "{$4}│ └ ",
             "keyColor": "red"
         },
         {
@@ -92,27 +87,33 @@
             "keyColor": "yellow"
         },
         {
+            "type": "command",
+            "key": "{$4}│ ├ ",
+            "keyColor": "yellow",
+            "text": "ls /etc/xdg/quickshell/ | head -1"
+        },
+        {
             "type": "icons",
-            "key": "{$4}│  ├",
+            "key": "{$4}│ ├ ",
             "keyColor": "yellow",
             "format": "{icons1}"
         },
         {
             "type": "font",
-            "key": "{$4}│  ├",
+            "key": "{$4}│ ├ ",
             "keyColor": "yellow",
             "format": "{font1}"
         },
         {
             "type": "terminal",
-            "key": "{$4}│  ├",
+            "key": "{$4}│ ├ ",
             "keyColor": "yellow"
         },
         {
-            "type": "media",
-            "key": "{$4}│  └",
+            "type": "command",
+            "key": "{$4}│ └ ",
             "keyColor": "yellow",
-            "format": "[{artist}] - {title}"
+            "text": "playerctl metadata --format '[󰒮 {{status}} 󰒭] {{artist}} - {{title}}' | sed 's/Playing/󰐊/;s/Paused/󰏤/;s/Stopped/󰓛/'"
         },
         {
             "type": "custom",
@@ -120,17 +121,17 @@
         },
         {
             "type": "cpu",
-            "key": "{$4}│  ├",
+            "key": "{$4}│ ├ ",
             "keyColor": "green"
         },
         {
             "type": "gpu",
-            "key": "{$4}│  ├󰾲",
+            "key": "{$4}│ ├󰾲 ",
             "keyColor": "green"
         },
         {
             "type": "memory",
-            "key": "{$4}│  └",
+            "key": "{$4}│ └ ",
             "keyColor": "green"
         },
         {
@@ -139,14 +140,14 @@
         },
         {
             "type": "disk",
-            "key": "{$4}│  ├ [{name}]",
+            "key": "{$4}│ ├  [{name}]",
             "keyColor": "blue",
             "format": "{size-percentage-bar} {size-used} / {size-total}",
             "folders": "/" 
         },
         {
             "type": "disk",
-            "key": "{$4}│  ├ [{name}]",
+            "key": "{$4}│ ├  [{name}]",
             "keyColor": "blue",
             "format": "{size-percentage-bar} {size-used} / {size-total}",
             "folders": "/mnt/extrastuff1",
@@ -154,7 +155,7 @@
         },
         {
             "type": "disk",
-            "key": "{$5}┇  ├ [{name}]",
+            "key": "{$5}┇ ├  [{name}]",
             "keyColor": "blue",
             "format": "{size-percentage-bar} {size-used} / {size-total}",
             "folders": "/mnt/extrastuff2",
@@ -166,7 +167,7 @@
         },
         {
             "type": "colors",
-            "key": "{$4} colors",
+            "key": "{$5} colors",
             "keyColor": "white",
             "symbol": "circle"
         },
