@@ -605,11 +605,82 @@
             {
                 "name": "HDMI-A-1",
                 "widgets": [
+                    {
+                        "clockColor": "none",
+                        "clockStyle": "minimal",
+                        "customFont": "",
+                        "format": "dddd, MMMM dd\\nh:mm AP",
+                        "id": "Clock",
+                        "roundedCorners": true,
+                        "scale": 1.640902941197273,
+                        "showBackground": false,
+                        "useCustomFont": false,
+                        "x": 1400,
+                        "y": 920
+                    }
                 ]
             },
             {
                 "name": "DP-1",
                 "widgets": [
+                    {
+                        "clockColor": "primary",
+                        "clockStyle": "minimal",
+                        "customFont": "",
+                        "format": "dddd, MMMM dd\\nh:mm AP",
+                        "id": "Clock",
+                        "roundedCorners": true,
+                        "scale": 2.2761290552315714,
+                        "showBackground": true,
+                        "useCustomFont": false,
+                        "x": 220,
+                        "y": 40
+                    },
+                    {
+                        "hideMode": "visible",
+                        "id": "MediaPlayer",
+                        "roundedCorners": true,
+                        "scale": 1.65,
+                        "showAlbumArt": true,
+                        "showBackground": false,
+                        "showButtons": true,
+                        "showVisualizer": true,
+                        "visualizerType": "linear",
+                        "x": 220,
+                        "y": 1780
+                    },
+                    {
+                        "defaultSettings": {
+                            "completedCount": 0,
+                            "count": 0,
+                            "current_page_id": 0,
+                            "exportEmptySections": false,
+                            "exportFormat": "markdown",
+                            "exportPath": "~/Documents",
+                            "isExpanded": false,
+                            "pages": [
+                                {
+                                    "id": 0,
+                                    "name": "General"
+                                }
+                            ],
+                            "priorityColors": {
+                                "high": "#f44336",
+                                "low": "#9e9e9e",
+                                "medium": "#2196f3"
+                            },
+                            "showBackground": true,
+                            "showCompleted": true,
+                            "todos": [
+                            ],
+                            "useCustomColors": false
+                        },
+                        "id": "plugin:todo",
+                        "scale": 1.4,
+                        "showBackground": true,
+                        "x": 360,
+                        "y": 240
+                    }
                 ]
             }
         ],
@@ -620,7 +691,7 @@
         "backgroundOpacity": 0.9,
         "colorizeIcons": true,
         "deadOpacity": 0.5,
-        "displayMode": "auto_hide",
+        "displayMode": "always_visible",
         "dockType": "floating",
         "enabled": false,
         "floatingRatio": 0,
