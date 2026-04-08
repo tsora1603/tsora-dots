@@ -1,4 +1,3 @@
-
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
@@ -7,21 +6,28 @@
         "width": 23,
         "height": 10,
         "padding": {
-            "top": 6,
+            "top": 8,
             "left": 4
         }
     },
     "display": {
-        "separator": " ->  ",
+        "separator": " ",
         "color": {
             "separator": "white"
         },
         "constants": [
-            "╺╺╺───────────────────────────────  󰆥   󰞇   󰆥   ────────╺╺╺",
-            "╺╺╺─────────────────────────────────────────────────────────╺╺╺",
-            "│\u001b[65C│\u001b[65D",  
-            "\u001b[64C│\u001b[65D",
-            "\u001b[64C┇\u001b[65D"
+            //$1
+            "╺╺╺─────────────────────────────────  󰆥   󰞇   󰆥   ───────╺╺╺",
+            //$2
+            "╺╺╺──────────────────────────────────────────────────────────╺╺╺",
+            //$3
+            "│\u001b[64C│\u001b[65D",
+            //$4
+            "┇\u001b[64C┇\u001b[65D",
+            //$5
+            "\u001b[37m\u001b[54C│\u001b[66D",
+            //$6
+            "\u001b[37m\u001b[56C┇\u001b[66D"
         ],
         "percent": {
             "type": [
@@ -47,134 +53,142 @@
     },
     "modules": [
         {
-            "format": "{#1}{#red}╔{$1}╗\u001b[59D {#keys}[ {user-name}@{host-name} 🖥 ] ",
+            "format": "{#white}╔{$1}╗\u001b[56D {#keys} [ {user-name}@{host-name} 🖥 ] ",
             "type": "title"
         },
         {
+            "type": "custom",
+            "format": "{#red}󰟀 System/{$6}{#white}"
+        },
+        {
             "type": "os",
-            "key": "{$5} OS",
-            "keyColor": "red"
+            "key": "{#white}{$3}{#red} ├ "
+        },
+        {
+            "type": "kernel",
+            "key": "{#white}{$3}{#red} ├ "
+        },
+        {
+            "type": "packages",
+            "key": "{#white}{$3}{#red} ├ "
+        },
+        {
+            "type": "custom",
+            "format": "{$3}{#red} └ Age-and-uptime/"
         },
         {
             "type": "disk",
-            "key": "{$4}│ ├ ",
-            "keyColor": "red",
+            "key": "{#white}{$3}{#red}   ├ ",
             "format": "{days-of-year} days",
             "folders": "/"
         },
         {
-            "type": "packages",
-            "key": "{$4}│ ├ ",
-            "keyColor": "red"
-        },
-        {
-            "type": "shell",
-            "key": "{$4}│ ├ ",
-            "keyColor": "red"
-        },
-        {
             "type": "uptime",
-            "key": "{$4}│ └ ",
-            "keyColor": "red"
+            "key": "{#white}{$3}{#red}   └󰾨 "
         },
         {
-            "type": "wm",
-            "key": "{$4} WM",
-            "keyColor": "yellow"
+            "type": "custom",
+            "format": "{#yellow} Software/{$5}"
         },
         {
-            "type": "de",
-            "key": "{$4} DE",
-            "keyColor": "yellow"
+            "type": "custom",
+            "format": "{$3}{#yellow} ├ Desktop/"
         },
         {
             "type": "command",
-            "key": "{$4}│ ├ ",
-            "keyColor": "yellow",
+            "key": "{#white}{$3}{#yellow} │ ├ ",
             "text": "ls /etc/xdg/quickshell/ | head -1"
         },
         {
+            "type": "wm",
+            "key": "{#white}{$3}{#yellow} │ └ ",
+            "format": "{pretty-name} {version}"
+        },
+        {
+            "type": "de",
+            "key": "{#white}{$3}{#yellow} ├󰧨 ",
+            "format": "{pretty-name} {version}"
+        },
+        {
+            "type": "custom",
+            "format": "{$3}{#yellow} ├ Terminal/"
+        },
+        {
+            "type": "terminal",
+            "key": "{#white}{$3}{#yellow} │ ├ "
+        },
+        {
+            "type": "shell",
+            "key": "{#white}{$3}{#yellow} │ └ "
+        },
+        {
+            "type": "custom",
+            "format": "{$3}{#yellow} └ UI/"
+        },
+        {
             "type": "icons",
-            "key": "{$4}│ ├ ",
-            "keyColor": "yellow",
+            "key": "{#white}{$3}{#yellow}   ├ ",
             "format": "{icons1}"
         },
         {
             "type": "font",
-            "key": "{$4}│ ├ ",
-            "keyColor": "yellow",
+            "key": "{#white}{$3}{#yellow}   └ ",
             "format": "{font1}"
         },
         {
-            "type": "terminal",
-            "key": "{$4}│ ├ ",
-            "keyColor": "yellow"
-        },
-        {
-            "type": "command",
-            "key": "{$4}│ └ ",
-            "keyColor": "yellow",
-            "_comment": "have 'playerctl' installed.",
-            "text": "playerctl metadata --format '[󰒮 {{status}} 󰒭] {{artist}} - {{title}}' | sed 's/Playing/󰐊/;s/Paused/󰏤/;s/Stopped/󰓛/'"
-        },
-        {
             "type": "custom",
-            "format": "{$4}{#green} Hardware                                                      │"
+            "format": "{#blue} Hardware/{$5}"
         },
         {
             "type": "cpu",
-            "key": "{$4}│ ├ ",
-            "keyColor": "green"
+            "key": "{#white}{$3}{#blue} ├ ",
+            "format": "{name}"
         },
         {
             "type": "gpu",
-            "key": "{$4}│ ├󰾲 ",
-            "keyColor": "green"
+            "key": "{#white}{$3}{#blue} ├󰾲 ",
+            "format": "{name}"
         },
         {
             "type": "memory",
-            "key": "{$4}│ └ ",
-            "keyColor": "green"
+            "key": "{#white}{$3}{#blue} └ "
         },
         {
             "type": "custom",
-            "format": "{$4}{#blue}󰋊 Disks                                                         │"
+            "format": "{#red}󰋊 Disks/   {$5}"
         },
         {
             "type": "disk",
-            "key": "{$4}│ ├  [{name}]",
-            "keyColor": "blue",
+            "key": "{#white}{$3}{#red} ├ [{name}]",
             "format": "{size-percentage-bar} {size-used} / {size-total}",
             "folders": "/" 
         },
         {
             "type": "disk",
-            "key": "{$4}│ ├  [{name}]",
-            "keyColor": "blue",
+            "key": "{#white}{$3}{#red} ├ [{name}]",
             "format": "{size-percentage-bar} {size-used} / {size-total}",
             "folders": "/mnt/extrastuff1",
             "hideFS": "autofs"
         },
         {
             "type": "disk",
-            "key": "{$5}┇ ├  [{name}]",
-            "keyColor": "blue",
+            "key": "{#white}{$4}{#red} └ [{name}]",
             "format": "{size-percentage-bar} {size-used} / {size-total}",
             "folders": "/mnt/extrastuff2",
             "hideFS": "autofs"
         },
         {
-            "format": "{#blue}╠{$2}╣",
+            "format": "{#white}╠{$2}╣",
             "type": "custom"
         },
         {
             "type": "colors",
-            "key": "{$5} colors",
+            "key": "{$4}  colors",
             "keyColor": "white",
             "symbol": "circle"
         },
         {
-            "format": "{#blue}╚{$1}╝",
+            "format": "{#white}╚{$1}╝",
             "type": "custom"
         }
     ]
