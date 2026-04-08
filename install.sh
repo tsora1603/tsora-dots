@@ -60,6 +60,7 @@ paru -S \
     noctalia-shell-git \
     otf-departure-mono-nerd \
     parui \
+    python-pywalfox \
     qt6ct-kde \
     vtracer \
     xdg-desktop-portal-termfilechooser-hunkyburrito-git \
