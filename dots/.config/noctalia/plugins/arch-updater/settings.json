@@ -1,7 +1,5 @@
 {
-  "nameCmd": "(checkupdates; paru -Qua;) | awk '{print $1}'",
-  "oldVerCmd": "(checkupdates; paru -Qua;) | awk '{print $2}'",
-  "newVerCmd": "(checkupdates; paru -Qua;) | awk '{print $4}'",
+  "checkCmd": "(checkupdates; paru -Qua) 2>/dev/null",
   "updateCmd": "kitty -T arch-update -e arch-update",
   "flatpak": true,
   "noctalia": true,
@@ -9,5 +7,14 @@
   "desktopTip": true,
   "hideOnEmpty": true,
   "refreshTimer": true,
-  "refreshInterval": 120
+  "refreshInterval": 120,
+  "iconName": "arrow-big-down-lines",
+  "useDistroLogo": false,
+  "customIconPath": "",
+  "boldText": true,
+  "enableColorization": false,
+  "iconColor": "none",
+  "nameCmd": "(checkupdates; paru -Qua;) | awk '{print $1}'",
+  "oldVerCmd": "(checkupdates; paru -Qua;) | awk '{print $2}'",
+  "newVerCmd": "(checkupdates; paru -Qua;) | awk '{print $4}'"
 }

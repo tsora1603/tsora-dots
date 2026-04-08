@@ -1,15 +1,16 @@
 {
-    "id": "file-search",
-    "name": "File Search",
-    "version": "1.0.1",
-    "minNoctaliaVersion": "4.1.2",
-    "author": "ericbreh",
+    "id": "giphy-search",
+    "name": "Giphy Search",
+    "version": "1.0.0",
+    "author": "Sergio Mendolia",
     "license": "MIT",
+    "description": "Search for GIFs on Giphy from the Launcher.",
+    "minNoctaliaVersion": "3.9.0",
     "repository": "https://github.com/noctalia-dev/noctalia-plugins",
-    "description": "File search from the launcher.",
     "tags": [
         "Launcher",
-        "Productivity"
+        "Utility",
+        "Fun"
     ],
     "entryPoints": {
         "main": "Main.qml",
@@ -20,12 +21,10 @@
         "plugins": []
     },
     "metadata": {
+        "commandPrefix": "gif",
         "defaultSettings": {
-            "showHidden": false,
-            "maxResults": 0,
-            "fileOpener": "xdg-open",
-            "searchDirectory": "~",
-            "fdCommand": "fd"
+            "api_key": "",
+            "rating": "g"
         }
     }
 }
