@@ -78,13 +78,13 @@
         },
         {
             "type": "disk",
-            "key": "{#white}{$3}{#red}   ├ ",
+            "key": "{#white}{$3}{#red}    ├ ",
             "format": "{days-of-year} days",
             "folders": "/"
         },
         {
             "type": "uptime",
-            "key": "{#white}{$3}{#red}   └󰾨 "
+            "key": "{#white}{$3}{#red}    └󰾨 "
         },
         {
             "type": "custom",
@@ -96,17 +96,17 @@
         },
         {
             "type": "command",
-            "key": "{#white}{$3}{#yellow} │ ├ ",
+            "key": "{#white}{$3}{#yellow} │  ├ ",
             "text": "ls /etc/xdg/quickshell/ | head -1"
         },
         {
             "type": "wm",
-            "key": "{#white}{$3}{#yellow} │ └ ",
+            "key": "{#white}{$3}{#yellow} │  └ ",
             "format": "{pretty-name} {version}"
         },
         {
             "type": "de",
-            "key": "{#white}{$3}{#yellow} ├󰧨 ",
+            "key": "{#white}{$3}{#yellow} │  └󰧨 ",
             "format": "{pretty-name} {version}"
         },
         {
@@ -115,11 +115,11 @@
         },
         {
             "type": "terminal",
-            "key": "{#white}{$3}{#yellow} │ ├ "
+            "key": "{#white}{$3}{#yellow} │  ├ "
         },
         {
             "type": "shell",
-            "key": "{#white}{$3}{#yellow} │ └ "
+            "key": "{#white}{$3}{#yellow} │  └ "
         },
         {
             "type": "custom",
@@ -127,12 +127,12 @@
         },
         {
             "type": "icons",
-            "key": "{#white}{$3}{#yellow}   ├ ",
+            "key": "{#white}{$3}{#yellow}    ├ ",
             "format": "{icons1}"
         },
         {
             "type": "font",
-            "key": "{#white}{$3}{#yellow}   └ ",
+            "key": "{#white}{$3}{#yellow}    └ ",
             "format": "{font1}"
         },
         {
@@ -151,7 +151,8 @@
         },
         {
             "type": "memory",
-            "key": "{#white}{$3}{#blue} └ "
+            "key": "{#white}{$3}{#blue} └ ",
+            "format": "{used} / {total}"
         },
         {
             "type": "custom",
@@ -159,21 +160,21 @@
         },
         {
             "type": "disk",
-            "key": "{#white}{$3}{#red} ├ [{name}]",
-            "format": "{size-percentage-bar} {size-used} / {size-total}",
+            "key": "{#white}{$3}{#red} ├ [{name}]         ",
+            "format": "{size-used} / {size-total}  {size-percentage-bar}",
             "folders": "/" 
         },
         {
             "type": "disk",
             "key": "{#white}{$3}{#red} ├ [{name}]",
-            "format": "{size-percentage-bar} {size-used} / {size-total}",
+            "format": "{size-used} / {size-total}  {size-percentage-bar}",
             "folders": "/mnt/extrastuff1",
             "hideFS": "autofs"
         },
         {
             "type": "disk",
             "key": "{#white}{$4}{#red} └ [{name}]",
-            "format": "{size-percentage-bar} {size-used} / {size-total}",
+            "format": "{size-used} / {size-total}  {size-percentage-bar}",
             "folders": "/mnt/extrastuff2",
             "hideFS": "autofs"
         },
