@@ -651,7 +651,7 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": true,
+        "darkMode": false,
         "generationMethod": "faithful",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
@@ -1270,9 +1270,9 @@
                 "darkMode": false,
                 "generationMethod": "faithful",
                 "paletteColors": [
-                    "#f4ddbe",
-                    "#edf0c2",
-                    "#d6efc3",
+                    "#c37e22",
+                    "#9ba329",
+                    "#528d26",
                     "#fd4663"
                 ],
                 "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/GingerPaper_1920x1080.png",

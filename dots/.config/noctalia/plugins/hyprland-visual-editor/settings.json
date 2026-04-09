@@ -5,5 +5,5 @@
   "autoApply": true,
   "activeAnimFile": "02_inercia_elastica.conf",
   "activeBorderFile": "01_cascade.conf",
-  "activeShaderFile": "07_oled.frag"
+  "activeShaderFile": ""
 }
