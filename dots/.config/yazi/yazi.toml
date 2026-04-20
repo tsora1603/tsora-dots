@@ -34,7 +34,7 @@ rules = [
   { mime = "video/*", use = "play" },
   { mime = "image/*", use = "view" },
   { mime = "application/{zip,7z-compressed,rar,tar,xz}", use = "extract" },
-  { mime = "application/openxml*", use = "onlyoffice" },
+  { mime = "application/{openxml*,ms*}", use = "onlyoffice" },
   { mime = "{text,application}/*", use = "edit" },
 ]
 
