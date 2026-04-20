@@ -102,6 +102,7 @@ UUID=32FFB061010241EF                             /mnt/extrastuff2   ntfs3   nof
 # systemd services
 systemctl --user enable mpd
 systemctl --user enable mpd-mpris
+systemctl --user enable ssh-agent
 sudo systemctl enable greetd
 
 # firefoxpwa runtime
