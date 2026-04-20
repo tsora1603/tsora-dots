@@ -19,8 +19,8 @@ Item {
 
     anchors.fill: parent
 
-    // Shared column width reference (content area minus outer margins and table inner margins)
-    readonly property real tableContentWidth: panelContainer.width - 2 * Style.marginL - 2 * Style.marginS
+    // Shared column width reference (content area minus outer margins, table inner margins, and column spacing)
+    readonly property real tableContentWidth: panelContainer.width - 2 * Style.marginL - 2 * Style.marginS - 2 * Style.marginS
 
     Rectangle {
         id: panelContainer
@@ -38,7 +38,6 @@ Item {
             RowLayout {
                 Layout.fillWidth: true
                 Layout.leftMargin: Style.marginS
-                Layout.rightMargin: Style.marginS
                 spacing: Style.marginS
 
                 NText {
@@ -87,7 +86,7 @@ Item {
                         width: tableView.width
                         spacing: Style.marginS
 
-                        NText {
+                        NText { // Name
                             Layout.preferredWidth: 0.4 * root.tableContentWidth
                             text: modelData.name
                             pointSize: Style.fontSizeM
@@ -95,7 +94,7 @@ Item {
                             elide: Text.ElideRight
                             maximumLineCount: 1
                         }
-                        NText {
+                        NText { // Old Version
                             Layout.preferredWidth: 0.3 * root.tableContentWidth
                             text: modelData.oldVer
                             pointSize: Style.fontSizeM
@@ -104,24 +103,23 @@ Item {
                             elide: Text.ElideRight
                             maximumLineCount: 1
                         }
-                        NText {
+                        NText { // New Version
                             Layout.preferredWidth: 0.3 * root.tableContentWidth
                             text: modelData.newVer
                             pointSize: Style.fontSizeM
+                            font.weight: (pluginApi.pluginSettings.boldVer ?? pluginApi.manifest.metadata.defaultSettings.boldVer) ? Font.Bold : Font.Normal
                             color: modelData.isFlatpak ? Color.mTertiary : Color.mSecondary
                             horizontalAlignment: Text.AlignHCenter
                             elide: Text.ElideRight
                             maximumLineCount: 1
                         }
                     }
-
-                    ScrollBar.vertical: ScrollBar {}
                 }
             }
 
             // Footer
             RowLayout {
-                Layout.fillWidth: true
+                spacing: Style.marginL
                 NButton {
                     Layout.fillWidth: true
                     text: pluginApi?.tr("panel.refresh")
@@ -130,7 +128,6 @@ Item {
                         root.pluginApi.mainInstance.refresh()
                     }
                 }
-                Item { width: Style.marginM }
                 NButton {
                     Layout.fillWidth: true
                     text: pluginApi?.tr("panel.update")
@@ -140,7 +137,6 @@ Item {
                         pluginApi.closePanel(pluginApi.panelOpenScreen)
                     }
                 }
-                Item { width: Style.marginM }
                 NIconButton {
                     icon: "settings"
                     onClicked: {

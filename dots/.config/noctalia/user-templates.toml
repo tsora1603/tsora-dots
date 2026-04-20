@@ -1,0 +1,7 @@
+[config]
+
+[templates.yazi]
+input_path = "~/.config/noctalia/templates/yazi.toml"
+output_path = "~/.config/yazi/flavors/tsora.yazi/flavor.toml"
+
+

@@ -99,7 +99,7 @@
                             "useDistroLogo": false
                         },
                         {
-                            "characterCount": 2,
+                            "characterCount": 10,
                             "colorizeIcons": false,
                             "emptyColor": "secondary",
                             "enableScrollWheel": true,
@@ -120,26 +120,6 @@
                             "unfocusedIconsOpacity": 1
                         },
                         {
-                            "defaultSettings": {
-                                "borderRadius": 1,
-                                "expandDirection": "down",
-                                "focusBorderColor": "primary",
-                                "mainIcon": "layout-grid",
-                                "primaryPillColor": "none",
-                                "primaryShowPill": false,
-                                "primarySize": 0.9,
-                                "primarySymbolColor": "none",
-                                "secondaryPillColor": "primary",
-                                "secondaryShowPill": true,
-                                "secondarySize": 0.9,
-                                "secondarySymbolColor": "none",
-                                "workspaces": [
-                                    {
-                                        "icon": "message",
-                                        "name": "communication"
-                                    }
-                                ]
-                            },
                             "id": "plugin:special-workspaces"
                         }
                     ],
@@ -200,19 +180,6 @@
                         }
                     ],
                     "right": [
-                        {
-                            "defaultSettings": {
-                                "catColor": "default",
-                                "catOffsetY": 0,
-                                "catSize": 1,
-                                "idleTimeout": 150,
-                                "raveMode": false,
-                                "tappyMode": false,
-                                "useMprisFilter": false,
-                                "waitingTimeout": 30000
-                            },
-                            "id": "plugin:slowbongo"
-                        },
                         {
                             "compactMode": true,
                             "hideMode": "hidden",
@@ -298,26 +265,6 @@
                             "unfocusedIconsOpacity": 1
                         },
                         {
-                            "defaultSettings": {
-                                "borderRadius": 1,
-                                "expandDirection": "down",
-                                "focusBorderColor": "primary",
-                                "mainIcon": "layout-grid",
-                                "primaryPillColor": "none",
-                                "primaryShowPill": false,
-                                "primarySize": 0.9,
-                                "primarySymbolColor": "none",
-                                "secondaryPillColor": "primary",
-                                "secondaryShowPill": true,
-                                "secondarySize": 0.9,
-                                "secondarySymbolColor": "none",
-                                "workspaces": [
-                                    {
-                                        "icon": "message",
-                                        "name": "communication"
-                                    }
-                                ]
-                            },
                             "id": "plugin:special-workspaces"
                         }
                     ],
@@ -378,19 +325,6 @@
                         }
                     ],
                     "right": [
-                        {
-                            "defaultSettings": {
-                                "catColor": "default",
-                                "catOffsetY": 0,
-                                "catSize": 1,
-                                "idleTimeout": 150,
-                                "raveMode": false,
-                                "tappyMode": false,
-                                "useMprisFilter": false,
-                                "waitingTimeout": 30000
-                            },
-                            "id": "plugin:slowbongo"
-                        },
                         {
                             "compactMode": true,
                             "hideMode": "hidden",
@@ -479,29 +413,6 @@
                 },
                 {
                     "defaultSettings": {
-                        "borderRadius": 1,
-                        "expandDirection": "down",
-                        "focusBorderColor": "primary",
-                        "mainIcon": "layout-grid",
-                        "primaryPillColor": "none",
-                        "primaryShowPill": false,
-                        "primarySize": 0.9,
-                        "primarySymbolColor": "none",
-                        "secondaryPillColor": "primary",
-                        "secondaryShowPill": true,
-                        "secondarySize": 0.9,
-                        "secondarySymbolColor": "none",
-                        "workspaces": [
-                            {
-                                "icon": "message",
-                                "name": "communication"
-                            }
-                        ]
-                    },
-                    "id": "plugin:special-workspaces"
-                },
-                {
-                    "defaultSettings": {
                         "activeAnimFile": "",
                         "activeBorderFile": "",
                         "activeShaderFile": "",
@@ -568,19 +479,6 @@
             ],
             "right": [
                 {
-                    "defaultSettings": {
-                        "catColor": "default",
-                        "catOffsetY": 0,
-                        "catSize": 1,
-                        "idleTimeout": 150,
-                        "raveMode": false,
-                        "tappyMode": false,
-                        "useMprisFilter": false,
-                        "waitingTimeout": 30000
-                    },
-                    "id": "plugin:slowbongo"
-                },
-                {
                     "compactMode": true,
                     "hideMode": "hidden",
                     "hideWhenIdle": false,
@@ -623,6 +521,55 @@
                     "id": "NotificationHistory",
                     "showUnreadBadge": true,
                     "unreadBadgeColor": "error"
+                },
+                {
+                    "defaultSettings": {
+                        "drawer": true,
+                        "expandDirection": "up",
+                        "hideEmptyWorkspaces": false,
+                        "mainIcon": "layout-grid",
+                        "panelBackgroundColor": "none",
+                        "panelBackgroundEnabled": false,
+                        "primaryBorderRadius": 1,
+                        "primaryFocusColor": "primary",
+                        "primaryPillColor": "none",
+                        "primaryShowPill": true,
+                        "primarySize": 0.9,
+                        "primarySymbolColor": "none",
+                        "workspaces": [
+                            {
+                                "borderRadius": 1,
+                                "focusColor": "primary",
+                                "icon": "message",
+                                "name": "communication",
+                                "pillColor": "primary",
+                                "showPill": true,
+                                "size": 0.9,
+                                "symbolColor": "none"
+                            },
+                            {
+                                "borderRadius": 1,
+                                "focusColor": "primary",
+                                "icon": "music",
+                                "name": "music",
+                                "pillColor": "primary",
+                                "showPill": true,
+                                "size": 0.9,
+                                "symbolColor": "none"
+                            },
+                            {
+                                "borderRadius": 1,
+                                "focusColor": "primary",
+                                "icon": "michelin-star",
+                                "name": "agent",
+                                "pillColor": "primary",
+                                "showPill": true,
+                                "size": 0.9,
+                                "symbolColor": "none"
+                            }
+                        ]
+                    },
+                    "id": "plugin:special-workspaces"
                 }
             ]
         }
@@ -877,7 +824,7 @@
                         "scale": 1.4,
                         "showBackground": true,
                         "x": 340,
-                        "y": 240
+                        "y": 220
                     }
                 ]
             }
@@ -1199,19 +1146,11 @@
             },
             {
                 "enabled": true,
-                "id": "discord"
-            },
-            {
-                "enabled": true,
                 "id": "gtk"
             },
             {
                 "enabled": true,
                 "id": "hyprland"
-            },
-            {
-                "enabled": true,
-                "id": "kitty"
             },
             {
                 "enabled": true,
@@ -1231,18 +1170,22 @@
             },
             {
                 "enabled": true,
+                "id": "code"
+            },
+            {
+                "enabled": true,
+                "id": "discord"
+            },
+            {
+                "enabled": true,
                 "id": "zenBrowser"
             },
             {
                 "enabled": true,
-                "id": "yazi"
-            },
-            {
-                "enabled": true,
-                "id": "code"
+                "id": "kitty"
             }
         ],
-        "enableUserTheming": false
+        "enableUserTheming": true
     },
     "ui": {
         "boxBorderEnabled": false,
@@ -1255,7 +1198,7 @@
         "scrollbarAlwaysVisible": true,
         "settingsPanelMode": "attached",
         "settingsPanelSideBarCardStyle": false,
-        "tooltipsEnabled": false,
+        "tooltipsEnabled": true,
         "translucentWidgets": true
     },
     "wallpaper": {
@@ -1270,9 +1213,9 @@
                 "darkMode": false,
                 "generationMethod": "faithful",
                 "paletteColors": [
-                    "#c37e22",
-                    "#9ba329",
-                    "#528d26",
+                    "#f4ddbe",
+                    "#edf0c2",
+                    "#d6efc3",
                     "#fd4663"
                 ],
                 "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/GingerPaper_1920x1080.png",
@@ -1284,9 +1227,9 @@
                 "darkMode": false,
                 "generationMethod": "faithful",
                 "paletteColors": [
-                    "#560d72",
-                    "#650b50",
-                    "#5c0a21",
+                    "#c55fed",
+                    "#ea48c5",
+                    "#ea4876",
                     "#fd4663"
                 ],
                 "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/BlackpixelGalaxy_1920x1080.png",

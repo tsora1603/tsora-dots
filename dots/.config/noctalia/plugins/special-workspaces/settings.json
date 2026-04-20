@@ -1,24 +1,36 @@
 {
-  "mainIcon": "layout-grid",
+  "mainIcon": "pacman",
   "expandDirection": "right",
-  "primaryShowPill": false,
   "primarySymbolColor": "none",
+  "primaryShowPill": true,
   "primaryPillColor": "none",
   "primarySize": 0.9,
-  "secondaryShowPill": true,
-  "secondarySymbolColor": "none",
-  "secondaryPillColor": "primary",
-  "secondarySize": 0.9,
-  "borderRadius": 1,
-  "focusBorderColor": "primary",
+  "primaryBorderRadius": 1,
+  "primaryFocusColor": "primary",
+  "panelBackgroundColor": "none",
+  "panelBackgroundEnabled": false,
   "workspaces": [
     {
-      "name": "dev",
-      "icon": "code"
+      "name": "chat",
+      "icon": "ghost-3",
+      "symbolColor": "none",
+      "showPill": true,
+      "pillColor": "primary",
+      "size": 0.9,
+      "borderRadius": 1,
+      "focusColor": "primary"
     },
     {
-      "name": "chat",
-      "icon": "messages"
+      "name": "dev",
+      "icon": "ghost-3-filled",
+      "symbolColor": "none",
+      "showPill": true,
+      "pillColor": "primary",
+      "size": 0.9,
+      "borderRadius": 1,
+      "focusColor": "primary"
     }
-  ]
+  ],
+  "drawer": true,
+  "hideEmptyWorkspaces": true
 }
