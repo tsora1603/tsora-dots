@@ -1,5 +1,5 @@
 [mgr]
-show_hidden = true
+show_hidden = false
 
 [opener]
 play = [
@@ -21,7 +21,7 @@ onlyoffice = [
   { run = '/usr/bin/desktopeditors "$@"', orphan = true, for = "linux"},
 ]
 pdf = [ 
-  { run = 'okular "$@"', orphan = true, for = "linux"},
+  { run = 'zen-browser "$@"', orphan = true, for = "linux"},
 ]
 extract = [
   { run = '7z x "$@"', desc = "Extract here", for = "linux" }
