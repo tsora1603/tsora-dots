@@ -25,7 +25,6 @@ sudo pacman -Syu \
     mpd \
     mpd-mpris \
     nwg-look \
-    okular \
     onlyoffice \
     paru \
     pascube \
@@ -119,14 +118,14 @@ fi
 
 # finishing
 echo "Rebooting in 5..."
-sleep 1s
+sleep 1
 echo "4..."
-sleep 1s 
+sleep 1
 echo "3..."
-sleep 1s 
+sleep 1
 echo "2..."
-sleep 1s 
+sleep 1
 echo "1..."
-sleep 1s
+sleep 1
 
 sudo reboot
