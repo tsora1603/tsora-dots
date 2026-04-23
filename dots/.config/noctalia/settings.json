@@ -197,26 +197,6 @@
                             "visualizerType": "mirrored"
                         },
                         {
-                            "defaultSettings": {
-                                "boldText": true,
-                                "checkCmd": "(checkupdates; paru -Qua) 2>/dev/null",
-                                "customIconPath": "",
-                                "desktopTip": true,
-                                "enableColorization": false,
-                                "flatpak": true,
-                                "hideOnEmpty": false,
-                                "iconColor": "none",
-                                "iconName": "arrow-big-down-lines",
-                                "noctalia": true,
-                                "refreshInterval": 120,
-                                "refreshTimer": true,
-                                "toast": true,
-                                "updateCmd": "ghostty -e bash -c 'echo \"Updating System...\";paru; flatpak update; read -n 1 -p \"Press any key to exit...\"'",
-                                "useDistroLogo": false
-                            },
-                            "id": "plugin:arch-updater"
-                        },
-                        {
                             "hideWhenZero": false,
                             "hideWhenZeroUnread": true,
                             "iconColor": "none",
@@ -340,26 +320,6 @@
                             "textColor": "none",
                             "useFixedWidth": false,
                             "visualizerType": "mirrored"
-                        },
-                        {
-                            "defaultSettings": {
-                                "boldText": true,
-                                "checkCmd": "(checkupdates; paru -Qua) 2>/dev/null",
-                                "customIconPath": "",
-                                "desktopTip": true,
-                                "enableColorization": false,
-                                "flatpak": true,
-                                "hideOnEmpty": false,
-                                "iconColor": "none",
-                                "iconName": "arrow-big-down-lines",
-                                "noctalia": true,
-                                "refreshInterval": 120,
-                                "refreshTimer": true,
-                                "toast": true,
-                                "updateCmd": "ghostty -e bash -c 'echo \"Updating System...\";paru; flatpak update; read -n 1 -p \"Press any key to exit...\"'",
-                                "useDistroLogo": false
-                            },
-                            "id": "plugin:arch-updater"
                         },
                         {
                             "hideWhenZero": false,
@@ -495,26 +455,6 @@
                     "visualizerType": "mirrored"
                 },
                 {
-                    "defaultSettings": {
-                        "boldText": true,
-                        "checkCmd": "(checkupdates; paru -Qua) 2>/dev/null",
-                        "customIconPath": "",
-                        "desktopTip": true,
-                        "enableColorization": false,
-                        "flatpak": true,
-                        "hideOnEmpty": false,
-                        "iconColor": "none",
-                        "iconName": "arrow-big-down-lines",
-                        "noctalia": true,
-                        "refreshInterval": 120,
-                        "refreshTimer": true,
-                        "toast": true,
-                        "updateCmd": "ghostty -e bash -c 'echo \"Updating System...\";paru; flatpak update; read -n 1 -p \"Press any key to exit...\"'",
-                        "useDistroLogo": false
-                    },
-                    "id": "plugin:arch-updater"
-                },
-                {
                     "hideWhenZero": false,
                     "hideWhenZeroUnread": true,
                     "iconColor": "none",
@@ -598,7 +538,7 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": false,
+        "darkMode": true,
         "generationMethod": "faithful",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
@@ -1146,19 +1086,11 @@
             },
             {
                 "enabled": true,
-                "id": "gtk"
-            },
-            {
-                "enabled": true,
                 "id": "hyprland"
             },
             {
                 "enabled": true,
                 "id": "kcolorscheme"
-            },
-            {
-                "enabled": true,
-                "id": "qt"
             },
             {
                 "enabled": true,
@@ -1183,6 +1115,14 @@
             {
                 "enabled": true,
                 "id": "kitty"
+            },
+            {
+                "enabled": true,
+                "id": "qt"
+            },
+            {
+                "enabled": true,
+                "id": "gtk"
             }
         ],
         "enableUserTheming": true
