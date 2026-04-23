@@ -1,5 +1,67 @@
 # Clipper Plugin - Comprehensive Changelog
 
+## Version 2.4.3 (2026-04-22)
+
+### Data-loss hotfix: atomic writes for pinned items and notecards
+
+Fixes a data-loss bug that could silently destroy pinned items (`pinned.json`) or individual notecards (`notecards/*.json`) under rare timing conditions. A 0-byte ghost file left on disk was traced back to three compounding issues in the save path:
+
+1. **Non-atomic shell redirection.** All writes used `base64 -d > "$file"`, which opens the target with `O_TRUNC` **before** decoding and writing. If the process was interrupted between truncate and write (shell restart, kill, OOM, base64 failure), the file was left at 0 bytes with no recovery possible.
+2. **Rename race in `updateNoteCard`.** When a note's title changed, the old file was deleted via a parallel `rm` `execDetached` call issued alongside the new `saveNoteCard`. If the `rm` completed but the save failed, the note vanished entirely.
+3. **Empty-base64 edge case.** If `stringToBase64()` returned an empty string (e.g. from a malformed note object), the shell pipeline still truncated the target, producing a guaranteed 0-byte file.
+
+**Fix:** new `atomicWriteBase64(filePath, base64, oldFilePath)` helper in `Main.qml`:
+
+- Writes to a temp file (`<file>.tmp`) first, verifies it is non-empty (`[ -s "$t" ]`), then atomically renames over the target with `mv -f`.
+- Only removes the old file **after** the new file is safely in place (and only when the old path differs from the new path).
+- Passes `filePath`, `oldFilePath`, and `base64` via argv (not string interpolation) — shell-injection safe and robust against filenames with spaces/quotes.
+- Refuses empty writes up front (`base64.length === 0`) and logs a warning instead of truncating the target.
+- `saveNoteCard` now validates `note.id` and `JSON.stringify` length ≥ 10 before writing.
+
+Applied to `savePinnedFile`, `saveNoteCard`, `updateNoteCard`, and `exportNoteCard`.
+
+Also: `Component.onCompleted` now sweeps any stale `*.json.tmp` files left over from previous interrupted writes, so a crash mid-hotfix cannot leak temp files indefinitely.
+
+## Version 2.4.2 (2026-04-22)
+
+### Fix ReferenceError on plugin teardown
+
+- Removed a dead `wlCopyProc` reference in `Component.onDestruction` (`Main.qml`) that threw `ReferenceError: wlCopyProc is not defined` when the panel or shell was torn down. The id was left over from an earlier refactor; wl-copy usage already lives in `copyToClipboardProc` and direct `Quickshell.execDetached(["wl-copy", ...])` calls, so no replacement logic is needed.
+
+## Version 2.4.1 (2026-04-21)
+
+### Fix Qt.btoa deprecation warnings
+
+- Replaced three deprecated `Qt.btoa(string)` calls in `Main.qml` (`savePinnedFile`, `exportNoteCard`, `saveNoteCard`) with a new `stringToBase64(str)` helper that encodes the string to UTF-8 bytes as a `Uint8Array` and passes it to the non-deprecated `Qt.btoa(array-like)` overload.
+- Simplified the matching `Qt.atob()` call: the array-like overload returns a `Uint8Array` directly, so the intermediate string + `charCodeAt` loop was removed.
+- Side benefit: `exportNoteCard()` now writes properly encoded UTF-8 `.txt` files — previously, notes containing non-ASCII characters (Polish, emoji, Cyrillic, etc.) were written with Latin-1 byte encoding.
+- No behavior change for existing `pinned.json` / `notecards/*.json` files: `JSON.stringify` already escapes non-ASCII to `\uNNNN`, so the base64 output is effectively identical for ASCII-safe JSON.
+
+## Version 2.4.0 (2026-04-20)
+
+### Live-Preview Settings, Panel Size Controls, i18n Cleanup
+
+**Settings live-preview with revert-on-cancel:**
+- All settings changes apply immediately as a live preview via `_applyPreview()`
+- Snapshot taken on `Component.onCompleted`; reverted on `Component.onDestruction` if user cancels (Apply not clicked)
+- `saveSettings()` sets `_applied = true` to suppress revert
+
+**New panel size controls (Appearance tab):**
+- `NSpinBox` for panel width (400–3840 px, step 50) — hidden in fullscreen mode
+- `NSpinBox` for panel height (0–2160 px, step 50, 0 = auto) — hidden in fullscreen mode
+- `Panel.qml` now reads `panelWidth`/`panelHeight` from settings instead of hardcoded 1450
+
+**Hide Panel Background gating:**
+- "Hide Panel Background" toggle and its divider are now hidden when NoteCards are enabled
+
+**i18n cleanup:**
+- Removed all `|| "fallback"` suffixes from `pluginApi?.tr()` calls across all 11 QML files
+- Added 4 new translation keys (`panel-width`, `panel-width-desc`, `panel-height`, `panel-height-desc`) to all 17 language files
+
+**manifest.json:**
+- Version bumped to `2.4.0`
+- Added `defaultSettings`: `fullscreenMode`, `hidePanelBackground`, `autoPaste`, `autoPasteOnRightClick`, `autoPasteDelay`, `panelWidth`, `panelHeight`, `cardColors`, `customColors`
+
 ## Version 1.4.0 (2026-02-04)
 
 ### NoteCards / Sticky Notes Feature 🎉

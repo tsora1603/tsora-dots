@@ -253,19 +253,19 @@ Item {
   function pinItem(cliphistId) {
     // Validate cliphistId is numeric only (prevents command injection)
     if (!cliphistId || !/^\d+$/.test(String(cliphistId))) {
-      ToastService.showError(pluginApi?.tr("toast.invalid-clipboard-item") || "Invalid clipboard item");
+      ToastService.showError(pluginApi?.tr("toast.invalid-clipboard-item"));
       return;
     }
 
     if (root.pinnedItems.length >= maxPinnedItems) {
-      ToastService.showWarning((pluginApi?.tr("toast.max-pinned-items") || "Maximum {max} pinned items reached").replace("{max}", maxPinnedItems));
+      ToastService.showWarning(pluginApi?.tr("toast.max-pinned-items").replace("{max}", maxPinnedItems));
       return;
     }
 
     // Find item in current items list to get preview
     const item = root.items.find(i => i.id === cliphistId);
     if (!item) {
-      ToastService.showError(pluginApi?.tr("toast.item-not-found") || "Item not found in clipboard");
+      ToastService.showError(pluginApi?.tr("toast.item-not-found"));
       return;
     }
 
@@ -304,7 +304,7 @@ Item {
 
     onExited: exitCode => {
                 if (exitCode !== 0) {
-                  ToastService.showError(pluginApi?.tr("toast.failed-to-pin") || "Failed to pin item");
+                  ToastService.showError(pluginApi?.tr("toast.failed-to-pin"));
                   return;
                 }
 
@@ -312,14 +312,14 @@ Item {
                   // For images, stdout.text contains base64-encoded data
                   const base64 = String(stdout.text).trim();
                   if (!base64 || base64.length === 0) {
-                    ToastService.showError(pluginApi?.tr("toast.failed-to-pin-image") || "Failed to pin image");
+                    ToastService.showError(pluginApi?.tr("toast.failed-to-pin-image"));
                     return;
                   }
 
                   // Validate image size (approximate: base64 is ~33% larger)
                   const estimatedSize = (base64.length * 3) / 4;
                   if (estimatedSize > root.maxImageSize) {
-                    ToastService.showWarning(pluginApi?.tr("toast.image-too-large") || "Image too large to pin (max 5MB)");
+                    ToastService.showWarning(pluginApi?.tr("toast.image-too-large"));
                     return;
                   }
 
@@ -329,7 +329,7 @@ Item {
                   // For text, validate size (max 1MB)
                   const textContent = String(stdout.text);
                   if (textContent.length > root.maxTextSize) {
-                    ToastService.showWarning(pluginApi?.tr("toast.text-too-large") || "Text too large to pin (max 1MB)");
+                    ToastService.showWarning(pluginApi?.tr("toast.text-too-large"));
                     return;
                   }
 
@@ -346,8 +346,73 @@ Item {
                 Quickshell.execDetached(["cliphist", "delete", String(cliphistId)]);
 
                 root.pinnedRevision++;
-                ToastService.showNotice(pluginApi?.tr("toast.item-pinned") || "Item pinned");
+                ToastService.showNotice(pluginApi?.tr("toast.item-pinned"));
               }
+  }
+
+  // Helper: encode a UTF-8 string to base64 using the non-deprecated Qt.btoa(array-like) overload.
+  // Qt.btoa(string) is deprecated since Qt 6.8 and its output differs for non-ASCII characters
+  // (Latin-1 byte-per-char vs proper UTF-8). This helper encodes to UTF-8 bytes first.
+  function stringToBase64(str) {
+    var s = String(str);
+    var bytes = [];
+    for (var i = 0; i < s.length; i++) {
+      var code = s.charCodeAt(i);
+      if (code < 0x80) {
+        bytes.push(code);
+      } else if (code < 0x800) {
+        bytes.push(0xC0 | (code >> 6));
+        bytes.push(0x80 | (code & 0x3F));
+      } else if (code >= 0xD800 && code <= 0xDBFF && i + 1 < s.length) {
+        // UTF-16 surrogate pair → Unicode code point
+        var high = code;
+        var low = s.charCodeAt(i + 1);
+        if (low >= 0xDC00 && low <= 0xDFFF) {
+          var cp = 0x10000 + ((high - 0xD800) << 10) + (low - 0xDC00);
+          bytes.push(0xF0 | (cp >> 18));
+          bytes.push(0x80 | ((cp >> 12) & 0x3F));
+          bytes.push(0x80 | ((cp >> 6) & 0x3F));
+          bytes.push(0x80 | (cp & 0x3F));
+          i++;
+        } else {
+          bytes.push(0xEF, 0xBF, 0xBD); // U+FFFD replacement character for lone surrogate
+        }
+      } else {
+        bytes.push(0xE0 | (code >> 12));
+        bytes.push(0x80 | ((code >> 6) & 0x3F));
+        bytes.push(0x80 | (code & 0x3F));
+      }
+    }
+    return Qt.btoa(new Uint8Array(bytes));
+  }
+
+  // Atomic write: decode base64 to a temp file, verify non-empty, then rename
+  // onto the target. Optionally rm a stale filename (from a rename) only after
+  // the new file is verified on disk. All paths are passed through argv — not
+  // interpolated into the shell string — so filenames with spaces or shell
+  // metacharacters cannot break the command. Replaces the prior
+  // `echo | base64 -d > file` pattern which truncated the target before any
+  // data flowed and left 0-byte files whenever the shell was killed between
+  // the open-for-truncate syscall and the write (shutdown, panel teardown,
+  // interrupted process, empty base64, etc.). On any failure, the original
+  // file is preserved untouched.
+  function atomicWriteBase64(filePath, base64, oldFilePath) {
+    if (!filePath || typeof filePath !== "string") {
+      Logger.w("Clipper", "atomicWriteBase64: missing filePath");
+      return;
+    }
+    if (!base64 || base64.length === 0) {
+      Logger.w("Clipper", "atomicWriteBase64: refusing empty write to " + filePath);
+      return;
+    }
+    const script = 'p="$1"; t="${1}.tmp"; o="$2"; ' +
+                   'echo "$3" | base64 -d > "$t" && ' +
+                   '[ -s "$t" ] && ' +
+                   'mv -f "$t" "$p" && ' +
+                   '{ [ -z "$o" ] || [ "$o" = "$p" ] || rm -f "$o"; } ' +
+                   '|| { rm -f "$t"; exit 1; }';
+    Quickshell.execDetached(["sh", "-c", script, "atomicWrite",
+                             filePath, oldFilePath || "", base64]);
   }
 
   // Function to save pinned items to file
@@ -356,14 +421,10 @@ Item {
       items: root.pinnedItems
     };
     const json = JSON.stringify(data, null, 2);
-
-    // Use base64 encoding to safely pass JSON through shell
-    // Qt.btoa() produces valid base64 (A-Z, a-z, 0-9, +, /, =) - no shell metacharacters
-    // File path is constant, not user-controlled
-    const base64 = Qt.btoa(json);
+    const base64 = stringToBase64(json);
     const filePath = Quickshell.env("HOME") + "/.config/noctalia/plugins/clipper/pinned.json";
 
-    Quickshell.execDetached(["sh", "-c", `echo "${base64}" | base64 -d > "${filePath}"`]);
+    atomicWriteBase64(filePath, base64);
   }
 
   // Function to unpin item
@@ -371,7 +432,7 @@ Item {
     root.pinnedItems = root.pinnedItems.filter(item => item.id !== pinnedId);
     root.savePinnedFile();
     root.pinnedRevision++;
-    ToastService.showNotice(pluginApi?.tr("toast.item-unpinned") || "Item unpinned");
+    ToastService.showNotice(pluginApi?.tr("toast.item-unpinned"));
   }
 
   // ==================== SCRATCHPAD FUNCTIONS ====================
@@ -379,7 +440,7 @@ Item {
   // Function to create a new scratchpad note
   function createNoteCard(initialText) {
     if (root.noteCards.length >= maxNoteCards) {
-      ToastService.showWarning((pluginApi?.tr("toast.max-notes") || "Maximum {max} notes reached").replace("{max}", maxNoteCards));
+      ToastService.showWarning(pluginApi?.tr("toast.max-notes").replace("{max}", maxNoteCards));
       return null;
     }
 
@@ -403,6 +464,7 @@ Item {
     const newNote = {
       id: noteId,
       title: "",
+      isPrivate: false,
       content: initialText || "",
       x: baseX,
       y: baseY,
@@ -423,7 +485,7 @@ Item {
     // Save to file
     saveNoteCard(newNote);
 
-    ToastService.showNotice(pluginApi?.tr("toast.note-created") || "Note created");
+    ToastService.showNotice(pluginApi?.tr("toast.note-created"));
     return noteId;
   }
 
@@ -444,10 +506,14 @@ Item {
 
     const newFilename = getNoteFilename(updatedNote);
 
-    // If filename changed (title changed), delete old file
+    // Track the stale filename so saveNoteCard / atomicWriteBase64 can delete
+    // it atomically only AFTER the new file is successfully on disk. The
+    // previous code fired rm and save in parallel via execDetached, which
+    // could reorder so that rm landed after a failed save — wiping both
+    // files at once. Never again.
+    let oldFilePathToReplace = "";
     if (oldFilename !== newFilename && updates.title !== undefined) {
-      const oldFilePath = root.noteCardsDir + "/" + oldFilename;
-      Quickshell.execDetached(["rm", oldFilePath]);
+      oldFilePathToReplace = root.noteCardsDir + "/" + oldFilename;
     }
 
     // Immutable array update
@@ -460,8 +526,8 @@ Item {
     root.noteCards = newNotes;
     root.noteCardsRevision++;
 
-    // Save to file
-    saveNoteCard(updatedNote);
+    // Save to file (old filename is removed only on successful new save)
+    saveNoteCard(updatedNote, oldFilePathToReplace);
   }
 
   // Function to delete a note card
@@ -486,7 +552,7 @@ Item {
     root.noteCards = root.noteCards.filter(n => n.id !== noteId);
     root.noteCardsRevision++;
 
-    ToastService.showNotice(pluginApi?.tr("toast.note-deleted") || "Note deleted");
+    ToastService.showNotice(pluginApi?.tr("toast.note-deleted"));
   }
 
   // Function to clear all note cards and delete files from disk
@@ -513,14 +579,14 @@ Item {
     root.noteCards = [];
     root.noteCardsRevision++;
 
-    ToastService.showNotice(pluginApi?.tr("toast.notes-cleared") || "All notes cleared");
+    ToastService.showNotice(pluginApi?.tr("toast.notes-cleared"));
   }
 
   // Function to export scratchpad note to .txt file
   function exportNoteCard(noteId) {
     const note = root.noteCards.find(n => n.id === noteId);
     if (!note) {
-      ToastService.showError(pluginApi?.tr("toast.note-not-found") || "Note not found");
+      ToastService.showError(pluginApi?.tr("toast.note-not-found"));
       return;
     }
 
@@ -529,9 +595,9 @@ Item {
     const fileName = "notecard_" + timestamp + ".txt";
     const filePath = Quickshell.env("HOME") + "/Documents/" + fileName;
 
-    // Use base64 encoding to safely pass content through shell
-    const base64 = Qt.btoa(note.content || "");
-    Quickshell.execDetached(["sh", "-c", `echo "${base64}" | base64 -d > "${filePath}"`]);
+    // Atomic write so a partial/killed export cannot leave a 0-byte .txt
+    const base64 = stringToBase64(note.content || "");
+    atomicWriteBase64(filePath, base64);
 
     // Store exported filename - append to list so all exports are tracked
     const existingExports = note.exportedFiles || [];
@@ -539,7 +605,7 @@ Item {
                           exportedFiles: [...existingExports, fileName]
                         });
 
-    ToastService.showNotice((pluginApi?.tr("toast.note-exported") || "Note exported to ~/Documents/{fileName}").replace("{fileName}", fileName));
+    ToastService.showNotice(pluginApi?.tr("toast.note-exported").replace("{fileName}", fileName));
   }
 
   // Helper function to generate safe filename from note title
@@ -567,15 +633,24 @@ Item {
     return title + ".json";
   }
 
-  // Function to save individual notecard to file
-  function saveNoteCard(note) {
+  // Function to save individual notecard to file.
+  // oldFilePath (optional) is the previous on-disk filename when the note
+  // has been renamed — atomicWriteBase64 removes it only after the new file
+  // is verified non-empty, so a failed save never wipes the old data.
+  function saveNoteCard(note, oldFilePath) {
+    if (!note || !note.id) {
+      Logger.w("Clipper", "saveNoteCard: refusing to save invalid note");
+      return;
+    }
     const filename = getNoteFilename(note);
     const filePath = root.noteCardsDir + "/" + filename;
     const json = JSON.stringify(note, null, 2);
-
-    // Use base64 encoding to safely pass JSON through shell
-    const base64 = Qt.btoa(json);
-    Quickshell.execDetached(["sh", "-c", `echo "${base64}" | base64 -d > "${filePath}"`]);
+    if (!json || json.length < 10) {
+      Logger.w("Clipper", "saveNoteCard: refusing suspiciously small JSON for note " + note.id);
+      return;
+    }
+    const base64 = stringToBase64(json);
+    atomicWriteBase64(filePath, base64, oldFilePath);
   }
 
   // Function to save all note cards (saves each to individual file)
@@ -617,9 +692,9 @@ Item {
 
     onExited: exitCode => {
                 if (exitCode === 0) {
-                  ToastService.showNotice(pluginApi?.tr("toast.copied-to-clipboard") || "Copied to clipboard");
+                  ToastService.showNotice(pluginApi?.tr("toast.copied-to-clipboard"));
                 } else {
-                  ToastService.showError(pluginApi?.tr("toast.failed-to-copy-image") || "Failed to copy image");
+                  ToastService.showError(pluginApi?.tr("toast.failed-to-copy-image"));
                 }
                 stdinEnabled = true;  // Re-enable for next use
               }
@@ -634,9 +709,9 @@ Item {
 
     onExited: exitCode => {
                 if (exitCode === 0) {
-                  ToastService.showNotice(pluginApi?.tr("toast.copied-to-clipboard") || "Copied to clipboard");
+                  ToastService.showNotice(pluginApi?.tr("toast.copied-to-clipboard"));
                 } else {
-                  ToastService.showError(pluginApi?.tr("toast.failed-to-copy-text") || "Failed to copy text");
+                  ToastService.showError(pluginApi?.tr("toast.failed-to-copy-text"));
                 }
                 stdinEnabled = true;  // Re-enable for next use
               }
@@ -654,19 +729,16 @@ Item {
       // Extract base64 from data URL: data:image/png;base64,iVBORw0K...
       const matches = item.content.match(/^data:([^;]+);base64,(.+)$/);
       if (!matches) {
-        ToastService.showError(pluginApi?.tr("toast.failed-to-copy-image") || "Failed to copy image");
+        ToastService.showError(pluginApi?.tr("toast.failed-to-copy-image"));
         return;
       }
 
       const mimeType = matches[1];
       const base64Data = matches[2];
 
-      // Decode base64 to binary in JavaScript (no shell commands)
-      const binaryStr = Qt.atob(base64Data);
-      const bytes = new Uint8Array(binaryStr.length);
-      for (let i = 0; i < binaryStr.length; i++) {
-        bytes[i] = binaryStr.charCodeAt(i);
-      }
+      // Decode base64 to binary bytes (no shell commands).
+      // Qt.atob() with array-like overload returns a Uint8Array directly (non-deprecated form).
+      const bytes = new Uint8Array(Qt.atob(base64Data));
 
       // Copy binary data directly via Process stdin
       copyPinnedImageProc.running = true;
@@ -755,10 +827,10 @@ Item {
                   if (selectedText && selectedText.length > 0) {
                     root.addTodoWithText(selectedText, root.pendingPageId);
                   } else {
-                    ToastService.showError(pluginApi?.tr("toast.no-text-selected") || "No text selected");
+                    ToastService.showError(pluginApi?.tr("toast.no-text-selected"));
                   }
                 } else {
-                  ToastService.showError(pluginApi?.tr("toast.failed-to-get-selection") || "Failed to get selection");
+                  ToastService.showError(pluginApi?.tr("toast.failed-to-get-selection"));
                 }
               }
   }
@@ -766,13 +838,13 @@ Item {
   // Add todo with text to specified page via direct PluginService API
   function addTodoWithText(text, pageId) {
     if (!text || text.length === 0) {
-      ToastService.showError(pluginApi?.tr("toast.no-text-to-add") || "No text to add");
+      ToastService.showError(pluginApi?.tr("toast.no-text-to-add"));
       return;
     }
 
     const todoApi = PluginService.getPluginAPI("todo");
     if (!todoApi) {
-      ToastService.showError(pluginApi?.tr("toast.todo-not-available") || "ToDo plugin not available");
+      ToastService.showError(pluginApi?.tr("toast.todo-not-available"));
       return;
     }
 
@@ -797,7 +869,7 @@ Item {
     todoApi.pluginSettings.count = todos.length;
     todoApi.saveSettings();
 
-    ToastService.showNotice(pluginApi?.tr("toast.added-to-todo") || "Added to ToDo");
+    ToastService.showNotice(pluginApi?.tr("toast.added-to-todo"));
 
     // Also copy to clipboard
     Quickshell.execDetached(["wl-copy", "--", text]);
@@ -811,7 +883,7 @@ Item {
 
     onExited: exitCode => {
                 if (exitCode !== 0) {
-                  ToastService.showError(pluginApi?.tr("toast.failed-to-copy") || "Failed to copy to clipboard");
+                  ToastService.showError(pluginApi?.tr("toast.failed-to-copy"));
                 }
               }
   }
@@ -829,7 +901,7 @@ Item {
   function copyToClipboard(id) {
     // Validate id is numeric only (prevents command injection)
     if (!id || !/^\d+$/.test(String(id))) {
-      ToastService.showError(pluginApi?.tr("toast.invalid-clipboard-item") || "Invalid clipboard item");
+      ToastService.showError(pluginApi?.tr("toast.invalid-clipboard-item"));
       return;
     }
 
@@ -843,7 +915,7 @@ Item {
   function deleteById(id) {
     // Validate id is numeric only (prevents command injection)
     if (!id || !/^\d+$/.test(String(id))) {
-      ToastService.showError(pluginApi?.tr("toast.invalid-clipboard-item") || "Invalid clipboard item");
+      ToastService.showError(pluginApi?.tr("toast.invalid-clipboard-item"));
       return;
     }
 
@@ -883,7 +955,7 @@ Item {
   // Add selected text to specific page
   function addSelectedToPage(pageId) {
     if (!pluginApi?.pluginSettings?.enableTodoIntegration) {
-      ToastService.showError(pluginApi?.tr("toast.todo-disabled") || "ToDo integration is disabled");
+      ToastService.showError(pluginApi?.tr("toast.todo-disabled"));
       return;
     }
 
@@ -940,7 +1012,7 @@ Item {
     // Usage: qs -c noctalia-shell ipc call plugin:clipper addSelectionToTodo
     function addSelectionToTodo() {
       if (!pluginApi?.pluginSettings?.enableTodoIntegration) {
-        ToastService.showError(pluginApi?.tr("toast.todo-disabled") || "ToDo integration is disabled");
+        ToastService.showError(pluginApi?.tr("toast.todo-disabled"));
         return;
       }
       // Get selected text first, then show selector
@@ -980,10 +1052,10 @@ Item {
                   if (selectedText && selectedText.length > 0) {
                     root.showTodoPageSelector(selectedText);
                   } else {
-                    ToastService.showError(pluginApi?.tr("toast.no-text-selected") || "No text selected");
+                    ToastService.showError(pluginApi?.tr("toast.no-text-selected"));
                   }
                 } else {
-                  ToastService.showError(pluginApi?.tr("toast.failed-to-get-selection") || "Failed to get selection");
+                  ToastService.showError(pluginApi?.tr("toast.failed-to-get-selection"));
                 }
               }
   }
@@ -1017,7 +1089,7 @@ Item {
     if (todoPageSelector) {
       todoPageSelector.show(text, todoPages);
     } else {
-      ToastService.showError(pluginApi?.tr("toast.could-not-open-todo") || "Could not open ToDo selector");
+      ToastService.showError(pluginApi?.tr("toast.could-not-open-todo"));
     }
   }
 
@@ -1043,7 +1115,7 @@ Item {
                    if (noteCardSelector) {
                      noteCardSelector.show(text, root.noteCards);
                    } else {
-                     ToastService.showError(pluginApi?.tr("toast.could-not-open-note-selector") || "Could not open note selector");
+                     ToastService.showError(pluginApi?.tr("toast.could-not-open-note-selector"));
                    }
                  });
   }
@@ -1063,7 +1135,7 @@ Item {
       const todoApi = PluginService.getPluginAPI("todo");
       if (todoApi && todoApi.mainInstance) {
         todoApi.mainInstance.addTextToNewPage(root.pendingSelectedText);
-        ToastService.showNotice(pluginApi?.tr("toast.todo-page-created") || "New ToDo page created");
+        ToastService.showNotice(pluginApi?.tr("toast.todo-page-created"));
       }
       root.pendingSelectedText = "";
     }
@@ -1090,11 +1162,11 @@ Item {
         noteCardsChanged();
         saveNoteCard(noteCards[i]);
 
-        ToastService.showNotice(pluginApi?.tr("toast.text-added-to-note") || "Text added to note");
+        ToastService.showNotice(pluginApi?.tr("toast.text-added-to-note"));
         return;
       }
     }
-    ToastService.showError(pluginApi?.tr("toast.note-not-found") || "Note not found");
+    ToastService.showError(pluginApi?.tr("toast.note-not-found"));
   }
 
   // ToDo page selector (single instance, uses first screen)
@@ -1172,10 +1244,10 @@ Item {
                   if (selectedText && selectedText.length > 0) {
                     root.showNoteCardSelector(selectedText);
                   } else {
-                    ToastService.showError(pluginApi?.tr("toast.no-text-selected") || "No text selected");
+                    ToastService.showError(pluginApi?.tr("toast.no-text-selected"));
                   }
                 } else {
-                  ToastService.showError(pluginApi?.tr("toast.failed-to-get-selection") || "Failed to get selection");
+                  ToastService.showError(pluginApi?.tr("toast.failed-to-get-selection"));
                 }
               }
   }
@@ -1236,6 +1308,14 @@ Item {
     // Create notecards directory if it doesn't exist
     Quickshell.execDetached(["mkdir", "-p", root.noteCardsDir]);
 
+    // Sweep any stale .tmp files left over from a prior interrupted atomic
+    // write (shell killed between tmp-write and rename). These are never
+    // meaningful data; leaving them around would confuse the `jq -s '*.json'`
+    // loader on next start.
+    Quickshell.execDetached(["sh", "-c",
+                             'find "$1" -maxdepth 1 -name "*.json.tmp" -type f -delete 2>/dev/null',
+                             "cleanTmp", root.noteCardsDir]);
+
     // Force reload pinned items from file
     pinnedFile.reload();
 
@@ -1263,8 +1343,6 @@ Item {
       getSelectionForNoteSelectorProcess.terminate();
     if (copyToClipboardProc.running)
       copyToClipboardProc.terminate();
-    if (wlCopyProc.running)
-      wlCopyProc.terminate();
     if (deleteItemProc.running)
       deleteItemProc.terminate();
     if (wipeProc.running)

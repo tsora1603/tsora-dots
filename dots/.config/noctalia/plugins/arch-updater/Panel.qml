@@ -34,6 +34,24 @@ Item {
             }
             spacing: Style.marginL
 
+            RowLayout {
+                visible: pluginApi.pluginSettings.closeButton ?? pluginApi.manifest.metadata.defaultSettings.closeButton
+                NText {
+                    Layout.fillWidth: true
+                    text: pluginApi?.tr("panel.title")
+                    pointSize: Style.fontSizeXL
+                    font.weight: Font.Bold
+                    color: Color.mOnSurface
+                    horizontalAlignment: Text.AlignHCenter
+                }
+                NIconButton {
+                    icon: "close"
+                    onClicked: {
+                        pluginApi.closePanel(pluginApi.panelOpenScreen)
+                    }
+                }
+            }
+
             // Header
             RowLayout {
                 Layout.fillWidth: true

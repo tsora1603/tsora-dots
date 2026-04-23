@@ -9,6 +9,7 @@
         "settings": "Settings"
     },
     "panel": {
+        "title": "Arch Updater",
         "name": "Name",
         "oldVer": "Old Version",
         "newVer": "New Version",
@@ -37,6 +38,8 @@
         "desktopTipDesc": "Enable hover tip for desktop widget",
         "hideOnEmpty": "Hide on empty",
         "hideOnEmptyDesc": "Hide if no updates are available",
+        "closeButton": "Close Button",
+        "closeButtonDesc": "Show close button in the panel",
         "refreshTimer": "Refresh timer",
         "refreshTimerDesc": "Refresh on a timer",
         "interval": "Refresh interval",

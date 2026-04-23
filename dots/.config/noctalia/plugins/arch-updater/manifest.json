@@ -1,7 +1,7 @@
 {
   "id": "arch-updater",
   "name": "Arch Updater",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "minNoctaliaVersion": "3.6.0",
   "author": "Ast",
   "license": "MIT",
@@ -38,7 +38,8 @@
       "enableColorization": false,
       "iconColor": "none",
       "boldVer": true,
-      "tooltip": true
+      "tooltip": true,
+      "closeButton": false
     }
   }
 }

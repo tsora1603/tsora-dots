@@ -32,6 +32,9 @@ ColumnLayout {
     // Hide the bar widget when there are no updates
     property bool hideOnEmpty: pluginApi.pluginSettings.hideOnEmpty ?? pluginApi.manifest.metadata.defaultSettings.hideOnEmpty
 
+    // Show close button in panel
+    property bool closeButton: pluginApi.pluginSettings.closeButton ?? pluginApi.manifest.metadata.defaultSettings.closeButton
+
     // Refresh after time intervals
     property bool refreshTimer: pluginApi.pluginSettings.refreshTimer ?? pluginApi.manifest.metadata.defaultSettings.refreshTimer
 
@@ -186,6 +189,26 @@ ColumnLayout {
             description: pluginApi.tr("settings.hideOnEmptyDesc")
             checked: root.hideOnEmpty
             onToggled: checked => root.hideOnEmpty = checked
+        }
+    }
+
+    NDivider {
+        Layout.fillWidth: true
+        Layout.topMargin: Style.marginS
+        Layout.bottomMargin: Style.marginS
+    }
+
+     // Close Button Toggle
+    Item {
+        Layout.fillWidth: true
+        Layout.preferredHeight: closeButtonToggle.implicitHeight
+        NToggle {
+            id: closeButtonToggle
+            anchors.fill: parent
+            label: pluginApi.tr("settings.closeButton")
+            description: pluginApi.tr("settings.closeButtonDesc")
+            checked: root.closeButton
+            onToggled: checked => root.closeButton = checked
         }
     }
 
@@ -438,6 +461,7 @@ ColumnLayout {
         pluginApi.pluginSettings.toast = root.toast
         pluginApi.pluginSettings.desktopTip = root.desktopTip
         pluginApi.pluginSettings.hideOnEmpty = root.hideOnEmpty
+        pluginApi.pluginSettings.closeButton = root.closeButton
         pluginApi.pluginSettings.refreshTimer = root.refreshTimer
 
         pluginApi.pluginSettings.refreshInterval = root.refreshInterval
