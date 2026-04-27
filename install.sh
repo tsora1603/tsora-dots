@@ -9,6 +9,7 @@ sudo pacman -Syu \
     cliphist \
     curl \
     equibop \
+    eza \
     feh \
     ffmpeg \
     firefoxpwa \
