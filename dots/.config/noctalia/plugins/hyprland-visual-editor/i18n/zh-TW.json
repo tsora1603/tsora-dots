@@ -1,251 +1,250 @@
 {
   "meta": {
     "lang": "zh-TW",
-    "name": "English",
+    "name": "繁體中文",
     "author": "Ximo & AI"
   },
   "widget": {
-    "tooltip": "Hyprland Visual Editor",
-    "menu_settigs": "Plugin Settings"
+    "tooltip": "Hyprland 視覺編輯器",
+    "menu_settings": "外掛程式設定"
   },
   "panel": {
-    "header_title": "Hyprland Visual",
-    "header_subtitle": "Aesthetic Control Center",
+    "header_title": "Hyprland 視覺",
+    "header_subtitle": "美學控制中心",
     "tabs": {
-      "home": "Home",
-      "animations": "Animations",
-      "borders": "Borders",
-      "effects": "Effects"
+      "home": "首頁",
+      "animations": "動畫",
+      "borders": "邊框",
+      "effects": "效果"
     }
   },
   "welcome": {
     "toast": {
-    "enabled": "Visual Editor Enabled",
-    "disabled": "Visual Editor Disabled"
+      "enabled": "視覺編輯器已啟用",
+      "disabled": "視覺編輯器已停用"
     },
-    "activation_title": "System Activation",
-    "system_active": "The system is operational. Visual effects are safely managed by HVE.",
-    "system_inactive": "System halted. Requires acceptance of the persistence contract to continue.",
-    "enable_label": "Enable Visual Editor",
+    "activation_title": "系統啟動",
+    "system_active": "系統正在運作。視覺效果由 HVE 安全管理。",
+    "system_inactive": "系統已停止。需要接受持久性合約才能繼續。",
+    "enable_label": "啟用視覺編輯器",
     "warning": {
-      "title": "SECURE PERSISTENCE CONTRACT",
-      "text": "Upon activation, HVE will deploy a <b>guardian shield</b> and inject a secure path into your <code>hyprland.conf</code>. If you uninstall the plugin from the Shell, the system will self-clean on the next reboot without causing Hyprland errors."
+      "title": "安全持久性合約",
+      "text": "啟動後，HVE 將部署<b>守護盾牌</b>並向您的 <code>hyprland.conf</code> 注入安全路徑。如果您從 Shell 中卸載外掛程式，系統將在下次重新啟動時自動清理，而不會導致 Hyprland 錯誤。"
     },
     "features": {
-      "title": "Features & Benefits",
-      "description": "Hyprland Visual Editor is the aesthetic evolution of your desktop.",
+      "title": "功能與優勢",
+      "description": "Hyprland 視覺編輯器是您桌面的美學進化。",
       "list": {
-        "fluid_anim": "✨ <b>Fluid Animations</b>",
-        "smart_borders": "🎨 <b>Smart Borders</b>",
-        "realtime_shaders": "🕶️ <b>Real-Time Shaders</b>",
-        "non_destructive": "🛡️ <b>Non-Destructive</b>"
+        "fluid_anim": "✨ <b>流暢動畫</b>",
+        "smart_borders": "🎨 <b>智慧邊框</b>",
+        "realtime_shaders": "🕶️ <b>即時著色器</b>",
+        "non_destructive": "🛡️ <b>非破壞性</b>"
       }
     },
     "docs": {
-      "title": "Architecture & Documentation",
-      "description": "Discover how HVE works under the hood.",
-      "summary": "<b>Hyprland Visual Editor</b> uses a real-time <i>Fragments and Assembly</i> system. It never touches your main configuration. Everything is safely generated in an isolated <code>overlay.conf</code> master file.",
-      "btn_readme": "Read Full Manual",
-      "btn_folder": "Browse Files"
+      "title": "架構與文件",
+      "description": "發現 HVE 的內部工作原理。",
+      "summary": "<b>Hyprland 視覺編輯器</b> 使用即時<i>片段與組裝</i>系統。它永遠不會觸碰您的主配置檔案。所有內容都在隔離的 <code>overlay.conf</code> 主檔案中安全生成。",
+      "btn_readme": "閱讀完整手冊",
+      "btn_folder": "瀏覽檔案"
     },
     "credits": {
-      "title": "Credits",
-      "description": "Special thanks to the <b>HyDE Project</b>.",
-      "btn_hyde": "Inspired by HyDE Project",
-      "ai_title": "AI Co-Programmed",
-      "ai_desc": "QML Architecture and path debugging assistance by Gemini (Google)."
+      "title": "致謝",
+      "description": "特別感謝 <b>HyDE 專案</b>。",
+      "btn_hyde": "受 HyDE 專案啟發",
+      "ai_title": "AI 協同編程",
+      "ai_desc": "QML 架構和路徑除錯由 Gemini (Google) 協助。"
     }
   },
   "animations": {
-    "header_title": "Motion Library",
-    "header_subtitle": "Select the animation style for your desktop",
+    "header_title": "運動庫",
+    "header_subtitle": "為您的桌面選擇動畫風格",
     "presets": {
       "01_relampago": {
-        "title": "Lightning",
-        "desc": "Maximum visual response."
+        "title": "閃電",
+        "desc": "最大視覺響應。"
       },
       "02_inercia_elastica": {
-        "title": "Elastic Inertia",
-        "desc": "Organic movement. Windows gain momentum on exit and bounce on entry."
+        "title": "彈性慣性",
+        "desc": "有機運動。視窗在退出時獲得動量，在進入時彈跳。"
       },
       "03_seda_minimalista": {
-        "title": "Minimalist Silk",
-        "desc": "Absolute smoothness. No bounces, just perfect macOS-style landings."
+        "title": "極簡絲綢",
+        "desc": "絕對流暢。沒有彈跳，只有完美的 macOS 風格著陸。"
       },
       "04_minimalismo_snappy": {
-        "title": "Snappy Minimalism",
-        "desc": "Optimized for maximum speed. Window and workspace management only."
+        "title": "敏捷極簡",
+        "desc": "針對最大速度優化。僅視窗和工作區管理。"
       },
       "05_material_moderno": {
-        "title": "Modern Material",
-        "desc": "Google Pixel aesthetic. Organic animations, subtle scaling, and tactile response."
+        "title": "現代材質",
+        "desc": "Google Pixel 美學。有機動畫、微妙縮放和觸覺響應。"
       },
       "06_impacto_clasico": {
-        "title": "Classic Impact",
-        "desc": "\"Jelly\" effect. Elastic bounce on entry and anticipation on exit."
+        "title": "經典衝擊",
+        "desc": "\"果凍\"效果。進入時彈性彈跳，退出時預期。"
       },
       "07_lineal": {
-        "title": "Linear",
-        "desc": "Mathematical precision. Constant motion, \"Sci-Fi HUD\" style."
+        "title": "線性",
+        "desc": "數學精度。持續運動，\"科幻 HUD\"風格。"
       },
       "08_cristal": {
-        "title": "Glass",
-        "desc": "Ethereal glide. Feeling of glass floating without friction."
+        "title": "玻璃",
+        "desc": "空靈滑行。無摩擦漂浮的玻璃感。"
       },
       "09_seda_silk": {
-        "title": "Silk",
-        "desc": "Refined JaKooLit style. Energetic entries, fleeting exits, and stable workspaces."
+        "title": "絲綢",
+        "desc": "精緻的 JaKooLit 風格。充滿活力的進入、短暫的退出和穩定的工作區。"
       },
       "10_retro_arcade": {
-        "title": "Retro Arcade",
-        "desc": "\"Toon/Arcade\" effect. Windows jump and bounce exaggeratedly."
+        "title": "復古街機",
+        "desc": "\"卡通/街機\"效果。視窗跳躍和誇張彈跳。"
       },
       "11_futurista": {
-        "title": "Futuristic",
-        "desc": "Holographic interface. Digital precision, zero bounces, and vertical data flow."
+        "title": "未來主義",
+        "desc": "全息介面。數位精度，零彈跳，垂直數據流。"
       },
       "12_rebote": {
-        "title": "Bounce",
-        "desc": "Vertical spring physics. Windows fall and bounce upon opening."
+        "title": "彈跳",
+        "desc": "垂直彈簧物理。視窗打開時落下並彈跳。"
       },
       "13_organico": {
-        "title": "Organic",
-        "desc": "\"Sprout\" movement. Smooth vertical growth and slow fades."
+        "title": "有機",
+        "desc": "\"發芽\"運動。平滑垂直生長和緩慢淡出。"
       },
       "14_elastico": {
-        "title": "Elastic",
-        "desc": "Rubber band physics. Windows arrive, stretch, and bounce vertically."
+        "title": "彈性",
+        "desc": "橡皮筋物理。視窗到達、拉伸並垂直彈跳。"
       },
       "15_desvanecido": {
-        "title": "Fade",
-        "desc": "Spectral materialization. Windows appear smoothly with barely any movement."
+        "title": "淡入",
+        "desc": "光譜物質化。視窗平滑出現，幾乎沒有移動。"
       },
       "16_dinamico": {
-        "title": "Dynamic",
-        "desc": "Organic rhythm. Combination of speed and smooth settling."
+        "title": "動態",
+        "desc": "有機節奏。速度與平滑沉降的結合。"
       },
       "17_sutil": {
-        "title": "Subtle",
-        "desc": "Zero distractions. Absolute smoothness without bounces or abrupt movements."
+        "title": "微妙",
+        "desc": "零干擾。沒有彈跳或突然移動的絕對流暢。"
       },
       "18_energico": {
-        "title": "Energetic",
-        "desc": "Maximum visual impact. Exaggerated bounces (56%) and kickback exits."
+        "title": "充滿活力",
+        "desc": "最大視覺衝擊。誇張彈跳 (56%) 和反彈退出。"
       }
     }
   },
   "borders": {
     "geometry": {
-      "title": "Border Thickness",
-      "desc": "Define line thickness (0-5px)"
+      "title": "邊框厚度",
+      "desc": "定義線條粗細 (0-5px)"
     },
-    "header_title": "Visual Styles",
-    "header_subtitle": "Define your windows' personality",
+    "header_title": "視覺風格",
+    "header_subtitle": "定義視窗的個性",
     "presets": {
       "01_cascade": {
-        "title": "Cascade",
-        "desc": "Soft vertical gradient at 50%."
+        "title": "層疊",
+        "desc": "50% 處的柔和垂直漸變。"
       },
       "02_diagonal": {
-        "title": "Diagonal",
-        "desc": "Dynamic angle fade."
+        "title": "對角線",
+        "desc": "動態角度淡出。"
       },
       "03_duo": {
-        "title": "Duo Contrast",
-        "desc": "Strong Primary/Secondary contrast."
+        "title": "雙色對比",
+        "desc": "強烈的主/次對比。"
       },
       "04_tri": {
-        "title": "Trident",
-        "desc": "Tricolor elegance with gold."
+        "title": "三叉戟",
+        "desc": "帶金色的三色優雅。"
       },
       "05_spectrum": {
-        "title": "Spectrum",
-        "desc": "Four colors for maximum visibility."
+        "title": "光譜",
+        "desc": "四種顏色以實現最大可見性。"
       },
       "06_pulse": {
-        "title": "Pulse",
-        "desc": "Rotates once when selecting window."
+        "title": "脈衝",
+        "desc": "選擇視窗時旋轉一次。"
       },
       "07_infinity": {
-        "title": "Infinity",
-        "desc": "Constant color rotation."
+        "title": "無限",
+        "desc": "持續顏色旋轉。"
       },
       "08_neon": {
-        "title": "Neon Breath",
-        "desc": "Slow and relaxing oscillation."
+        "title": "霓虹呼吸",
+        "desc": "緩慢放鬆的振盪。"
       },
       "09_glitch": {
-        "title": "Cyber Glitch",
-        "desc": "Aggressive, fast, and error colors."
+        "title": "賽博故障",
+        "desc": "激進、快速和錯誤顏色。"
       },
       "10_golden": {
-        "title": "Golden Luxury",
-        "desc": "Gold metallic reflections."
+        "title": "金色奢華",
+        "desc": "金色金屬反射。"
       },
       "11_toxic": {
-        "title": "Toxic Green",
-        "desc": "Fluor green metallic reflections."
+        "title": "毒綠",
+        "desc": "熒光綠金屬反射。"
       },
       "12_neon_cyberpunk": {
-        "title": "Neon Cyber-Glow (Dual)",
-        "desc": "Simulation of bicolor brightness using a white/violet light base."
+        "title": "霓虹賽博光 (雙)",
+        "desc": "使用白/紫光基礎模擬雙色亮度。"
       },
       "13_the_joker": {
-        "title": "The Joker",
-        "desc": "Joker aesthetic: Acid green and deep purple with an electric glow."
+        "title": "小丑",
+        "desc": "小丑美學：酸綠色和深紫色帶電光。"
       }
     }
   },
   "shaders": {
-    "header_title": "Screen Filters",
-    "header_subtitle": "Real-time image post-processing",
+    "header_title": "螢幕濾鏡",
+    "header_subtitle": "即時影像後處理",
     "presets": {
       "01_night": {
-        "title": "Night Light",
-        "desc": "Warm filter to protect eyesight."
+        "title": "夜燈",
+        "desc": "保護視力的暖色濾鏡。"
       },
       "02_mono": {
-        "title": "Monochrome",
-        "desc": "Grayscale for concentration."
+        "title": "單色",
+        "desc": "用於專注的灰階。"
       },
       "03_vibrant": {
-        "title": "Vibrant",
-        "desc": "Intelligently enhances colors."
+        "title": "鮮豔",
+        "desc": "智慧增強顏色。"
       },
       "04_sharp": {
-        "title": "HD Sharpness",
-        "desc": "Improves border and text definition."
+        "title": "HD 銳度",
+        "desc": "改善邊框和文字定義。"
       },
       "05_ink": {
-        "title": "E-Ink Paper",
-        "desc": "Sepia electronic paper texture."
+        "title": "電子墨水紙",
+        "desc": "棕褐色電子紙紋理。"
       },
       "06_invert": {
-        "title": "Inverted",
-        "desc": "Inverts all colors."
+        "title": "反轉",
+        "desc": "反轉所有顏色。"
       },
       "07_oled": {
-        "title": "OLED Mode",
-        "desc": "Pure blacks and dramatic contrast."
+        "title": "OLED 模式",
+        "desc": "純黑和戲劇性對比。"
       },
       "08_vision": {
-        "title": "Night Vision",
-        "desc": "Military green phosphor effect."
+        "title": "夜視",
+        "desc": "軍綠色磷光效果。"
       },
       "09_hybrid": {
-        "title": "Hybrid",
-        "desc": "Balance between correction and style."
+        "title": "混合",
+        "desc": "校正與風格之間的平衡。"
       }
     }
   },
   "settings": {
-    "path": {
-      "label": "Config Path",
-      "desc": "Absolute path for the satellite configuration file."
-    },
-    "autoapply": {
-      "label": "Auto Apply",
-      "desc": "Automatically reload Hyprland when settings change."
-    }
+    "preview_label": "預覽",
+    "change_icon_button": "更改小部件圖標",
+    "icon_color_label": "圖標顏色",
+    "autoapply_label": "自動應用",
+    "autoapply_description": "保存時立即重新加載 Hyprland",
+    "path_label": "配置路徑",
+    "path_desc": "衛星配置檔案的絕對路徑。"
   }
 }

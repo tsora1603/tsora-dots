@@ -1,251 +1,250 @@
 {
   "meta": {
     "lang": "uk-UA",
-    "name": "English",
+    "name": "Українська",
     "author": "Ximo & AI"
   },
   "widget": {
-    "tooltip": "Hyprland Visual Editor",
-    "menu_settings": "Plugin Settings"
+    "tooltip": "Hyprland Візуальний Редактор",
+    "menu_settings": "Налаштування Плагіна"
   },
   "panel": {
-    "header_title": "Hyprland Visual",
-    "header_subtitle": "Aesthetic Control Center",
+    "header_title": "Hyprland Візуальний",
+    "header_subtitle": "Естетичний Центр Керування",
     "tabs": {
-      "home": "Home",
-      "animations": "Animations",
-      "borders": "Borders",
-      "effects": "Effects"
+      "home": "Головна",
+      "animations": "Анімації",
+      "borders": "Кордони",
+      "effects": "Ефекти"
     }
   },
   "welcome": {
     "toast": {
-    "enabled": "Visual Editor Enabled",
-    "disabled": "Visual Editor Disabled"
+      "enabled": "Візуальний Редактор Увімкнено",
+      "disabled": "Візуальний Редактор Вимкнено"
     },
-    "activation_title": "System Activation",
-    "system_active": "The system is operational. Visual effects are safely managed by HVE.",
-    "system_inactive": "System halted. Requires acceptance of the persistence contract to continue.",
-    "enable_label": "Enable Visual Editor",
+    "activation_title": "Активація Системи",
+    "system_active": "Система працює. Візуальні ефекти безпечно керуються HVE.",
+    "system_inactive": "Система зупинена. Вимагає прийняття договору стійкості для продовження.",
+    "enable_label": "Увімкнути Візуальний Редактор",
     "warning": {
-      "title": "SECURE PERSISTENCE CONTRACT",
-      "text": "Upon activation, HVE will deploy a <b>guardian shield</b> and inject a secure path into your <code>hyprland.conf</code>. If you uninstall the plugin from the Shell, the system will self-clean on the next reboot without causing Hyprland errors."
+      "title": "БЕЗПЕЧНИЙ ДОГОВІР СТІЙКОСТІ",
+      "text": "Після активації HVE розгорне <b>захисний щит</b> та ін'єктуватиме безпечний шлях у ваш <code>hyprland.conf</code>. Якщо ви вимонтуєте плагін з Shell, система самостійно очиститься при наступному перезапуску без викликання помилок Hyprland."
     },
     "features": {
-      "title": "Features & Benefits",
-      "description": "Hyprland Visual Editor is the aesthetic evolution of your desktop.",
+      "title": "Функції та Переваги",
+      "description": "Hyprland Візуальний Редактор — це естетична еволюція вашого робочого столу.",
       "list": {
-        "fluid_anim": "✨ <b>Fluid Animations</b>",
-        "smart_borders": "🎨 <b>Smart Borders</b>",
-        "realtime_shaders": "🕶️ <b>Real-Time Shaders</b>",
-        "non_destructive": "🛡️ <b>Non-Destructive</b>"
+        "fluid_anim": "✨ <b>Плавні Анімації</b>",
+        "smart_borders": "🎨 <b>Розумні Кордони</b>",
+        "realtime_shaders": "🕶️ <b>Шейдери в Реальному Часі</b>",
+        "non_destructive": "🛡️ <b>Неруйнівний</b>"
       }
     },
     "docs": {
-      "title": "Architecture & Documentation",
-      "description": "Discover how HVE works under the hood.",
-      "summary": "<b>Hyprland Visual Editor</b> uses a real-time <i>Fragments and Assembly</i> system. It never touches your main configuration. Everything is safely generated in an isolated <code>overlay.conf</code> master file.",
-      "btn_readme": "Read Full Manual",
-      "btn_folder": "Browse Files"
+      "title": "Архітектура та Документація",
+      "description": "Відкрийте для себе, як працює HVE під капотом.",
+      "summary": "<b>Hyprland Візуальний Редактор</b> використовує систему <i>Фрагментів та Збірки</i> в реальному часі. Він ніколи не торкається вашої основної конфігурації. Все безпечно генерується в ізольованому головному файлі <code>overlay.conf</code>.",
+      "btn_readme": "Прочитати Повну Інструкцію",
+      "btn_folder": "Переглядати Файли"
     },
     "credits": {
-      "title": "Credits",
-      "description": "Special thanks to the <b>HyDE Project</b>.",
-      "btn_hyde": "Inspired by HyDE Project",
-      "ai_title": "AI Co-Programmed",
-      "ai_desc": "QML Architecture and path debugging assistance by Gemini (Google)."
+      "title": "Подяки",
+      "description": "Особлива подяка <b>Проекту HyDE</b>.",
+      "btn_hyde": "Інспіровано Проектом HyDE",
+      "ai_title": "Спільно Програмовано ШІ",
+      "ai_desc": "Архітектура QML та допомога в налагодженні шляхів від Gemini (Google)."
     }
   },
   "animations": {
-    "header_title": "Motion Library",
-    "header_subtitle": "Select the animation style for your desktop",
+    "header_title": "Бібліотека Руху",
+    "header_subtitle": "Виберіть стиль анімації для вашого робочого столу",
     "presets": {
       "01_relampago": {
-        "title": "Lightning",
-        "desc": "Maximum visual response."
+        "title": "Молнія",
+        "desc": "Максимальна візуальна реакція."
       },
       "02_inercia_elastica": {
-        "title": "Elastic Inertia",
-        "desc": "Organic movement. Windows gain momentum on exit and bounce on entry."
+        "title": "Еластична Інерція",
+        "desc": "Органічний рух. Вікна набирають імпульс при виході та відскакують при вході."
       },
       "03_seda_minimalista": {
-        "title": "Minimalist Silk",
-        "desc": "Absolute smoothness. No bounces, just perfect macOS-style landings."
+        "title": "Мінімалістичний Шовк",
+        "desc": "Абсолютна плавність. Без відскоків, лише ідеальні приземлення в стилі macOS."
       },
       "04_minimalismo_snappy": {
-        "title": "Snappy Minimalism",
-        "desc": "Optimized for maximum speed. Window and workspace management only."
+        "title": "Швидкий Мінімалізм",
+        "desc": "Оптимізовано для максимальної швидкості. Тільки керування вікнами та робочими областями."
       },
       "05_material_moderno": {
-        "title": "Modern Material",
-        "desc": "Google Pixel aesthetic. Organic animations, subtle scaling, and tactile response."
+        "title": "Сучасний Матеріал",
+        "desc": "Естетика Google Pixel. Органічні анімації, тонке масштабування та тактильна реакція."
       },
       "06_impacto_clasico": {
-        "title": "Classic Impact",
-        "desc": "\"Jelly\" effect. Elastic bounce on entry and anticipation on exit."
+        "title": "Класичний Вплив",
+        "desc": "Ефект \"Jelly\". Еластичний відскок при вході та очікування при виході."
       },
       "07_lineal": {
-        "title": "Linear",
-        "desc": "Mathematical precision. Constant motion, \"Sci-Fi HUD\" style."
+        "title": "Лінійний",
+        "desc": "Математична точність. Постійний рух, стиль \"Sci-Fi HUD\"."
       },
       "08_cristal": {
-        "title": "Glass",
-        "desc": "Ethereal glide. Feeling of glass floating without friction."
+        "title": "Скло",
+        "desc": "Ефірний ковзання. Відчуття плаваючого скла без тертя."
       },
       "09_seda_silk": {
-        "title": "Silk",
-        "desc": "Refined JaKooLit style. Energetic entries, fleeting exits, and stable workspaces."
+        "title": "Шовк",
+        "desc": "Вдосконалений стиль JaKooLit. Енергійні входи, миттєві виходи та стабільні робочі області."
       },
       "10_retro_arcade": {
-        "title": "Retro Arcade",
-        "desc": "\"Toon/Arcade\" effect. Windows jump and bounce exaggeratedly."
+        "title": "Ретро Аркада",
+        "desc": "Ефект \"Toon/Arcade\". Вікна стрибки та відскакують надмірно."
       },
       "11_futurista": {
-        "title": "Futuristic",
-        "desc": "Holographic interface. Digital precision, zero bounces, and vertical data flow."
+        "title": "Футуристичний",
+        "desc": "Голографічний інтерфейс. Цифрова точність, нуль відскоків та вертикальний потік даних."
       },
       "12_rebote": {
-        "title": "Bounce",
-        "desc": "Vertical spring physics. Windows fall and bounce upon opening."
+        "title": "Відскок",
+        "desc": "Вертикальна фізика пружини. Вікна падають та відскакують при відкритті."
       },
       "13_organico": {
-        "title": "Organic",
-        "desc": "\"Sprout\" movement. Smooth vertical growth and slow fades."
+        "title": "Органічний",
+        "desc": "Рух \"Проростання\". Плавний вертикальний ріст та повільне згасання."
       },
       "14_elastico": {
-        "title": "Elastic",
-        "desc": "Rubber band physics. Windows arrive, stretch, and bounce vertically."
+        "title": "Еластичний",
+        "desc": "Фізика гумової стрічки. Вікна прибувають, розтягуються та відскакують вертикально."
       },
       "15_desvanecido": {
-        "title": "Fade",
-        "desc": "Spectral materialization. Windows appear smoothly with barely any movement."
+        "title": "Зникнення",
+        "desc": "Спектральна матеріалізація. Вікна з'являються плавно з майже будь-яким рухом."
       },
       "16_dinamico": {
-        "title": "Dynamic",
-        "desc": "Organic rhythm. Combination of speed and smooth settling."
+        "title": "Динамічний",
+        "desc": "Органічний ритм. Поєднання швидкості та плавного осідання."
       },
       "17_sutil": {
-        "title": "Subtle",
-        "desc": "Zero distractions. Absolute smoothness without bounces or abrupt movements."
+        "title": "Субтильний",
+        "desc": "Нуль відволікаючих факторів. Абсолютна плавність без відскоків або різких рухів."
       },
       "18_energico": {
-        "title": "Energetic",
-        "desc": "Maximum visual impact. Exaggerated bounces (56%) and kickback exits."
+        "title": "Енергійний",
+        "desc": "Максимальний візуальний вплив. Надмірні відскоки (56%) та виходи kickback."
       }
     }
   },
   "borders": {
     "geometry": {
-      "title": "Border Thickness",
-      "desc": "Define line thickness (0-5px)"
+      "title": "Товщина Кордону",
+      "desc": "Визначте товщину лінії (0-5px)"
     },
-    "header_title": "Visual Styles",
-    "header_subtitle": "Define your windows' personality",
+    "header_title": "Візуальні Стилі",
+    "header_subtitle": "Визначте особистість ваших вікон",
     "presets": {
       "01_cascade": {
-        "title": "Cascade",
-        "desc": "Soft vertical gradient at 50%."
+        "title": "Каскад",
+        "desc": "М'який вертикальний градієнт на 50%."
       },
       "02_diagonal": {
-        "title": "Diagonal",
-        "desc": "Dynamic angle fade."
+        "title": "Діагональний",
+        "desc": "Динамічне згасання кута."
       },
       "03_duo": {
-        "title": "Duo Contrast",
-        "desc": "Strong Primary/Secondary contrast."
+        "title": "Дуо Контраст",
+        "desc": "Сильний Первинний/Вторинний контраст."
       },
       "04_tri": {
-        "title": "Trident",
-        "desc": "Tricolor elegance with gold."
+        "title": "Тридент",
+        "desc": "Триколірна елегантність із золотом."
       },
       "05_spectrum": {
-        "title": "Spectrum",
-        "desc": "Four colors for maximum visibility."
+        "title": "Спектр",
+        "desc": "Чотири кольори для максимальної видимості."
       },
       "06_pulse": {
-        "title": "Pulse",
-        "desc": "Rotates once when selecting window."
+        "title": "Пульс",
+        "desc": "Обертається один раз при виборі вікна."
       },
       "07_infinity": {
-        "title": "Infinity",
-        "desc": "Constant color rotation."
+        "title": "Бескінечність",
+        "desc": "Постійна обертка кольорів."
       },
       "08_neon": {
-        "title": "Neon Breath",
-        "desc": "Slow and relaxing oscillation."
+        "title": "Неонове Дихання",
+        "desc": "Повільне та заспокійливе коливання."
       },
       "09_glitch": {
-        "title": "Cyber Glitch",
-        "desc": "Aggressive, fast, and error colors."
+        "title": "Сайбер Глітч",
+        "desc": "Агресивне, швидке та кольори помилок."
       },
       "10_golden": {
-        "title": "Golden Luxury",
-        "desc": "Gold metallic reflections."
+        "title": "Золотий Люкс",
+        "desc": "Золоті металеві відблиски."
       },
       "11_toxic": {
-        "title": "Toxic Green",
-        "desc": "Fluor green metallic reflections."
+        "title": "Токсичний Зелений",
+        "desc": "Флуоресцентно-зелені металеві відблиски."
       },
       "12_neon_cyberpunk": {
-        "title": "Neon Cyber-Glow (Dual)",
-        "desc": "Simulation of bicolor brightness using a white/violet light base."
+        "title": "Неоновий Сайбер-Сяйво (Подвійний)",
+        "desc": "Симуляція двокольорової яскравості за допомогою білого/фіолетової основи світла."
       },
       "13_the_joker": {
-        "title": "The Joker",
-        "desc": "Joker aesthetic: Acid green and deep purple with an electric glow."
+        "title": "Джокер",
+        "desc": "Естетика Джокера: Кислотний зелений та глибокий фіолетовий з електричним сяйвом."
       }
     }
   },
   "shaders": {
-    "header_title": "Screen Filters",
-    "header_subtitle": "Real-time image post-processing",
+    "header_title": "Фільтри Екрану",
+    "header_subtitle": "Обробка зображення в реальному часі",
     "presets": {
       "01_night": {
-        "title": "Night Light",
-        "desc": "Warm filter to protect eyesight."
+        "title": "Нічне Світло",
+        "desc": "Теплий фільтр для захисту зору."
       },
       "02_mono": {
-        "title": "Monochrome",
-        "desc": "Grayscale for concentration."
+        "title": "Монохромний",
+        "desc": "Сірий для концентрації."
       },
       "03_vibrant": {
-        "title": "Vibrant",
-        "desc": "Intelligently enhances colors."
+        "title": "Яскравий",
+        "desc": "Інтелектуально покращує кольори."
       },
       "04_sharp": {
-        "title": "HD Sharpness",
-        "desc": "Improves border and text definition."
+        "title": "HD Гострота",
+        "desc": "Покращує визначення кордону та тексту."
       },
       "05_ink": {
-        "title": "E-Ink Paper",
-        "desc": "Sepia electronic paper texture."
+        "title": "E-Ink Папір",
+        "desc": "Сепія електронна паперова текстура."
       },
       "06_invert": {
-        "title": "Inverted",
-        "desc": "Inverts all colors."
+        "title": "Інвертований",
+        "desc": "Інвертує всі кольори."
       },
       "07_oled": {
-        "title": "OLED Mode",
-        "desc": "Pure blacks and dramatic contrast."
+        "title": "Режим OLED",
+        "desc": "Чисте чорне та драматичний контраст."
       },
       "08_vision": {
-        "title": "Night Vision",
-        "desc": "Military green phosphor effect."
+        "title": "Нічне Бачення",
+        "desc": "Військово-зелений ефект фосфору."
       },
       "09_hybrid": {
-        "title": "Hybrid",
-        "desc": "Balance between correction and style."
+        "title": "Гібридний",
+        "desc": "Баланс між корекцією та стилем."
       }
     }
   },
   "settings": {
-    "path": {
-      "label": "Config Path",
-      "desc": "Absolute path for the satellite configuration file."
-    },
-    "autoapply": {
-      "label": "Auto Apply",
-      "desc": "Automatically reload Hyprland when settings change."
-    }
+    "preview_label": "Попередній перегляд",
+    "change_icon_button": "Змінити Іконку Віджета",
+    "icon_color_label": "Колір Іконки",
+    "autoapply_label": "Одразу Застосувати",
+    "autoapply_description": "Миттєво перезавантажувати Hyprland при збереженні",
+    "path_label": "Шлях Конфігурації",
+    "path_desc": "Абсолютний шлях до файлу конфігурації супутника."
   }
 }

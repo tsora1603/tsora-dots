@@ -239,13 +239,12 @@
     }
   },
   "settings": {
-    "path": {
-      "label": "Konfigurationspfad",
-      "desc": "Absoluter Pfad für die Satelliten-Konfigurationsdatei."
-    },
-    "autoapply": {
-      "label": "Automatisch anwenden",
-      "desc": "Hyprland automatisch neu laden, wenn sich die Einstellungen ändern."
-    }
+    "preview_label": "Vorschau",
+    "change_icon_button": "Widget-Icon ändern",
+    "icon_color_label": "Icon-Farbe",
+    "autoapply_label": "Automatisch anwenden",
+    "autoapply_description": "Hyprland sofort neu laden beim Speichern",
+    "path_label": "Konfigurationspfad",
+    "path_desc": "Absoluter Pfad für die Satelliten-Konfigurationsdatei."
   }
 }

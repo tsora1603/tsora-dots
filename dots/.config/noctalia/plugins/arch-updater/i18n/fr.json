@@ -9,6 +9,7 @@
         "settings": "Paramètres"
     },
     "panel": {
+        "title": "Arch Updater",
         "name": "Nom",
         "oldVer": "Ancienne version",
         "newVer": "Nouvelle version",
@@ -37,6 +38,8 @@
         "desktopTipDesc": "Activer l'astuce au survol pour le widget de bureau",
         "hideOnEmpty": "Masquer si vide",
         "hideOnEmptyDesc": "Masquer s'il n'y a pas de mises à jour disponibles",
+        "closeButton": "Bouton de fermeture",
+        "closeButtonDesc": "Afficher le bouton de fermeture dans le panneau",
         "refreshTimer": "Actualisation périodique",
         "refreshTimerDesc": "Actualiser selon une minuterie",
         "interval": "Intervalle d'actualisation",

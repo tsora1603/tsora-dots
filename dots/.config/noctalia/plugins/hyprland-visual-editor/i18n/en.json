@@ -239,13 +239,12 @@
     }
   },
   "settings": {
-    "path": {
-      "label": "Config Path",
-      "desc": "Absolute path for the satellite configuration file."
-    },
-    "autoapply": {
-      "label": "Auto Apply",
-      "desc": "Automatically reload Hyprland when settings change."
-    }
+    "preview_label": "Preview",
+    "change_icon_button": "Change Widget Icon",
+    "icon_color_label": "Icon Color",
+    "autoapply_label": "Auto Apply",
+    "autoapply_description": "Instantly reload Hyprland when saving",
+    "path_label": "Config Path",
+    "path_desc": "Absolute path for the satellite configuration file."
   }
 }

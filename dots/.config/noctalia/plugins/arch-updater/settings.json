@@ -14,6 +14,9 @@
   "boldText": true,
   "enableColorization": false,
   "iconColor": "none",
+  "boldVer": true,
+  "tooltip": true,
+  "closeButton": false,
   "nameCmd": "(checkupdates; paru -Qua;) | awk '{print $1}'",
   "oldVerCmd": "(checkupdates; paru -Qua;) | awk '{print $2}'",
   "newVerCmd": "(checkupdates; paru -Qua;) | awk '{print $4}'"

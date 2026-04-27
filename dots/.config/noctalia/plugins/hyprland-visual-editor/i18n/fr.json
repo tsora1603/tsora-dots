@@ -239,13 +239,12 @@
     }
   },
   "settings": {
-    "path": {
-      "label": "Chemin de configuration",
-      "desc": "Chemin absolu pour le fichier de configuration satellite."
-    },
-    "autoapply": {
-      "label": "Application automatique",
-      "desc": "Recharger automatiquement Hyprland lorsque les paramètres changent."
-    }
+    "preview_label": "Aperçu",
+    "change_icon_button": "Changer l'icône du widget",
+    "icon_color_label": "Couleur de l'icône",
+    "autoapply_label": "Application automatique",
+    "autoapply_description": "Recharger instantanément Hyprland lors de la sauvegarde",
+    "path_label": "Chemin de configuration",
+    "path_desc": "Chemin absolu pour le fichier de configuration satellite."
   }
 }

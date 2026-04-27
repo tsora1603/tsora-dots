@@ -1,251 +1,250 @@
 {
   "meta": {
     "lang": "ja",
-    "name": "English",
+    "name": "日本語",
     "author": "Ximo & AI"
   },
   "widget": {
     "tooltip": "Hyprland Visual Editor",
-    "menu_settings": "Plugin Settings"
+    "menu_settings": "プラグイン設定"
   },
   "panel": {
     "header_title": "Hyprland Visual",
-    "header_subtitle": "Aesthetic Control Center",
+    "header_subtitle": "審美的なコントロールセンター",
     "tabs": {
-      "home": "Home",
-      "animations": "Animations",
-      "borders": "Borders",
-      "effects": "Effects"
+      "home": "ホーム",
+      "animations": "アニメーション",
+      "borders": "枠線",
+      "effects": "エフェクト"
     }
   },
   "welcome": {
     "toast": {
-    "enabled": "Visual Editor Enabled",
-    "disabled": "Visual Editor Disabled"
+      "enabled": "ビジュアルエディターを有効化",
+      "disabled": "ビジュアルエディターを無効化"
     },
-    "activation_title": "System Activation",
-    "system_active": "The system is operational. Visual effects are safely managed by HVE.",
-    "system_inactive": "System halted. Requires acceptance of the persistence contract to continue.",
-    "enable_label": "Enable Visual Editor",
+    "activation_title": "システム起動",
+    "system_active": "システムは稼働中です。視覚効果は HVE によって安全に管理されています。",
+    "system_inactive": "システムが停止しています。継続するには永続化契約の受諾が必要です。",
+    "enable_label": "ビジュアルエディターを有効にする",
     "warning": {
-      "title": "SECURE PERSISTENCE CONTRACT",
-      "text": "Upon activation, HVE will deploy a <b>guardian shield</b> and inject a secure path into your <code>hyprland.conf</code>. If you uninstall the plugin from the Shell, the system will self-clean on the next reboot without causing Hyprland errors."
+      "title": "安全な永続化契約",
+      "text": "アクティブ化時に、HVE は<b>守護者シールド</b>を展開し、<code>hyprland.conf</code>に安全なパスを注入します。Shell からプラグインをアンインストールした場合、システムは次の再起動時に自己クリーンアップを行い、Hyprland エラーを引き起こしません。"
     },
     "features": {
-      "title": "Features & Benefits",
-      "description": "Hyprland Visual Editor is the aesthetic evolution of your desktop.",
+      "title": "機能と利点",
+      "description": "Hyprland Visual Editor は、デスクトップの審美的な進化です。",
       "list": {
-        "fluid_anim": "✨ <b>Fluid Animations</b>",
-        "smart_borders": "🎨 <b>Smart Borders</b>",
-        "realtime_shaders": "🕶️ <b>Real-Time Shaders</b>",
-        "non_destructive": "🛡️ <b>Non-Destructive</b>"
+        "fluid_anim": "✨ <b>滑らかなアニメーション</b>",
+        "smart_borders": "🎨 <b>スマート枠線</b>",
+        "realtime_shaders": "🕶️ <b>リアルタイムシェーダー</b>",
+        "non_destructive": "🛡️ <b>非破壊的</b>"
       }
     },
     "docs": {
-      "title": "Architecture & Documentation",
-      "description": "Discover how HVE works under the hood.",
-      "summary": "<b>Hyprland Visual Editor</b> uses a real-time <i>Fragments and Assembly</i> system. It never touches your main configuration. Everything is safely generated in an isolated <code>overlay.conf</code> master file.",
-      "btn_readme": "Read Full Manual",
-      "btn_folder": "Browse Files"
+      "title": "アーキテクチャとドキュメント",
+      "description": "HVE の内部動作を発見してください。",
+      "summary": "<b>Hyprland Visual Editor</b> はリアルタイムの<i>フラグメントとアセンブリ</i>システムを使用します。メイン設定には一切触れません。すべてが安全に隔離された<code>overlay.conf</code>マスターファイルで生成されます。",
+      "btn_readme": "完全マニュアルを読む",
+      "btn_folder": "ファイルを閲覧"
     },
     "credits": {
-      "title": "Credits",
-      "description": "Special thanks to the <b>HyDE Project</b>.",
-      "btn_hyde": "Inspired by HyDE Project",
-      "ai_title": "AI Co-Programmed",
-      "ai_desc": "QML Architecture and path debugging assistance by Gemini (Google)."
+      "title": "クレジット",
+      "description": "<b>HyDE プロジェクト</b>に特別な感謝を。",
+      "btn_hyde": "HyDE プロジェクトからインスピレーション",
+      "ai_title": "AI と共同開発",
+      "ai_desc": "QML アーキテクチャとパスデバッグ支援は Gemini (Google) による。"
     }
   },
   "animations": {
-    "header_title": "Motion Library",
-    "header_subtitle": "Select the animation style for your desktop",
+    "header_title": "モーションライブラリ",
+    "header_subtitle": "デスクトップのアニメーションスタイルを選択",
     "presets": {
       "01_relampago": {
-        "title": "Lightning",
-        "desc": "Maximum visual response."
+        "title": "雷",
+        "desc": "最大限の視覚的反応。"
       },
       "02_inercia_elastica": {
-        "title": "Elastic Inertia",
-        "desc": "Organic movement. Windows gain momentum on exit and bounce on entry."
+        "title": "弾性慣性",
+        "desc": "有機的な動き。ウィンドウは退出時に勢いを持ち、進入時に跳ね返ります。"
       },
       "03_seda_minimalista": {
-        "title": "Minimalist Silk",
-        "desc": "Absolute smoothness. No bounces, just perfect macOS-style landings."
+        "title": "ミニマリストシルク",
+        "desc": "絶対的な滑らかさ。跳ね返りなし、macOS 風の完璧な着地のみ。"
       },
       "04_minimalismo_snappy": {
-        "title": "Snappy Minimalism",
-        "desc": "Optimized for maximum speed. Window and workspace management only."
+        "title": "スナッピーミニマリズム",
+        "desc": "最大速度に最適化。ウィンドウとワークスペース管理のみ。"
       },
       "05_material_moderno": {
-        "title": "Modern Material",
-        "desc": "Google Pixel aesthetic. Organic animations, subtle scaling, and tactile response."
+        "title": "モダンマテリアル",
+        "desc": "Google Pixel エステティクス。有機的なアニメーション、繊細なスケーリング、触覚的反応。"
       },
       "06_impacto_clasico": {
-        "title": "Classic Impact",
-        "desc": "\"Jelly\" effect. Elastic bounce on entry and anticipation on exit."
+        "title": "クラシックインパクト",
+        "desc": "\"Jelly\"効果。進入時の弾性跳ね返りと退出時の予期感。"
       },
       "07_lineal": {
-        "title": "Linear",
-        "desc": "Mathematical precision. Constant motion, \"Sci-Fi HUD\" style."
+        "title": "線形",
+        "desc": "数学的な精度。一定の動き、\"Sci-Fi HUD\"スタイル。"
       },
       "08_cristal": {
-        "title": "Glass",
-        "desc": "Ethereal glide. Feeling of glass floating without friction."
+        "title": "ガラス",
+        "desc": "エーテルな滑り。摩擦なしで浮遊するガラスの感覚。"
       },
       "09_seda_silk": {
-        "title": "Silk",
-        "desc": "Refined JaKooLit style. Energetic entries, fleeting exits, and stable workspaces."
+        "title": "シルク",
+        "desc": "洗練された JaKooLit スタイル。エネルギッシュな進入、一瞬の退出、安定したワークスペース。"
       },
       "10_retro_arcade": {
-        "title": "Retro Arcade",
-        "desc": "\"Toon/Arcade\" effect. Windows jump and bounce exaggeratedly."
+        "title": "レトロアーケード",
+        "desc": "\"Toon/Arcade\"効果。ウィンドウは誇張して跳ね、跳ね返ります。"
       },
       "11_futurista": {
-        "title": "Futuristic",
-        "desc": "Holographic interface. Digital precision, zero bounces, and vertical data flow."
+        "title": "未来的",
+        "desc": "ホログラフィックインターフェース。デジタル精度、ゼロ跳ね返り、垂直データフロー。"
       },
       "12_rebote": {
-        "title": "Bounce",
-        "desc": "Vertical spring physics. Windows fall and bounce upon opening."
+        "title": "バウンス",
+        "desc": "垂直スプリング物理。ウィンドウは落下し、開く際に跳ね返ります。"
       },
       "13_organico": {
-        "title": "Organic",
-        "desc": "\"Sprout\" movement. Smooth vertical growth and slow fades."
+        "title": "有機的",
+        "desc": "\"芽生え\"動き。滑らかな垂直成長とゆっくりとしたフェード。"
       },
       "14_elastico": {
-        "title": "Elastic",
-        "desc": "Rubber band physics. Windows arrive, stretch, and bounce vertically."
+        "title": "弾性",
+        "desc": "ゴムバンド物理。ウィンドウは到着し、伸び、垂直に跳ね返ります。"
       },
       "15_desvanecido": {
-        "title": "Fade",
-        "desc": "Spectral materialization. Windows appear smoothly with barely any movement."
+        "title": "フェード",
+        "desc": "スペクトラルな物質化。ほとんど動きなしで滑らかに現れます。"
       },
       "16_dinamico": {
-        "title": "Dynamic",
-        "desc": "Organic rhythm. Combination of speed and smooth settling."
+        "title": "動的",
+        "desc": "有機的なリズム。速度と滑らかな定着の組み合わせ。"
       },
       "17_sutil": {
-        "title": "Subtle",
-        "desc": "Zero distractions. Absolute smoothness without bounces or abrupt movements."
+        "title": "繊細",
+        "desc": "ゼロの distraction。跳ね返りや急な動きなしの絶対的な滑らかさ。"
       },
       "18_energico": {
-        "title": "Energetic",
-        "desc": "Maximum visual impact. Exaggerated bounces (56%) and kickback exits."
+        "title": "エネルギッシュ",
+        "desc": "最大限の視覚的インパクト。誇張された跳ね返り (56%) とキックバック退出。"
       }
     }
   },
   "borders": {
     "geometry": {
-      "title": "Border Thickness",
-      "desc": "Define line thickness (0-5px)"
+      "title": "枠線の太さ",
+      "desc": "線の太さを定義 (0-5px)"
     },
-    "header_title": "Visual Styles",
-    "header_subtitle": "Define your windows' personality",
+    "header_title": "視覚スタイル",
+    "header_subtitle": "ウィンドウの個性を定義",
     "presets": {
       "01_cascade": {
-        "title": "Cascade",
-        "desc": "Soft vertical gradient at 50%."
+        "title": "カスケード",
+        "desc": "50% の柔らかい垂直グラデーション。"
       },
       "02_diagonal": {
-        "title": "Diagonal",
-        "desc": "Dynamic angle fade."
+        "title": "対角線",
+        "desc": "ダイナミックな角度フェード。"
       },
       "03_duo": {
-        "title": "Duo Contrast",
-        "desc": "Strong Primary/Secondary contrast."
+        "title": "デュオコントラスト",
+        "desc": "強いプライマリ/セカンダリコントラスト。"
       },
       "04_tri": {
-        "title": "Trident",
-        "desc": "Tricolor elegance with gold."
+        "title": "トライデント",
+        "desc": "ゴールドのトリカラーエレガンス。"
       },
       "05_spectrum": {
-        "title": "Spectrum",
-        "desc": "Four colors for maximum visibility."
+        "title": "スペクトラム",
+        "desc": "最大可視性のための 4 色。"
       },
       "06_pulse": {
-        "title": "Pulse",
-        "desc": "Rotates once when selecting window."
+        "title": "パルス",
+        "desc": "ウィンドウ選択時に 1 回転。"
       },
       "07_infinity": {
-        "title": "Infinity",
-        "desc": "Constant color rotation."
+        "title": "無限",
+        "desc": "一定のカラー回転。"
       },
       "08_neon": {
-        "title": "Neon Breath",
-        "desc": "Slow and relaxing oscillation."
+        "title": "ネオンブレス",
+        "desc": "ゆっくりとしたリラックスする振動。"
       },
       "09_glitch": {
-        "title": "Cyber Glitch",
-        "desc": "Aggressive, fast, and error colors."
+        "title": "サイバーグリッチ",
+        "desc": "攻撃的、速く、エラーカラー。"
       },
       "10_golden": {
-        "title": "Golden Luxury",
-        "desc": "Gold metallic reflections."
+        "title": "ゴールデンラグジュアリー",
+        "desc": "ゴールドメタリック反射。"
       },
       "11_toxic": {
-        "title": "Toxic Green",
-        "desc": "Fluor green metallic reflections."
+        "title": "トキシックグリーン",
+        "desc": "蛍光グリーンメタリック反射。"
       },
       "12_neon_cyberpunk": {
-        "title": "Neon Cyber-Glow (Dual)",
-        "desc": "Simulation of bicolor brightness using a white/violet light base."
+        "title": "ネオンサイバーグロー（デュアル）",
+        "desc": "白/紫の光ベースを使用したバイカラー明るさのシミュレーション。"
       },
       "13_the_joker": {
-        "title": "The Joker",
-        "desc": "Joker aesthetic: Acid green and deep purple with an electric glow."
+        "title": "ザ・ジョーカー",
+        "desc": "ジョーカーエステティクス：酸味のあるグリーンと深いパープルに電気的な輝き。"
       }
     }
   },
   "shaders": {
-    "header_title": "Screen Filters",
-    "header_subtitle": "Real-time image post-processing",
+    "header_title": "スクリーンフィルター",
+    "header_subtitle": "リアルタイム画像ポストプロセッシング",
     "presets": {
       "01_night": {
-        "title": "Night Light",
-        "desc": "Warm filter to protect eyesight."
+        "title": "ナイトライト",
+        "desc": "視力保護のためのウォームフィルター。"
       },
       "02_mono": {
-        "title": "Monochrome",
-        "desc": "Grayscale for concentration."
+        "title": "モノクローム",
+        "desc": "集中のためのグレースケール。"
       },
       "03_vibrant": {
-        "title": "Vibrant",
-        "desc": "Intelligently enhances colors."
+        "title": "バイブレント",
+        "desc": "知的に色を強化。"
       },
       "04_sharp": {
-        "title": "HD Sharpness",
-        "desc": "Improves border and text definition."
+        "title": "HD シャープネス",
+        "desc": "枠線とテキストの定義を改善。"
       },
       "05_ink": {
-        "title": "E-Ink Paper",
-        "desc": "Sepia electronic paper texture."
+        "title": "E インクペーパー",
+        "desc": "セピア電子ペーパーテクスチャ。"
       },
       "06_invert": {
-        "title": "Inverted",
-        "desc": "Inverts all colors."
+        "title": "反転",
+        "desc": "すべての色を反転。"
       },
       "07_oled": {
-        "title": "OLED Mode",
-        "desc": "Pure blacks and dramatic contrast."
+        "title": "OLED モード",
+        "desc": "純粋な黒とドラマチックなコントラスト。"
       },
       "08_vision": {
-        "title": "Night Vision",
-        "desc": "Military green phosphor effect."
+        "title": "ナイトビジョン",
+        "desc": "軍用グリーンフォスフォール効果。"
       },
       "09_hybrid": {
-        "title": "Hybrid",
-        "desc": "Balance between correction and style."
+        "title": "ハイブリッド",
+        "desc": "補正とスタイルのバランス。"
       }
     }
   },
   "settings": {
-    "path": {
-      "label": "Config Path",
-      "desc": "Absolute path for the satellite configuration file."
-    },
-    "autoapply": {
-      "label": "Auto Apply",
-      "desc": "Automatically reload Hyprland when settings change."
-    }
+    "preview_label": "プレビュー",
+    "change_icon_button": "ウィジェットアイコンを変更",
+    "icon_color_label": "アイコンの色",
+    "autoapply_label": "自動適用",
+    "autoapply_description": "保存時に Hyprland を即座に再読み込み",
+    "path_label": "設定パス",
+    "path_desc": "サテライト設定ファイルの絶対パス。"
   }
 }

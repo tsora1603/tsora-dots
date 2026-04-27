@@ -108,7 +108,7 @@ Item {
                             Layout.preferredWidth: 0.4 * root.tableContentWidth
                             text: modelData.name
                             pointSize: Style.fontSizeM
-                            color: modelData.isFlatpak ? Color.mTertiary : Color.mSecondary
+                            color: (modelData.source == "flatpak") ? Color.mTertiary : (modelData.source == "system") ? Color.mSecondary : Color.mPrimary
                             elide: Text.ElideRight
                             maximumLineCount: 1
                         }
@@ -116,7 +116,7 @@ Item {
                             Layout.preferredWidth: 0.3 * root.tableContentWidth
                             text: modelData.oldVer
                             pointSize: Style.fontSizeM
-                            color: modelData.isFlatpak ? Color.mTertiary : Color.mSecondary
+                            color: (modelData.source == "flatpak") ? Color.mTertiary : (modelData.source == "system") ? Color.mSecondary : Color.mPrimary
                             horizontalAlignment: Text.AlignHCenter
                             elide: Text.ElideRight
                             maximumLineCount: 1
@@ -125,8 +125,8 @@ Item {
                             Layout.preferredWidth: 0.3 * root.tableContentWidth
                             text: modelData.newVer
                             pointSize: Style.fontSizeM
-                            font.weight: (pluginApi.pluginSettings.boldVer ?? pluginApi.manifest.metadata.defaultSettings.boldVer) ? Font.Bold : Font.Normal
-                            color: modelData.isFlatpak ? Color.mTertiary : Color.mSecondary
+                            font.weight: (pluginApi.pluginSettings.boldVerPanel ?? pluginApi.manifest.metadata.defaultSettings.boldVerPanel) ? Font.Bold : Font.Normal
+                            color: (modelData.source == "flatpak") ? Color.mTertiary : (modelData.source == "system") ? Color.mSecondary : Color.mPrimary
                             horizontalAlignment: Text.AlignHCenter
                             elide: Text.ElideRight
                             maximumLineCount: 1
@@ -142,7 +142,7 @@ Item {
                     Layout.fillWidth: true
                     text: pluginApi?.tr("panel.refresh")
                     onClicked: {
-                        Logger.d("Update Widget", "Refreshing from panel...")
+                        Logger.d("Arch Updater", "Refreshing from panel...")
                         root.pluginApi.mainInstance.refresh()
                     }
                 }
@@ -150,7 +150,7 @@ Item {
                     Layout.fillWidth: true
                     text: pluginApi?.tr("panel.update")
                     onClicked: {
-                        Logger.d("Update Widget", "Updating from panel...")
+                        Logger.d("Arch Updater", "Updating from panel...")
                         root.pluginApi.mainInstance.update()
                         pluginApi.closePanel(pluginApi.panelOpenScreen)
                     }
@@ -158,7 +158,7 @@ Item {
                 NIconButton {
                     icon: "settings"
                     onClicked: {
-                        Logger.d("Update Widget", "Opening settings from panel...")
+                        Logger.d("Arch Updater", "Opening settings from panel...")
                         BarService.openPluginSettings(pluginApi.panelOpenScreen, pluginApi.manifest)
                         pluginApi.closePanel(pluginApi.panelOpenScreen)
                     }

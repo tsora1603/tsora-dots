@@ -1,251 +1,250 @@
 {
   "meta": {
     "lang": "tr",
-    "name": "English",
+    "name": "Türkçe",
     "author": "Ximo & AI"
   },
   "widget": {
-    "tooltip": "Hyprland Visual Editor",
-    "menu_settings": "Plugin Settings"
+    "tooltip": "Hyprland Görsel Düzenleyici",
+    "menu_settings": "Eklenti Ayarları"
   },
   "panel": {
-    "header_title": "Hyprland Visual",
-    "header_subtitle": "Aesthetic Control Center",
+    "header_title": "Hyprland Görsel",
+    "header_subtitle": "Estetik Kontrol Merkezi",
     "tabs": {
-      "home": "Home",
-      "animations": "Animations",
-      "borders": "Borders",
-      "effects": "Effects"
+      "home": "Ana Sayfa",
+      "animations": "Animasyonlar",
+      "borders": "Kenarlıklar",
+      "effects": "Efektler"
     }
   },
   "welcome": {
     "toast": {
-    "enabled": "Visual Editor Enabled",
-    "disabled": "Visual Editor Disabled"
+      "enabled": "Görsel Düzenleyici Etkinleştirildi",
+      "disabled": "Görsel Düzenleyici Devre Dışı"
     },
-    "activation_title": "System Activation",
-    "system_active": "The system is operational. Visual effects are safely managed by HVE.",
-    "system_inactive": "System halted. Requires acceptance of the persistence contract to continue.",
-    "enable_label": "Enable Visual Editor",
+    "activation_title": "Sistem Aktivasyonu",
+    "system_active": "Sistem çalışıyor. Görsel efektler HVE tarafından güvenli bir şekilde yönetilmektedir.",
+    "system_inactive": "Sistem durduruldu. Devam etmek için kalıcılık sözleşmesini kabul etmeyi gerektirir.",
+    "enable_label": "Görsel Düzenleyiciyi Etkinleştir",
     "warning": {
-      "title": "SECURE PERSISTENCE CONTRACT",
-      "text": "Upon activation, HVE will deploy a <b>guardian shield</b> and inject a secure path into your <code>hyprland.conf</code>. If you uninstall the plugin from the Shell, the system will self-clean on the next reboot without causing Hyprland errors."
+      "title": "GÜVENLİ KALıcılık SÖZLEŞMESİ",
+      "text": "Aktivasyon sırasında HVE, <b>koruyucu kalkan</b> dağıtacak ve <code>hyprland.conf</code> dosyanıza güvenli bir yol enjekte edecektir. Eklentiyi Shell'den kaldırırsanız, sistem bir sonraki yeniden başlatmada Hyprland hatalarına neden olmadan kendini temizleyecektir."
     },
     "features": {
-      "title": "Features & Benefits",
-      "description": "Hyprland Visual Editor is the aesthetic evolution of your desktop.",
+      "title": "Özellikler ve Avantajlar",
+      "description": "Hyprland Görsel Düzenleyici, masaüstünüzün estetik evrimidir.",
       "list": {
-        "fluid_anim": "✨ <b>Fluid Animations</b>",
-        "smart_borders": "🎨 <b>Smart Borders</b>",
-        "realtime_shaders": "🕶️ <b>Real-Time Shaders</b>",
-        "non_destructive": "🛡️ <b>Non-Destructive</b>"
+        "fluid_anim": "✨ <b>Yumuşak Animasyonlar</b>",
+        "smart_borders": "🎨 <b>Akıllı Kenarlıklar</b>",
+        "realtime_shaders": "🕶️ <b>Gerçek Zamanlı Shader'lar</b>",
+        "non_destructive": "🛡️ <b>Yıkıcı Olmayan</b>"
       }
     },
     "docs": {
-      "title": "Architecture & Documentation",
-      "description": "Discover how HVE works under the hood.",
-      "summary": "<b>Hyprland Visual Editor</b> uses a real-time <i>Fragments and Assembly</i> system. It never touches your main configuration. Everything is safely generated in an isolated <code>overlay.conf</code> master file.",
-      "btn_readme": "Read Full Manual",
-      "btn_folder": "Browse Files"
+      "title": "Mimari ve Dokümantasyon",
+      "description": "HVE'nin nasıl çalıştığını keşfedin.",
+      "summary": "<b>Hyprland Görsel Düzenleyici</b>, gerçek zamanlı bir <i>Yer Parçaları ve Montaj</i> sistemi kullanır. Ana yapılandırmanıza asla dokunmaz. Her şey, izole bir <code>overlay.conf</code> ana dosyasında güvenli bir şekilde oluşturulur.",
+      "btn_readme": "Tam Kılavuzu Oku",
+      "btn_folder": "Dosyaları Gözat"
     },
     "credits": {
-      "title": "Credits",
-      "description": "Special thanks to the <b>HyDE Project</b>.",
-      "btn_hyde": "Inspired by HyDE Project",
-      "ai_title": "AI Co-Programmed",
-      "ai_desc": "QML Architecture and path debugging assistance by Gemini (Google)."
+      "title": "Katkıda Bulunanlar",
+      "description": "<b>HyDE Projesi</b>'ne özel teşekkürler.",
+      "btn_hyde": "HyDE Projesi İlhamı",
+      "ai_title": "Yapay Zeka ile Ortak Programlama",
+      "ai_desc": "QML Mimari ve yol ayıklama desteği Gemini (Google) tarafından sağlandı."
     }
   },
   "animations": {
-    "header_title": "Motion Library",
-    "header_subtitle": "Select the animation style for your desktop",
+    "header_title": "Hareket Kütüphanesi",
+    "header_subtitle": "Masaüstünüz için animasyon stilini seçin",
     "presets": {
       "01_relampago": {
-        "title": "Lightning",
-        "desc": "Maximum visual response."
+        "title": "Yıldırım",
+        "desc": "Maksimum görsel tepki."
       },
       "02_inercia_elastica": {
-        "title": "Elastic Inertia",
-        "desc": "Organic movement. Windows gain momentum on exit and bounce on entry."
+        "title": "Elastik İtme Kuvveti",
+        "desc": "Organik hareket. Pencreler çıkışta momentum kazanır ve girişte zıplar."
       },
       "03_seda_minimalista": {
-        "title": "Minimalist Silk",
-        "desc": "Absolute smoothness. No bounces, just perfect macOS-style landings."
+        "title": "Minimalist Kadife",
+        "desc": "Mutlak pürüzsüzlük. Zıplama yok, sadece mükemmel macOS tarzı inişler."
       },
       "04_minimalismo_snappy": {
-        "title": "Snappy Minimalism",
-        "desc": "Optimized for maximum speed. Window and workspace management only."
+        "title": "Hızlı Minimalizm",
+        "desc": "Maksimum hız için optimize edilmiştir. Pencere ve çalışma alanı yönetimi yalnızca."
       },
       "05_material_moderno": {
-        "title": "Modern Material",
-        "desc": "Google Pixel aesthetic. Organic animations, subtle scaling, and tactile response."
+        "title": "Modern Malzeme",
+        "desc": "Google Pixel estetiği. Organik animasyonlar, ince ölçeklendirme ve dokunsal tepki."
       },
       "06_impacto_clasico": {
-        "title": "Classic Impact",
-        "desc": "\"Jelly\" effect. Elastic bounce on entry and anticipation on exit."
+        "title": "Klasik Etki",
+        "desc": "\"Jelly\" efekti. Girişte elastik zıplama ve çıkışta beklenti."
       },
       "07_lineal": {
-        "title": "Linear",
-        "desc": "Mathematical precision. Constant motion, \"Sci-Fi HUD\" style."
+        "title": "Doğrusal",
+        "desc": "Matematiksel hassasiyet. Sürekli hareket, \"Bilim Kurgu HUD\" tarzı."
       },
       "08_cristal": {
-        "title": "Glass",
-        "desc": "Ethereal glide. Feeling of glass floating without friction."
+        "title": "Cam",
+        "desc": "Eter kayma. Sürtünme olmadan süzülen cam hissi."
       },
       "09_seda_silk": {
-        "title": "Silk",
-        "desc": "Refined JaKooLit style. Energetic entries, fleeting exits, and stable workspaces."
+        "title": "Kadife",
+        "desc": "İnce ayarlanmış JaKooLit stili. Enerjik girişler, geçici çıkışlar ve kararlı çalışma alanları."
       },
       "10_retro_arcade": {
         "title": "Retro Arcade",
-        "desc": "\"Toon/Arcade\" effect. Windows jump and bounce exaggeratedly."
+        "desc": "\"Çizgi/Harcade\" efekti. Pencreler aşırı derecede zıplar ve sekme yapar."
       },
       "11_futurista": {
-        "title": "Futuristic",
-        "desc": "Holographic interface. Digital precision, zero bounces, and vertical data flow."
+        "title": "Gelecekçi",
+        "desc": "Holografik arayüz. Dijital hassasiyet, sıfır zıplama ve dikey veri akışı."
       },
       "12_rebote": {
-        "title": "Bounce",
-        "desc": "Vertical spring physics. Windows fall and bounce upon opening."
+        "title": "Zıplama",
+        "desc": "Dikey yay fiziği. Pencreler açıldığında düşer ve zıplar."
       },
       "13_organico": {
-        "title": "Organic",
-        "desc": "\"Sprout\" movement. Smooth vertical growth and slow fades."
+        "title": "Organik",
+        "desc": "\"Çiçeklenme\" hareketi. Pürüzsüzlü dikey büyüme ve yavaş solmalar."
       },
       "14_elastico": {
-        "title": "Elastic",
-        "desc": "Rubber band physics. Windows arrive, stretch, and bounce vertically."
+        "title": "Elastik",
+        "desc": "Lastik bant fiziği. Pencreler gelir, gerilir ve dikey olarak zıplar."
       },
       "15_desvanecido": {
-        "title": "Fade",
-        "desc": "Spectral materialization. Windows appear smoothly with barely any movement."
+        "title": "Solma",
+        "desc": "Spektral somutlaşma. Pencreler neredeyse hiç hareket olmadan pürüzsüzlü bir şekilde belirir."
       },
       "16_dinamico": {
-        "title": "Dynamic",
-        "desc": "Organic rhythm. Combination of speed and smooth settling."
+        "title": "Dinamik",
+        "desc": "Organik ritim. Hız ve pürüzsüzlü yerleşimin kombinasyonu."
       },
       "17_sutil": {
-        "title": "Subtle",
-        "desc": "Zero distractions. Absolute smoothness without bounces or abrupt movements."
+        "title": "İnce",
+        "desc": "Sıfır dikkat dağıtıcılar. Zıplama veya ani hareketler olmadan mutlak pürüzsüzlük."
       },
       "18_energico": {
-        "title": "Energetic",
-        "desc": "Maximum visual impact. Exaggerated bounces (56%) and kickback exits."
+        "title": "Enerjik",
+        "desc": "Maksimum görsel etki. Aşırı zıplamalar (56%) ve geri tepme çıkışları."
       }
     }
   },
   "borders": {
     "geometry": {
-      "title": "Border Thickness",
-      "desc": "Define line thickness (0-5px)"
+      "title": "Kenarlık Kalınlığı",
+      "desc": "Çizgi kalınlığını tanımlayın (0-5px)"
     },
-    "header_title": "Visual Styles",
-    "header_subtitle": "Define your windows' personality",
+    "header_title": "Görsel Stiller",
+    "header_subtitle": "Pencerelerinizin kişiliğini tanımlayın",
     "presets": {
       "01_cascade": {
-        "title": "Cascade",
-        "desc": "Soft vertical gradient at 50%."
+        "title": "Kasnak",
+        "desc": "%50'de yumuşak dikey gradyan."
       },
       "02_diagonal": {
-        "title": "Diagonal",
-        "desc": "Dynamic angle fade."
+        "title": "Çapraz",
+        "desc": "Dinamik açı solması."
       },
       "03_duo": {
-        "title": "Duo Contrast",
-        "desc": "Strong Primary/Secondary contrast."
+        "title": "Duo Karşıtlık",
+        "desc": "Güçlü Birincil/İkincil kontrast."
       },
       "04_tri": {
         "title": "Trident",
-        "desc": "Tricolor elegance with gold."
+        "desc": "Altınla üç renkli zarafet."
       },
       "05_spectrum": {
         "title": "Spectrum",
-        "desc": "Four colors for maximum visibility."
+        "desc": "Maksimum görünürlük için dört renk."
       },
       "06_pulse": {
-        "title": "Pulse",
-        "desc": "Rotates once when selecting window."
+        "title": "Puls",
+        "desc": "Pencere seçildiğinde bir kez döner."
       },
       "07_infinity": {
-        "title": "Infinity",
-        "desc": "Constant color rotation."
+        "title": "Sonsuzluk",
+        "desc": "Sürekli renk döngüsü."
       },
       "08_neon": {
-        "title": "Neon Breath",
-        "desc": "Slow and relaxing oscillation."
+        "title": "Neon Nefes",
+        "desc": "Yavaş ve rahatlatıcı salınım."
       },
       "09_glitch": {
-        "title": "Cyber Glitch",
-        "desc": "Aggressive, fast, and error colors."
+        "title": "Siber Glitch",
+        "desc": "Agresif, hızlı ve hata renkleri."
       },
       "10_golden": {
-        "title": "Golden Luxury",
-        "desc": "Gold metallic reflections."
+        "title": "Altın Lüks",
+        "desc": "Altın metalik yansımalar."
       },
       "11_toxic": {
-        "title": "Toxic Green",
-        "desc": "Fluor green metallic reflections."
+        "title": "Zehirli Yeşil",
+        "desc": "Fluoresan yeşil metalik yansımalar."
       },
       "12_neon_cyberpunk": {
-        "title": "Neon Cyber-Glow (Dual)",
-        "desc": "Simulation of bicolor brightness using a white/violet light base."
+        "title": "Neon Siber-Işık (Çift)",
+        "desc": "Beyaz/mor ışık tabanı kullanarak iki renkli parlaklık simülasyonu."
       },
       "13_the_joker": {
-        "title": "The Joker",
-        "desc": "Joker aesthetic: Acid green and deep purple with an electric glow."
+        "title": "Joker",
+        "desc": "Joker estetiği: Asit yeşili ve derin mor ile elektrikli parıltı."
       }
     }
   },
   "shaders": {
-    "header_title": "Screen Filters",
-    "header_subtitle": "Real-time image post-processing",
+    "header_title": "Ekran Filtreleri",
+    "header_subtitle": "Gerçek zamanlı görüntü son işleme",
     "presets": {
       "01_night": {
-        "title": "Night Light",
-        "desc": "Warm filter to protect eyesight."
+        "title": "Gece Işığı",
+        "desc": "Göz sağlığını korumak için sıcak filtre."
       },
       "02_mono": {
-        "title": "Monochrome",
-        "desc": "Grayscale for concentration."
+        "title": "Monokrom",
+        "desc": "Odaklanma için gri tonlar."
       },
       "03_vibrant": {
-        "title": "Vibrant",
-        "desc": "Intelligently enhances colors."
+        "title": "Canlı",
+        "desc": "Zekice renkleri güçlendirir."
       },
       "04_sharp": {
-        "title": "HD Sharpness",
-        "desc": "Improves border and text definition."
+        "title": "HD Netlik",
+        "desc": "Kenarlık ve metin tanımlamalarını iyileştirir."
       },
       "05_ink": {
-        "title": "E-Ink Paper",
-        "desc": "Sepia electronic paper texture."
+        "title": "E-Tuğla Kağıt",
+        "desc": "Sepya elektronik kağıt dokusu."
       },
       "06_invert": {
-        "title": "Inverted",
-        "desc": "Inverts all colors."
+        "title": "Tersine Çevrildi",
+        "desc": "Tüm renkleri tersine çevirir."
       },
       "07_oled": {
-        "title": "OLED Mode",
-        "desc": "Pure blacks and dramatic contrast."
+        "title": "OLED Modu",
+        "desc": "Saf siyahlar ve dramatik kontrast."
       },
       "08_vision": {
-        "title": "Night Vision",
-        "desc": "Military green phosphor effect."
+        "title": "Gece Görüşü",
+        "desc": "Askeri yeşil fosfor efekti."
       },
       "09_hybrid": {
-        "title": "Hybrid",
-        "desc": "Balance between correction and style."
+        "title": "Hibrit",
+        "desc": "Düzeltme ve stil arasında denge."
       }
     }
   },
   "settings": {
-    "path": {
-      "label": "Config Path",
-      "desc": "Absolute path for the satellite configuration file."
-    },
-    "autoapply": {
-      "label": "Auto Apply",
-      "desc": "Automatically reload Hyprland when settings change."
-    }
+    "preview_label": "Önizleme",
+    "change_icon_button": "Widget İkonunu Değiştir",
+    "icon_color_label": "İkon Rengi",
+    "autoapply_label": "Otomatik Uygula",
+    "autoapply_description": "Kayıt sırasında Hyprland'ı anında yeniden yükle",
+    "path_label": "Yapılandırma Yolu",
+    "path_desc": "Satelit yapılandırma dosyası için mutlak yol."
   }
 }

@@ -239,13 +239,12 @@
     }
   },
   "settings": {
-    "path": {
-      "label": "Ruta de Configuración",
-      "desc": "Ruta absoluta para el archivo de configuración satélite."
-    },
-    "autoapply": {
-      "label": "Aplicación Automática",
-      "desc": "Recargar Hyprland automáticamente al cambiar los ajustes."
-    }
+    "preview_label": "Vista previa",
+    "change_icon_button": "Cambiar icono del widget",
+    "icon_color_label": "Color del icono",
+    "autoapply_label": "Aplicar automáticamente",
+    "autoapply_description": "Actualiza Hyprland al instante al guardar",
+    "path_label": "Ruta de Configuración",
+    "path_desc": "Ruta absoluta para el archivo de configuración satélite."
   }
 }

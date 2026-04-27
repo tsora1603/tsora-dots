@@ -152,9 +152,6 @@
                             "id": "plugin:catwalk"
                         },
                         {
-                            "id": "plugin:hyprland-visual-editor"
-                        },
-                        {
                             "colorizeIcons": false,
                             "hideMode": "hidden",
                             "iconScale": 0.8,
@@ -195,6 +192,33 @@
                             "textColor": "none",
                             "useFixedWidth": false,
                             "visualizerType": "mirrored"
+                        },
+                        {
+                            "defaultSettings": {
+                                "aurCmd": "paru -Qua 2>/dev/null",
+                                "boldText": true,
+                                "boldVer": true,
+                                "boldVerDesktop": true,
+                                "boldVerPanel": true,
+                                "closeButton": false,
+                                "customIconPath": "",
+                                "desktopTip": true,
+                                "enableColorization": false,
+                                "flatpak": true,
+                                "hideOnEmpty": false,
+                                "hoverTip": true,
+                                "iconColor": "none",
+                                "iconName": "arrow-big-down-lines",
+                                "noctalia": true,
+                                "refreshInterval": 120,
+                                "refreshTimer": true,
+                                "systemCmd": "checkupdates 2>/dev/null",
+                                "toast": true,
+                                "tooltip": true,
+                                "updateCmd": "ghostty -e bash -c 'echo \"Updating System...\";paru; flatpak update; read -n 1 -p \"Press any key to exit...\"'",
+                                "useDistroLogo": false
+                            },
+                            "id": "plugin:arch-updater"
                         },
                         {
                             "hideWhenZero": false,
@@ -277,9 +301,6 @@
                             "id": "plugin:catwalk"
                         },
                         {
-                            "id": "plugin:hyprland-visual-editor"
-                        },
-                        {
                             "colorizeIcons": false,
                             "hideMode": "hidden",
                             "iconScale": 0.8,
@@ -320,6 +341,33 @@
                             "textColor": "none",
                             "useFixedWidth": false,
                             "visualizerType": "mirrored"
+                        },
+                        {
+                            "defaultSettings": {
+                                "aurCmd": "paru -Qua 2>/dev/null",
+                                "boldText": true,
+                                "boldVer": true,
+                                "boldVerDesktop": true,
+                                "boldVerPanel": true,
+                                "closeButton": false,
+                                "customIconPath": "",
+                                "desktopTip": true,
+                                "enableColorization": false,
+                                "flatpak": true,
+                                "hideOnEmpty": false,
+                                "hoverTip": true,
+                                "iconColor": "none",
+                                "iconName": "arrow-big-down-lines",
+                                "noctalia": true,
+                                "refreshInterval": 120,
+                                "refreshTimer": true,
+                                "systemCmd": "checkupdates 2>/dev/null",
+                                "toast": true,
+                                "tooltip": true,
+                                "updateCmd": "ghostty -e bash -c 'echo \"Updating System...\";paru; flatpak update; read -n 1 -p \"Press any key to exit...\"'",
+                                "useDistroLogo": false
+                            },
+                            "id": "plugin:arch-updater"
                         },
                         {
                             "hideWhenZero": false,
@@ -370,18 +418,6 @@
                     "showBadge": false,
                     "showLabelsOnlyWhenOccupied": false,
                     "unfocusedIconsOpacity": 1
-                },
-                {
-                    "defaultSettings": {
-                        "activeAnimFile": "",
-                        "activeBorderFile": "",
-                        "activeShaderFile": "",
-                        "autoApply": true,
-                        "borderSize": 2,
-                        "isSystemActive": false,
-                        "overlayPath": "~/.cache/noctalia/HVE/overlay.conf"
-                    },
-                    "id": "plugin:hyprland-visual-editor"
                 }
             ],
             "left": [
@@ -538,7 +574,7 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": true,
+        "darkMode": false,
         "generationMethod": "faithful",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",

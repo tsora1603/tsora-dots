@@ -239,13 +239,12 @@
     }
   },
   "settings": {
-    "path": {
-      "label": "Percorso di configurazione",
-      "desc": "Percorso assoluto per il file di configurazione satellite."
-    },
-    "autoapply": {
-      "label": "Applica automaticamente",
-      "desc": "Ricarica automaticamente Hyprland quando cambiano le impostazioni."
-    }
+    "preview_label": "Anteprima",
+    "change_icon_button": "Cambia icona widget",
+    "icon_color_label": "Colore icona",
+    "autoapply_label": "Applica automaticamente",
+    "autoapply_description": "Ricarica istantaneamente Hyprland al salvataggio",
+    "path_label": "Percorso di configurazione",
+    "path_desc": "Percorso assoluto per il file di configurazione satellite."
   }
 }

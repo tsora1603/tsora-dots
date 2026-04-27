@@ -96,7 +96,7 @@ DraggableDesktopWidget {
                     Layout.preferredWidth: 0.4 * root.tableContentWidth
                     text: modelData.name
                     pointSize: Style.fontSizeM
-                    color: modelData.isFlatpak ? Color.mTertiary : Color.mSecondary
+                    color: (modelData.source == "flatpak") ? Color.mTertiary : (modelData.source == "system") ? Color.mSecondary : Color.mPrimary
                     elide: Text.ElideRight
                     maximumLineCount: 1
                 }
@@ -104,7 +104,7 @@ DraggableDesktopWidget {
                     Layout.preferredWidth: 0.3 * root.tableContentWidth
                     text: modelData.oldVer
                     pointSize: Style.fontSizeM
-                    color: modelData.isFlatpak ? Color.mTertiary : Color.mSecondary
+                    color: (modelData.source == "flatpak") ? Color.mTertiary : (modelData.source == "system") ? Color.mSecondary : Color.mPrimary
                     horizontalAlignment: Text.AlignHCenter
                     elide: Text.ElideRight
                     maximumLineCount: 1
@@ -113,8 +113,8 @@ DraggableDesktopWidget {
                     Layout.preferredWidth: 0.3 * root.tableContentWidth
                     text: modelData.newVer
                     pointSize: Style.fontSizeM
-                    font.weight: (pluginApi.pluginSettings.boldVer ?? pluginApi.manifest.metadata.defaultSettings.boldVer) ? Font.Bold : Font.Normal
-                    color: modelData.isFlatpak ? Color.mTertiary : Color.mSecondary
+                    font.weight: (pluginApi.pluginSettings.boldVerDesktop ?? pluginApi.manifest.metadata.defaultSettings.boldVerDesktop) ? Font.Bold : Font.Normal
+                    color: (modelData.source == "flatpak") ? Color.mTertiary : (modelData.source == "system") ? Color.mSecondary : Color.mPrimary
                     horizontalAlignment: Text.AlignHCenter
                     elide: Text.ElideRight
                     maximumLineCount: 1
@@ -162,16 +162,16 @@ DraggableDesktopWidget {
 
         onClicked: (mouse) => {
             if (mouse.button === Qt.LeftButton) {
-                Logger.d("Update Widget", "Refreshing from desktop widget...")
-                mouseArea.visible = false
+                Logger.d("Arch Updater", "Refreshing from desktop widget...")
+                hoverTip.visible = false
                 root.pluginApi.mainInstance.refresh()
             }
             else if (mouse.button === Qt.MiddleButton) {
-                Logger.d("Update Widget", "Updating from desktop widget...")
+                Logger.d("Arch Updater", "Updating from desktop widget...")
                 root.pluginApi.mainInstance.update()
             }
             else if (mouse.button === Qt.RightButton) {
-                Logger.d("Update Widget", "Opening settings from desktop widget...")
+                Logger.d("Arch Updater", "Opening settings from desktop widget...")
                 BarService.openPluginSettings(screen, pluginApi.manifest)
             }
         }
@@ -182,7 +182,7 @@ DraggableDesktopWidget {
             running: false
             repeat: false
             onTriggered: {
-                Logger.d("Update Widget", "Showing hover tip...")
+                Logger.d("Arch Updater", "Showing hover tip...")
                 hoverTip.opacity = 0.85
                 hoverTip.visible = true
             }
@@ -190,13 +190,13 @@ DraggableDesktopWidget {
 
         onEntered: {
             if (pluginApi.pluginSettings.desktopTip) {
-                Logger.d("Update Widget", "Starting hover tip timer...")
+                Logger.d("Arch Updater", "Starting hover tip timer...")
                 hoverTimer.restart()
             }
         }
 
         onExited: {
-            Logger.d("Update Widget", "Hover tip timer stopped!")
+            Logger.d("Arch Updater", "Hover tip timer stopped!")
             hoverTimer.stop()
             hoverTip.opacity = 0
             hoverTip.visible = false

@@ -205,15 +205,15 @@ Item {
 
             // Handle actions
             if (action === "refresh") {
-                Logger.d("Update Widget", "Refreshing from context menu...")
+                Logger.d("Arch Updater", "Refreshing from context menu...")
                 root.pluginApi.mainInstance.refresh() // Refresh available updates
             }
             else if (action === "update") {
-                Logger.d("Update Widget", "Updating from context menu...")
+                Logger.d("Arch Updater", "Updating from context menu...")
                 root.pluginApi.mainInstance.update() // Update
             }
             else if (action === "settings") {
-                Logger.d("Update Widget", "Opening settings from context menu...")
+                Logger.d("Arch Updater", "Opening settings from context menu...")
                 BarService.openPluginSettings(screen, pluginApi.manifest) // Open plugin settings
             }
         }
@@ -228,15 +228,15 @@ Item {
 
         onClicked: (mouse) => {
             if (mouse.button === Qt.LeftButton) {
-                Logger.d("Update Widget", "Opening panel from bar...")
+                Logger.d("Arch Updater", "Opening panel from bar...")
                 pluginApi.openPanel(root.screen, root) // Open panel
             }
             else if (mouse.button === Qt.RightButton) {
-                Logger.d("Update Widget", "Opening context menu from bar...")
+                Logger.d("Arch Updater", "Opening context menu from bar...")
                 PanelService.showContextMenu(contextMenu, root, screen) // Open context menu
             }
             else if (mouse.button === Qt.MiddleButton) {
-                Logger.d("Update Widget", "Refreshing from bar...")
+                Logger.d("Arch Updater", "Refreshing from bar...")
                 root.pluginApi.mainInstance.refresh() // Refresh available updates
             }
         }

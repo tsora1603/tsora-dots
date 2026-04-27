@@ -1,7 +1,6 @@
 # Arch Updater
 A plugin designed to allow you to see available updates, the currently installed version and the updated version.<br>
-With optional Flatpak support, highlight for Noctalia updates, a refresh timer, hide on empty and toasts.
-
+With optional Flatpak support, highlight for Noctalia updates, refresh timer, hide on empty, tooltip, toasts, desktop widget and launcher integration.
 
 ## Features
 
@@ -29,12 +28,13 @@ With optional Flatpak support, highlight for Noctalia updates, a refresh timer, 
 **Launcher Integration**
 - Refresh with `>au-refresh`
 - Update with `>au-update`
+- View updates with `>au-search` and open their repo page in a browser
 
 **Control Center Widget**
 - Open panel
 
 ## Configuration
-Settings UI allows for editing commands and changing toggles
+Configuration is done through the settings window accessible from the context menu, panel and desktop widget
 
 ## Requirements
 - The default commands require `paru`, `pacman-contrib`, `flatpak` and `ghostty` to be installed

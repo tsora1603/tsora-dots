@@ -10,473 +10,526 @@ ColumnLayout {
 
     property var pluginApi: null
 
-    // Commands
-    property string checkCmd: pluginApi.pluginSettings.checkCmd || pluginApi.manifest.metadata.defaultSettings.checkCmd
+    // General
+    property string systemCmd: pluginApi.pluginSettings.systemCmd || pluginApi.manifest.metadata.defaultSettings.systemCmd
+    property string aurCmd: pluginApi.pluginSettings.aurCmd || pluginApi.manifest.metadata.defaultSettings.aurCmd
     property string updateCmd: pluginApi.pluginSettings.updateCmd || pluginApi.manifest.metadata.defaultSettings.updateCmd
-
-    // Show toast on refresh
-    property bool toast: pluginApi.pluginSettings.toast ?? pluginApi.manifest.metadata.defaultSettings.toast
-
-    // Show hover tip on desktop widget
-    property bool desktopTip: pluginApi.pluginSettings.desktopTip ?? pluginApi.manifest.metadata.defaultSettings.desktopTip
-
-    // Also check for flatpaks
     property bool flatpak: pluginApi.pluginSettings.flatpak ?? pluginApi.manifest.metadata.defaultSettings.flatpak
-
-    // Noctalia update highlighting
-    property bool noctalia: pluginApi.pluginSettings.noctalia ?? pluginApi.manifest.metadata.defaultSettings.noctalia
-
-    // Noctalia update highlighting
-    property bool boldVer: pluginApi.pluginSettings.boldVer ?? pluginApi.manifest.metadata.defaultSettings.boldVer
-
-    // Hide the bar widget when there are no updates
-    property bool hideOnEmpty: pluginApi.pluginSettings.hideOnEmpty ?? pluginApi.manifest.metadata.defaultSettings.hideOnEmpty
-
-    // Show close button in panel
-    property bool closeButton: pluginApi.pluginSettings.closeButton ?? pluginApi.manifest.metadata.defaultSettings.closeButton
-
-    // Refresh after time intervals
+    property bool toast: pluginApi.pluginSettings.toast ?? pluginApi.manifest.metadata.defaultSettings.toast
     property bool refreshTimer: pluginApi.pluginSettings.refreshTimer ?? pluginApi.manifest.metadata.defaultSettings.refreshTimer
-
-    // The time interval between available update refreshes
     property int refreshInterval: pluginApi.pluginSettings.refreshInterval || pluginApi.manifest.metadata.defaultSettings.refreshInterval
 
-    // Appearance
+    // Bar
+    property bool noctalia: pluginApi.pluginSettings.noctalia ?? pluginApi.manifest.metadata.defaultSettings.noctalia
     property bool tooltip: pluginApi.pluginSettings.tooltip ?? pluginApi.manifest.metadata.defaultSettings.tooltip
+    property bool hideOnEmpty: pluginApi.pluginSettings.hideOnEmpty ?? pluginApi.manifest.metadata.defaultSettings.hideOnEmpty
     property bool boldText: pluginApi.pluginSettings.boldText ?? pluginApi.manifest.metadata.defaultSettings.boldText
-    property string iconName: pluginApi.pluginSettings.iconName || pluginApi.manifest.metadata.defaultSettings.iconName
     property bool useDistroLogo: pluginApi.pluginSettings.useDistroLogo ?? pluginApi.manifest.metadata.defaultSettings.useDistroLogo
-    property string customIconPath: pluginApi.pluginSettings.customIconPath ?? pluginApi.manifest.metadata.defaultSettings.customIconPath
     property bool enableColorization: pluginApi.pluginSettings.enableColorization ?? pluginApi.manifest.metadata.defaultSettings.enableColorization
-    property string iconColor: pluginApi.pluginSettings.iconColor ?? pluginApi.manifest.metadata.defaultSettings.iconColor ?? "none"
+    property string iconColor: pluginApi.pluginSettings.iconColor ?? pluginApi.manifest.metadata.defaultSettings.iconColor
+    property string iconName: pluginApi.pluginSettings.iconName || pluginApi.manifest.metadata.defaultSettings.iconName
+    property string customIconPath: pluginApi.pluginSettings.customIconPath ?? pluginApi.manifest.metadata.defaultSettings.customIconPath
+
+    // Panel
+    property bool boldVerPanel: pluginApi.pluginSettings.boldVerPanel ?? pluginApi.manifest.metadata.defaultSettings.boldVerPanel
+    property bool closeButton: pluginApi.pluginSettings.closeButton ?? pluginApi.manifest.metadata.defaultSettings.closeButton
+
+    // Desktop Widget
+    property bool boldVerDesktop: pluginApi.pluginSettings.boldVerDesktop ?? pluginApi.manifest.metadata.defaultSettings.boldVerDesktop
+    property bool hoverTip: pluginApi.pluginSettings.hoverTip ?? pluginApi.manifest.metadata.defaultSettings.hoverTip
 
     spacing: Style.marginM
 
     // Runs when the plugin settings are loaded
     Component.onCompleted: {
-        Logger.i("Update Widget", "Settings UI loaded")
+        Logger.i("Arch Updater", "Settings UI loaded")
     }
 
-    NText { // Commands Heading
-        text: pluginApi.tr("settings.commands")
-        pointSize: Style.fontSizeXL
-        font.weight: Font.Bold
-        color: Color.mOnSurface
-    }
-
-    // Commands
-
-    NTextInput { // Check Command
+    // Tab Bar
+    NTabBar {
+        id: tabBar
         Layout.fillWidth: true
-        label: pluginApi.tr("settings.checkCmd")
-        description: pluginApi.tr("settings.checkCmdDesc")
-        placeholderText: pluginApi.manifest.metadata.defaultSettings.checkCmd
-        text: root.checkCmd
-        onTextChanged: {
-            root.checkCmd = text
-            Logger.d("Update Widget", "Check command set to: " + root.checkCmd)
+        Layout.bottomMargin: Style.marginM
+        distributeEvenly: true
+        currentIndex: tabView.currentIndex
+
+        NTabButton {
+            icon: "settings"
+            text: pluginApi.tr("settings.tabs.general")
+            pointSize: Style.fontSizeL
+            tabIndex: 0
+            checked: tabBar.currentIndex === 0
+        }
+
+        NTabButton {
+            icon: "crop-16-9"
+            text: pluginApi.tr("settings.tabs.bar")
+            pointSize: Style.fontSizeL
+            tabIndex: 1
+            checked: tabBar.currentIndex === 1
+        }
+
+        NTabButton {
+            icon: "table"
+            text: pluginApi.tr("settings.tabs.panel")
+            pointSize: Style.fontSizeL
+            tabIndex: 2
+            checked: tabBar.currentIndex === 2
+        }
+
+        NTabButton {
+            icon: "clock"
+            text: pluginApi.tr("settings.tabs.desktop")
+            pointSize: Style.fontSizeL
+            tabIndex: 3
+            checked: tabBar.currentIndex === 3
         }
     }
 
-    NTextInput { // Update Command
-        Layout.fillWidth: true
-        label: pluginApi.tr("settings.updateCmd")
-        description: pluginApi.tr("settings.updateCmdDesc")
-        placeholderText: pluginApi.manifest.metadata.defaultSettings.updateCmd
-        text: root.updateCmd
-        onTextChanged: {
-            root.updateCmd = text
-            Logger.d("Update Widget", "Name command set to: " + root.updateCmd)
+    NTabView {
+        id: tabView
+        currentIndex: tabBar.currentIndex
+
+        ColumnLayout { // General Tab
+            spacing: Style.marginM
+
+            NText { // General Title
+                text: pluginApi.tr("settings.general.title")
+                pointSize: Style.fontSizeXL
+                font.weight: Font.Bold
+                color: Color.mOnSurface
+            }
+            
+            NLabel { // General Description
+                description: pluginApi.tr("settings.general.desc")
+            }
+
+            NDivider {
+                Layout.fillWidth: true
+                Layout.topMargin: Style.marginS
+                Layout.bottomMargin: Style.marginS
+            }
+
+            NTextInput { // System Command
+                Layout.fillWidth: true
+                label: pluginApi.tr("settings.general.systemCmd.text")
+                description: pluginApi.tr("settings.general.systemCmd.desc")
+                placeholderText: pluginApi.manifest.metadata.defaultSettings.systemCmd
+                text: root.systemCmd
+                onTextChanged: {
+                    root.systemCmd = text
+                    Logger.d("Arch Updater", "Check command set to: " + root.systemCmd)
+                }
+            }
+
+            NTextInput { // AUR Command
+                Layout.fillWidth: true
+                label: pluginApi.tr("settings.general.aurCmd.text")
+                description: pluginApi.tr("settings.general.aurCmd.desc")
+                placeholderText: pluginApi.manifest.metadata.defaultSettings.aurCmd
+                text: root.aurCmd
+                onTextChanged: {
+                    root.aurCmd = text
+                    Logger.d("Arch Updater", "Check command set to: " + root.aurCmd)
+                }
+            }
+
+            NTextInput { // Update Command
+                Layout.fillWidth: true
+                label: pluginApi.tr("settings.general.updateCmd.text")
+                description: pluginApi.tr("settings.general.updateCmd.desc")
+                placeholderText: pluginApi.manifest.metadata.defaultSettings.updateCmd
+                text: root.updateCmd
+                onTextChanged: {
+                    root.updateCmd = text
+                    Logger.d("Arch Updater", "Name command set to: " + root.updateCmd)
+                }
+            }
+
+            NDivider {
+                Layout.fillWidth: true
+                Layout.topMargin: Style.marginS
+                Layout.bottomMargin: Style.marginS
+            }
+
+            // Flatpak Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: flatpakToggle.implicitHeight
+                NToggle {
+                    id: flatpakToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.general.flatpak.text")
+                    description: pluginApi.tr("settings.general.flatpak.desc")
+                    checked: root.flatpak
+                    onToggled: checked => root.flatpak = checked
+                }
+            }
+
+            // Toast Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: toastToggle.implicitHeight
+                NToggle {
+                    id: toastToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.general.toast.text")
+                    description: pluginApi.tr("settings.general.toast.desc")
+                    checked: root.toast
+                    onToggled: checked => root.toast = checked
+                }
+            }
+
+            // Refresh Interval Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: refreshTimerToggle.implicitHeight
+                NToggle {
+                    id: refreshTimerToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.general.refresh.text")
+                    description: pluginApi.tr("settings.general.refresh.desc")
+                    checked: root.refreshTimer
+                    onToggled: checked => root.refreshTimer = checked
+                }
+            }
+
+            // Refresh Interval
+            ColumnLayout {
+                Layout.fillWidth: true
+                spacing: Style.marginS
+                visible: root.refreshTimer
+                NLabel {
+                    description: pluginApi.tr("settings.general.interval.desc") + root.refreshInterval
+                }
+                NSlider {
+                    Layout.fillWidth: true
+                    from: 30
+                    to: 720
+                    stepSize: 10
+                    value: root.refreshInterval
+                    onValueChanged: {
+                        root.refreshInterval = value
+                        Logger.d("Arch Updater", "Refresh interval set to: " + root.refreshInterval)
+                    }
+                }
+            }
+            
         }
-    }
 
-    NDivider {
-        Layout.fillWidth: true
-        Layout.topMargin: Style.marginS
-        Layout.bottomMargin: Style.marginS
-    }
+        ColumnLayout { // Bar Tab
+            spacing: Style.marginM
 
-    // Toggles
+            NText { // Bar Title
+                text: pluginApi.tr("settings.bar.title")
+                pointSize: Style.fontSizeXL
+                font.weight: Font.Bold
+                color: Color.mOnSurface
+            }
+            
+            NLabel { // Bar Description
+                description: pluginApi.tr("settings.bar.desc")
+            }
 
-    // Toast Toggle
-    Item {
-        Layout.fillWidth: true
-        Layout.preferredHeight: toastToggle.implicitHeight
-        NToggle {
-            id: toastToggle
-            anchors.fill: parent
-            label: pluginApi.tr("settings.toast")
-            description: pluginApi.tr("settings.toastDesc")
-            checked: root.toast
-            onToggled: checked => root.toast = checked
-        }
-    }
+            NDivider {
+                Layout.fillWidth: true
+                Layout.topMargin: Style.marginS
+                Layout.bottomMargin: Style.marginS
+            }
 
-    NDivider {
-        Layout.fillWidth: true
-        Layout.topMargin: Style.marginS
-        Layout.bottomMargin: Style.marginS
-    }
+            // Noctalia Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: noctaliaToggle.implicitHeight
+                NToggle {
+                    id: noctaliaToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.bar.noctalia.text")
+                    description: pluginApi.tr("settings.bar.noctalia.desc")
+                    checked: root.noctalia
+                    onToggled: checked => root.noctalia = checked
+                }
+            }
 
-    // Flatpak Toggle
-    Item {
-        Layout.fillWidth: true
-        Layout.preferredHeight: flatpakToggle.implicitHeight
-        NToggle {
-            id: flatpakToggle
-            anchors.fill: parent
-            label: pluginApi.tr("settings.flatpak")
-            description: pluginApi.tr("settings.flatpakDesc")
-            checked: root.flatpak
-            onToggled: checked => root.flatpak = checked
-        }
-    }
+            // Tooltip Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: tooltipToggle.implicitHeight
+                NToggle {
+                    id: tooltipToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.bar.tooltip.text")
+                    description: pluginApi.tr("settings.bar.tooltip.desc")
+                    checked: root.tooltip
+                    onToggled: checked => root.tooltip = checked
+                }
+            }
+            
+            // Hide On Empty Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: hideOnEmptyToggle.implicitHeight
+                NToggle {
+                    id: hideOnEmptyToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.bar.hideOnEmpty.text")
+                    description: pluginApi.tr("settings.bar.hideOnEmpty.desc")
+                    checked: root.hideOnEmpty
+                    onToggled: checked => root.hideOnEmpty = checked
+                }
+            }
 
-    NDivider {
-        Layout.fillWidth: true
-        Layout.topMargin: Style.marginS
-        Layout.bottomMargin: Style.marginS
-    }
+            // Bold Text Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: boldTextToggle.implicitHeight
+                NToggle {
+                    id: boldTextToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.bar.boldCount.text")
+                    description: pluginApi.tr("settings.bar.boldCount.desc")
+                    checked: root.boldText
+                    onToggled: checked => root.boldText = checked
+                }
+            }
 
-    // Noctalia Toggle
-    Item {
-        Layout.fillWidth: true
-        Layout.preferredHeight: noctaliaToggle.implicitHeight
-        NToggle {
-            id: noctaliaToggle
-            anchors.fill: parent
-            label: pluginApi.tr("settings.noctalia")
-            description: pluginApi.tr("settings.noctaliaDesc")
-            checked: root.noctalia
-            onToggled: checked => root.noctalia = checked
-        }
-    }
+            // Use Distro Logo Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: distroLogoToggle.implicitHeight
+                NToggle {
+                    id: distroLogoToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.bar.useDistroLogo.text")
+                    description: pluginApi.tr("settings.bar.useDistroLogo.desc")
+                    checked: root.useDistroLogo
+                    onToggled: checked => root.useDistroLogo = checked
+                }
+            }
 
-    NDivider {
-        Layout.fillWidth: true
-        Layout.topMargin: Style.marginS
-        Layout.bottomMargin: Style.marginS
-    }
+            // Enable Colorization Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: colorizeToggle.implicitHeight
+                NToggle {
+                    id: colorizeToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.bar.enableColorization.text")
+                    description: pluginApi.tr("settings.bar.enableColorization.desc")
+                    checked: root.enableColorization
+                    onToggled: checked => root.enableColorization = checked
+                }
+            }
 
-    // Bold New Version Number Toggle
-    Item {
-        Layout.fillWidth: true
-        Layout.preferredHeight: boldVerToggle.implicitHeight
-        NToggle {
-            id: boldVerToggle
-            anchors.fill: parent
-            label: pluginApi.tr("settings.boldVer")
-            description: pluginApi.tr("settings.boldVerDesc")
-            checked: root.boldVer
-            onToggled: checked => root.boldVer = checked
-        }
-    }
+            // Icon Color (only visible when colorization is enabled)
+            NColorChoice {
+                visible: root.enableColorization
+                label: pluginApi.tr("settings.bar.iconColor.text")
+                description: pluginApi.tr("settings.bar.iconColor.desc")
+                currentKey: root.iconColor
+                onSelected: key => root.iconColor = key
+            }
 
-    NDivider {
-        Layout.fillWidth: true
-        Layout.topMargin: Style.marginS
-        Layout.bottomMargin: Style.marginS
-    }
+            // Icon preview and selection
+            RowLayout {
+                spacing: Style.marginM
 
-     // Hide On Empty Toggle
-    Item {
-        Layout.fillWidth: true
-        Layout.preferredHeight: hideOnEmptyToggle.implicitHeight
-        NToggle {
-            id: hideOnEmptyToggle
-            anchors.fill: parent
-            label: pluginApi.tr("settings.hideOnEmpty")
-            description: pluginApi.tr("settings.hideOnEmptyDesc")
-            checked: root.hideOnEmpty
-            onToggled: checked => root.hideOnEmpty = checked
-        }
-    }
+                NLabel {
+                    label: pluginApi.tr("settings.bar.iconName.text")
+                    description: pluginApi.tr("settings.bar.iconName.desc")
+                }
 
-    NDivider {
-        Layout.fillWidth: true
-        Layout.topMargin: Style.marginS
-        Layout.bottomMargin: Style.marginS
-    }
+                NImageRounded {
+                    Layout.preferredWidth: Style.fontSizeXL * 2
+                    Layout.preferredHeight: Style.fontSizeXL * 2
+                    Layout.alignment: Qt.AlignVCenter
+                    radius: Math.min(Style.radiusL, Layout.preferredWidth / 2)
+                    imagePath: root.customIconPath
+                    visible: root.customIconPath !== "" && !root.useDistroLogo
+                }
 
-     // Close Button Toggle
-    Item {
-        Layout.fillWidth: true
-        Layout.preferredHeight: closeButtonToggle.implicitHeight
-        NToggle {
-            id: closeButtonToggle
-            anchors.fill: parent
-            label: pluginApi.tr("settings.closeButton")
-            description: pluginApi.tr("settings.closeButtonDesc")
-            checked: root.closeButton
-            onToggled: checked => root.closeButton = checked
-        }
-    }
+                NIcon {
+                    Layout.alignment: Qt.AlignVCenter
+                    icon: root.iconName
+                    pointSize: Style.fontSizeXXL * 1.5
+                    visible: root.iconName !== "" && root.customIconPath === "" && !root.useDistroLogo
+                }
+            }
 
-    NDivider {
-        Layout.fillWidth: true
-        Layout.topMargin: Style.marginS
-        Layout.bottomMargin: Style.marginS
-    }
+            RowLayout {
+                spacing: Style.marginM
+                NButton {
+                    enabled: !root.useDistroLogo
+                    text: pluginApi.tr("settings.bar.iconName.browseLibrary")
+                    onClicked: iconPicker.open()
+                }
+                NButton {
+                    enabled: !root.useDistroLogo
+                    text: pluginApi.tr("settings.bar.iconName.browseFile")
+                    onClicked: imagePicker.openFilePicker()
+                }
+            }
 
-    // Desktop Hover Tip Toggle
-    Item {
-        Layout.fillWidth: true
-        Layout.preferredHeight: desktopTipToggle.implicitHeight
-        NToggle {
-            id: desktopTipToggle
-            anchors.fill: parent
-            label: pluginApi.tr("settings.desktopTip")
-            description: pluginApi.tr("settings.desktopTipDesc")
-            checked: root.desktopTip
-            onToggled: checked => root.desktopTip = checked
-        }
-    }
+            NIconPicker {
+                id: iconPicker
+                initialIcon: root.iconName
+                onIconSelected: iconName => {
+                    root.iconName = iconName
+                    root.customIconPath = ""
+                }
+            }
 
-    NDivider {
-        Layout.fillWidth: true
-        Layout.topMargin: Style.marginS
-        Layout.bottomMargin: Style.marginS
-    }
-
-    // Refresh Interval Toggle
-    Item {
-        Layout.fillWidth: true
-        Layout.preferredHeight: refreshTimerToggle.implicitHeight
-        NToggle {
-            id: refreshTimerToggle
-            anchors.fill: parent
-            label: pluginApi.tr("settings.refreshTimer")
-            description: pluginApi.tr("settings.refreshTimerDesc")
-            checked: root.refreshTimer
-            onToggled: checked => root.refreshTimer = checked
-        }
-    }
-
-    // Refresh Interval
-    ColumnLayout {
-        Layout.fillWidth: true
-        spacing: Style.marginS
-        visible: root.refreshTimer
-        NLabel {
-            description: pluginApi.tr("settings.intervalDesc") + root.refreshInterval
-        }
-        NSlider {
-            Layout.fillWidth: true
-            from: 5
-            to: 360
-            stepSize: 5
-            value: root.refreshInterval
-            onValueChanged: {
-                root.refreshInterval = value
-                Logger.d("Update Widget", "Refresh interval set to: " + root.refreshInterval)
+            NFilePicker {
+                id: imagePicker
+                title: pluginApi.tr("settings.bar.iconName.selectCustomIcon")
+                selectionMode: "files"
+                nameFilters: ImageCacheService.basicImageFilters.concat(["*.svg"])
+                initialPath: Quickshell.env("HOME")
+                onAccepted: paths => {
+                    if (paths.length > 0) {
+                        root.customIconPath = paths[0]
+                    }
+                }
             }
         }
-    }
 
-    NDivider {
-        Layout.fillWidth: true
-        Layout.topMargin: Style.marginS
-        Layout.bottomMargin: Style.marginS
-    }
+        ColumnLayout { // Panel Tab
+            spacing: Style.marginM
 
-    // Bar Appearance
+            NText { // Panel Title
+                text: pluginApi.tr("settings.panel.title")
+                pointSize: Style.fontSizeXL
+                font.weight: Font.Bold
+                color: Color.mOnSurface
+            }
+            
+            NLabel { // Panel Description
+                description: pluginApi.tr("settings.panel.desc")
+            }
 
-    NText {
-        text: pluginApi.tr("settings.appearance")
-        pointSize: Style.fontSizeXL
-        font.weight: Font.Bold
-        color: Color.mOnSurface
-    }
+            NDivider {
+                Layout.fillWidth: true
+                Layout.topMargin: Style.marginS
+                Layout.bottomMargin: Style.marginS
+            }
 
-    // Bold Text Toggle
-    Item {
-        Layout.fillWidth: true
-        Layout.preferredHeight: boldTextToggle.implicitHeight
-        NToggle {
-            id: boldTextToggle
-            anchors.fill: parent
-            label: pluginApi.tr("settings.boldText")
-            description: pluginApi.tr("settings.boldTextDesc")
-            checked: root.boldText
-            onToggled: checked => root.boldText = checked
-        }
-    }
+            // Bold New Version Column Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: boldVerPanelToggle.implicitHeight
+                NToggle {
+                    id: boldVerPanelToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.panel.boldVer.text")
+                    description: pluginApi.tr("settings.panel.boldVer.desc")
+                    checked: root.boldVerPanel
+                    onToggled: checked => root.boldVerPanel = checked
+                }
+            }
 
-    NDivider {
-        Layout.fillWidth: true
-        Layout.topMargin: Style.marginS
-        Layout.bottomMargin: Style.marginS
-    }
-
-    // Tooltip Toggle
-    Item {
-        Layout.fillWidth: true
-        Layout.preferredHeight: tooltipToggle.implicitHeight
-        NToggle {
-            id: tooltipToggle
-            anchors.fill: parent
-            label: pluginApi.tr("settings.tooltip")
-            description: pluginApi.tr("settings.tooltipDesc")
-            checked: root.tooltip
-            onToggled: checked => root.tooltip = checked
-        }
-    }
-
-    NDivider {
-        Layout.fillWidth: true
-        Layout.topMargin: Style.marginS
-        Layout.bottomMargin: Style.marginS
-    }
-
-    // Use Distro Logo Toggle
-    Item {
-        Layout.fillWidth: true
-        Layout.preferredHeight: distroLogoToggle.implicitHeight
-        NToggle {
-            id: distroLogoToggle
-            anchors.fill: parent
-            label: pluginApi.tr("settings.useDistroLogo")
-            description: pluginApi.tr("settings.useDistroLogoDesc")
-            checked: root.useDistroLogo
-            onToggled: checked => root.useDistroLogo = checked
-        }
-    }
-
-    NDivider {
-        Layout.fillWidth: true
-        Layout.topMargin: Style.marginS
-        Layout.bottomMargin: Style.marginS
-    }
-
-    // Enable Colorization Toggle
-    Item {
-        Layout.fillWidth: true
-        Layout.preferredHeight: colorizeToggle.implicitHeight
-        NToggle {
-            id: colorizeToggle
-            anchors.fill: parent
-            label: pluginApi.tr("settings.enableColorization")
-            description: pluginApi.tr("settings.enableColorizationDesc")
-            checked: root.enableColorization
-            onToggled: checked => root.enableColorization = checked
-        }
-    }
-
-    // Icon Color (only visible when colorization is enabled)
-    NColorChoice {
-        visible: root.enableColorization
-        label: pluginApi.tr("settings.iconColor")
-        description: pluginApi.tr("settings.iconColorDesc")
-        currentKey: root.iconColor
-        onSelected: key => root.iconColor = key
-    }
-
-    NDivider {
-        Layout.fillWidth: true
-        Layout.topMargin: Style.marginS
-        Layout.bottomMargin: Style.marginS
-    }
-
-    // Icon preview and selection
-    RowLayout {
-        spacing: Style.marginM
-
-        NLabel {
-            label: pluginApi.tr("settings.iconName")
-            description: pluginApi.tr("settings.iconNameDesc")
-        }
-
-        NImageRounded {
-            Layout.preferredWidth: Style.fontSizeXL * 2
-            Layout.preferredHeight: Style.fontSizeXL * 2
-            Layout.alignment: Qt.AlignVCenter
-            radius: Math.min(Style.radiusL, Layout.preferredWidth / 2)
-            imagePath: root.customIconPath
-            visible: root.customIconPath !== "" && !root.useDistroLogo
-        }
-
-        NIcon {
-            Layout.alignment: Qt.AlignVCenter
-            icon: root.iconName
-            pointSize: Style.fontSizeXXL * 1.5
-            visible: root.iconName !== "" && root.customIconPath === "" && !root.useDistroLogo
-        }
-    }
-
-    RowLayout {
-        spacing: Style.marginM
-        NButton {
-            enabled: !root.useDistroLogo
-            text: pluginApi.tr("settings.browseLibrary")
-            onClicked: iconPicker.open()
-        }
-        NButton {
-            enabled: !root.useDistroLogo
-            text: pluginApi.tr("settings.browseFile")
-            onClicked: imagePicker.openFilePicker()
-        }
-    }
-
-    NIconPicker {
-        id: iconPicker
-        initialIcon: root.iconName
-        onIconSelected: iconName => {
-            root.iconName = iconName
-            root.customIconPath = ""
-        }
-    }
-
-    NFilePicker {
-        id: imagePicker
-        title: pluginApi.tr("settings.selectCustomIcon")
-        selectionMode: "files"
-        nameFilters: ImageCacheService.basicImageFilters.concat(["*.svg"])
-        initialPath: Quickshell.env("HOME")
-        onAccepted: paths => {
-            if (paths.length > 0) {
-                root.customIconPath = paths[0]
+            // Close Button Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: closeButtonToggle.implicitHeight
+                NToggle {
+                    id: closeButtonToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.panel.closeButton.text")
+                    description: pluginApi.tr("settings.panel.closeButton.desc")
+                    checked: root.closeButton
+                    onToggled: checked => root.closeButton = checked
+                }
             }
         }
-    }
 
-    NDivider {
-        Layout.fillWidth: true
-        Layout.topMargin: Style.marginS
-        Layout.bottomMargin: Style.marginS
+        ColumnLayout { // Desktop Widget Tab
+            spacing: Style.marginM
+
+            NText { // Desktop Widget Title
+                text: pluginApi.tr("settings.desktop.title")
+                pointSize: Style.fontSizeXL
+                font.weight: Font.Bold
+                color: Color.mOnSurface
+            }
+
+            NLabel { // Desktop Widget Description
+                description: pluginApi.tr("settings.desktop.desc")
+            }
+
+            NDivider {
+                Layout.fillWidth: true
+                Layout.topMargin: Style.marginS
+                Layout.bottomMargin: Style.marginS
+            }
+
+            // Bold New Version Column Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: boldVerDesktopToggle.implicitHeight
+                NToggle {
+                    id: boldVerDesktopToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.desktop.boldVer.text")
+                    description: pluginApi.tr("settings.desktop.boldVer.desc")
+                    checked: root.boldVerDesktop
+                    onToggled: checked => root.boldVerDesktop = checked
+                }
+            }
+
+            // Desktop Hover Tip Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: hoverTipToggle.implicitHeight
+                NToggle {
+                    id: hoverTipToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.desktop.hoverTip.text")
+                    description: pluginApi.tr("settings.desktop.hoverTip.desc")
+                    checked: root.hoverTip
+                    onToggled: checked => root.hoverTip = checked
+                }
+            }
+        }
     }
 
     // Save function - called by the dialog
     function saveSettings() {
         if (!pluginApi) {
-            Logger.e("Update Widget", "Cannot save: pluginApi is null")
+            Logger.e("Arch Updater", "Cannot save: pluginApi is null")
             return
         }
 
-        pluginApi.pluginSettings.checkCmd = root.checkCmd
+        // General
+        pluginApi.pluginSettings.systemCmd = root.systemCmd
+        pluginApi.pluginSettings.aurCmd = root.aurCmd
         pluginApi.pluginSettings.updateCmd = root.updateCmd
-
         pluginApi.pluginSettings.flatpak = root.flatpak
-        pluginApi.pluginSettings.noctalia = root.noctalia
-        pluginApi.pluginSettings.boldVer = root.boldVer
         pluginApi.pluginSettings.toast = root.toast
-        pluginApi.pluginSettings.desktopTip = root.desktopTip
-        pluginApi.pluginSettings.hideOnEmpty = root.hideOnEmpty
-        pluginApi.pluginSettings.closeButton = root.closeButton
         pluginApi.pluginSettings.refreshTimer = root.refreshTimer
-
         pluginApi.pluginSettings.refreshInterval = root.refreshInterval
 
+        // Bar
+        pluginApi.pluginSettings.noctalia = root.noctalia
         pluginApi.pluginSettings.tooltip = root.tooltip
+        pluginApi.pluginSettings.hideOnEmpty = root.hideOnEmpty
         pluginApi.pluginSettings.boldText = root.boldText
-        pluginApi.pluginSettings.iconName = root.iconName
         pluginApi.pluginSettings.useDistroLogo = root.useDistroLogo
-        pluginApi.pluginSettings.customIconPath = root.customIconPath
         pluginApi.pluginSettings.enableColorization = root.enableColorization
         pluginApi.pluginSettings.iconColor = root.iconColor
+        pluginApi.pluginSettings.iconName = root.iconName
+        pluginApi.pluginSettings.customIconPath = root.customIconPath
+
+        // Panel
+        pluginApi.pluginSettings.boldVerPanel = root.boldVerPanel
+        pluginApi.pluginSettings.closeButton = root.closeButton
+
+        // Desktop Widget
+        pluginApi.pluginSettings.boldVerDesktop = root.boldVerDesktop
+        pluginApi.pluginSettings.hoverTip = root.hoverTip
 
         pluginApi.saveSettings()
         root.pluginApi.mainInstance.refresh()
 
-        Logger.i("Update Widget", "Settings saved successfully")
+        Logger.i("Arch Updater", "Settings saved successfully")
     }
 }

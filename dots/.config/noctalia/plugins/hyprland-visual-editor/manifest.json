@@ -1,7 +1,7 @@
 {
   "id": "hyprland-visual-editor",
   "name": "Hyprland Visual Editor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "minNoctaliaVersion": "4.4.1",
   "author": "XimoCP",
   "license": "MIT",
@@ -17,6 +17,7 @@
     "Hyprland"
   ],
   "entryPoints": {
+    "main": "Main.qml",
     "panel": "Panel.qml",
     "barWidget": "BarWidget.qml",
     "settings": "Settings.qml"
