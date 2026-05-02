@@ -1,5 +1,78 @@
 {
-  "todos": [],
+  "todos": [
+    {
+      "id": 1777390248414,
+      "text": "KDE Partition Manager",
+      "completed": false,
+      "createdAt": "2026-04-28T15:30:48.414Z",
+      "pageId": 0,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1777390242904,
+      "text": "Manage Printing",
+      "completed": false,
+      "createdAt": "2026-04-28T15:30:42.904Z",
+      "pageId": 0,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1777390234060,
+      "text": "HP Device Manager",
+      "completed": false,
+      "createdAt": "2026-04-28T15:30:34.060Z",
+      "pageId": 0,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1777390228140,
+      "text": "Filelight",
+      "completed": false,
+      "createdAt": "2026-04-28T15:30:28.140Z",
+      "pageId": 0,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1777390222101,
+      "text": "Kvantum",
+      "completed": false,
+      "createdAt": "2026-04-28T15:30:22.101Z",
+      "pageId": 0,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1777390219774,
+      "text": "Haruna",
+      "completed": false,
+      "createdAt": "2026-04-28T15:30:19.774Z",
+      "pageId": 0,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1777390214164,
+      "text": "KDE Connect",
+      "completed": false,
+      "createdAt": "2026-04-28T15:30:14.164Z",
+      "pageId": 0,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1777390189827,
+      "text": "Gwenview",
+      "completed": true,
+      "createdAt": "2026-04-28T15:29:49.827Z",
+      "pageId": 0,
+      "priority": "medium",
+      "details": ""
+    }
+  ],
   "pages": [
     {
       "id": 0,
@@ -7,8 +80,8 @@
     }
   ],
   "current_page_id": 0,
-  "count": 0,
-  "completedCount": 0,
+  "count": 8,
+  "completedCount": 1,
   "showCompleted": true,
   "showBackground": true,
   "isExpanded": false,
