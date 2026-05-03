@@ -1,13 +1,13 @@
 {
   "id": "arch-updater",
   "name": "Arch Updater",
-  "version": "2.0.1",
+  "version": "2.1.1",
   "minNoctaliaVersion": "3.6.0",
   "author": "Ast",
   "license": "MIT",
   "repository": "https://github.com/noctalia-dev/noctalia-plugins",
   "description": "A plugin to manage updates on Arch",
-  "tags": ["Bar", "Desktop", "Panel", "System", "Utility"],
+  "tags": ["Bar", "Desktop", "Panel", "Launcher", "System", "Utility"],
   "entryPoints": {
     "main": "Main.qml",
     "barWidget": "BarWidget.qml",
@@ -40,7 +40,7 @@
       "iconColor": "none",
       "boldVer": true,
       "tooltip": true,
-      "closeButton": false,
+      "closeButton": true,
       "boldVerPanel": true,
       "boldVerDesktop": true,
       "hoverTip": true

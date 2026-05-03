@@ -13,7 +13,7 @@
   "useDistroLogo": false,
   "customIconPath": "",
   "boldText": true,
-  "enableColorization": false,
+  "enableColorization": true,
   "iconColor": "none",
   "boldVer": true,
   "tooltip": true,

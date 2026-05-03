@@ -118,7 +118,7 @@ ColumnLayout {
                 text: root.systemCmd
                 onTextChanged: {
                     root.systemCmd = text
-                    Logger.d("Arch Updater", "Check command set to: " + root.systemCmd)
+                    Logger.d("Arch Updater", "System command set to: " + root.systemCmd)
                 }
             }
 
@@ -130,7 +130,7 @@ ColumnLayout {
                 text: root.aurCmd
                 onTextChanged: {
                     root.aurCmd = text
-                    Logger.d("Arch Updater", "Check command set to: " + root.aurCmd)
+                    Logger.d("Arch Updater", "AUR command set to: " + root.aurCmd)
                 }
             }
 
@@ -142,7 +142,7 @@ ColumnLayout {
                 text: root.updateCmd
                 onTextChanged: {
                     root.updateCmd = text
-                    Logger.d("Arch Updater", "Name command set to: " + root.updateCmd)
+                    Logger.d("Arch Updater", "Update command set to: " + root.updateCmd)
                 }
             }
 

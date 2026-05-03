@@ -9,6 +9,10 @@
         "settings": "Settings"
     },
     "panel": {
+        "context": {
+            "open": "Open",
+            "copy": "Copy"
+        },
         "title": "Arch Updater",
         "name": "Name",
         "oldVer": "Old Version",

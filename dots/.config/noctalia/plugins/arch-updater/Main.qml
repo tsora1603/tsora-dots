@@ -10,15 +10,10 @@ Item {
     // Plugin API (injected by PluginService)
     property var pluginApi: null
 
-    // System
-    property string nameStr: ""
-    property string newVerStr: ""
-    property string oldVerStr: ""
-
-    // Flatpak
-    property string flatpakNameStr: ""
-    property string flatpakNewVerStr: ""
-    property string flatpakOldVerStr: ""
+    // Strings
+    property string systemStr: ""
+    property string aurStr: ""
+    property string flatpakStr: ""
 
     // Structured update data (used by Panel)
     property var updates: []
@@ -26,16 +21,12 @@ Item {
     // State
     property bool refreshing: false
 
-    // Counts
-    property int updateCount: 0
-    property int flatpakCount: 0
-
     // Noctalia updates
-    property variant noctaliaNames: ["noctalia-qs", "noctalia-shell"]
+    property var noctaliaNames: ["noctalia-qs", "noctalia-shell"]
     property bool noctaliaUpdate: false
 
-    function checkNoctalia() {
-        if (noctaliaNames.some(name => root.nameStr.includes(name)) && (pluginApi.pluginSettings.noctalia ?? pluginApi.manifest.metadata.defaultSettings.noctalia ?? true)) {
+    function checkNoctalia(string) {
+        if (noctaliaNames.some(name => string.includes(name)) && (pluginApi.pluginSettings.noctalia ?? pluginApi.manifest.metadata.defaultSettings.noctalia ?? true)) {
             root.noctaliaUpdate = true
             Logger.d("Arch Updater", "Noctalia updates found")
         } else {
@@ -47,20 +38,43 @@ Item {
         refresh()
     }
 
+    function openURL(source, id) {
+        // Opens the page for the package
+        switch (source) {
+            case "system":
+                var url = "https://archlinux.org/packages/extra/x86_64/" + id
+                break
+            case "aur":
+                var url = "https://aur.archlinux.org/packages/" + id
+                break
+            case "flatpak":
+                var url = "https://flathub.org/en/apps/" + id
+                break
+            default:
+                var url = ""
+                ToastService.showNotice("Unkown source: " + source)
+                break
+        }
+        Logger.i("Arch Updater", "Opening " + url)
+        Qt.openUrlExternally(url)
+    }
+    
+    function copy(text) {
+        // Copy the text and send a toast
+        Quickshell.execDetached(["sh", "-c", "wl-copy '" + text + "'"])
+        ToastService.showNotice('Copied "' + text + '"')
+        Logger.d("Arch Updater", "Copied " + text)
+    }
+
     function refresh() {
         Logger.i("Arch Updater", "Refreshing updates...")
         if (pluginApi.pluginSettings.toast ?? pluginApi.manifest.metadata.defaultSettings.toast ?? true) {
             ToastService.showNotice("Refreshing updates...")
         }
-        root.nameStr = ""
-        root.newVerStr = ""
-        root.oldVerStr = ""
-        root.flatpakNameStr = ""
-        root.flatpakNewVerStr = ""
-        root.flatpakOldVerStr = ""
+        root.systemStr = ""
+        root.aurStr = ""
+        root.flatpakStr = ""
         root.updates = []
-        root.updateCount = 0
-        root.flatpakCount = 0
         root.noctaliaUpdate = false
         root.refreshing = true
 
@@ -97,8 +111,6 @@ Item {
 
                 var lines = output.split("\n")
                 var names = []
-                var oldVers = []
-                var newVers = []
                 var rows = []
 
                 for (var i = 0; i < lines.length; i++) {
@@ -106,19 +118,17 @@ Item {
                     // Expected format: name oldver -> newver
                     if (parts.length >= 4) {
                         names.push(parts[0])
-                        oldVers.push(parts[1])
-                        newVers.push(parts[3])
-                        rows.push({ id: parts[0], name: parts[0], oldVer: parts[1], newVer: parts[3], source: "system" })
+                        rows.push({id: parts[0], name: parts[0], oldVer: parts[1], newVer: parts[3], source: "system" })
                     }
                 }
 
-                root.nameStr = names.join("\n")
-                root.oldVerStr = oldVers.join("\n")
-                root.newVerStr = newVers.join("\n")
-                root.updateCount = names.length
+                root.systemStr = names.join("\n")
                 root.updates = rows
 
-                // Chain: start aur check after system updates are done
+                Logger.d("Arch Updater", "System update count: " + names.length)
+                Logger.d("Arch Updater", "System updates: " + names)
+
+                // Chain: start AUR check after system updates are done
                 getAURUpdates.command = ["sh", "-c", pluginApi.pluginSettings.aurCmd || pluginApi.manifest.metadata.defaultSettings.aurCmd]
                 getAURUpdates.running = true
             }
@@ -150,30 +160,25 @@ Item {
                 }
 
                 var lines = output.split("\n")
-                var names = root.nameStr.split("\n")
-                var oldVers = root.oldVerStr.split("\n")
-                var newVers = root.newVerStr.split("\n")
-                var rows = root.updates
+                var names = []
+                var rows = [...root.updates]
 
                 for (var i = 0; i < lines.length; i++) {
                     var parts = lines[i].split(/\s+/)
                     // Expected format: name oldver -> newver
                     if (parts.length >= 4) {
                         names.push(parts[0])
-                        oldVers.push(parts[1])
-                        newVers.push(parts[3])
-                        rows.push({ id: parts[0], name: parts[0], oldVer: parts[1], newVer: parts[3], source: "aur" })
+                        rows.push({id: parts[0], name: parts[0], oldVer: parts[1], newVer: parts[3], source: "aur" })
                     }
                 }
 
-                root.nameStr = names.join("\n")
-                root.oldVerStr = oldVers.join("\n")
-                root.newVerStr = newVers.join("\n")
-                root.updateCount = names.length
+                root.aurStr = names.join("\n")
                 root.updates = rows
 
-                Logger.d("Arch Updater", "System + AUR update count: " + root.updateCount)
-                checkNoctalia()
+                Logger.d("Arch Updater", "AUR update count: " + names.length)
+                Logger.d("Arch Updater", "AUR updates: " + names)
+
+                checkNoctalia(systemStr + aurStr)
 
                 // Chain: start flatpak check after system updates are done
                 if (pluginApi.pluginSettings.flatpak ?? pluginApi.manifest.metadata.defaultSettings.flatpak) {
@@ -208,32 +213,22 @@ Item {
 
                 var lines = output.split("\n")
                 var names = []
-                var oldVers = []
-                var newVers = []
-                var current = root.updates.slice()
+                var rows = [...root.updates]
 
                 for (var i = 0; i < lines.length; i++) {
                     var parts = lines[i].split(/\t+/)
-                    // Expected: application\tname\tnewver\toldver
+                    // Expected format: application\tname\tnewver\toldver
                     if (parts.length >= 4) {
-                        var id = parts[0].trim()
-                        var name = parts[1].trim()
-                        var newVer = parts[2].trim()
-                        var oldVer = parts[3].trim()
-                        names.push(name)
-                        newVers.push(newVer)
-                        oldVers.push(oldVer)
-                        current.push({ id: id, name: name, oldVer: oldVer, newVer: newVer, source: "flatpak" })
+                        names.push(parts[1])
+                        rows.push({id: parts[0], name: parts[1], oldVer: parts[2], newVer: parts[3], source: "flatpak" })
                     }
                 }
 
-                root.flatpakNameStr = names.join("\n")
-                root.flatpakNewVerStr = newVers.join("\n")
-                root.flatpakOldVerStr = oldVers.join("\n")
-                root.flatpakCount = names.length
-                root.updates = current
+                root.flatpakStr = names.join("\n")
+                root.updates = rows
 
-                Logger.d("Arch Updater", "Flatpak updates: " + root.flatpakCount)
+                Logger.d("Arch Updater", "Flatpak update count: " + names.length)
+                Logger.d("Arch Updater", "Flatpak updates: " + names)
                 root.refreshing = false
             }
         }

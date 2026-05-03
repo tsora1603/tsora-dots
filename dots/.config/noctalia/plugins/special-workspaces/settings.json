@@ -1,36 +1,36 @@
 {
-  "mainIcon": "pacman",
+  "mainIcon": "layout-grid",
   "expandDirection": "right",
   "primarySymbolColor": "none",
   "primaryShowPill": true,
-  "primaryPillColor": "none",
-  "primarySize": 0.9,
-  "primaryBorderRadius": 1,
+  "primaryPillColor": "primary",
+  "primarySize": 0.8,
+  "primaryBorderRadius": 0,
   "primaryFocusColor": "primary",
   "panelBackgroundColor": "none",
   "panelBackgroundEnabled": false,
   "workspaces": [
     {
       "name": "chat",
-      "icon": "ghost-3",
+      "icon": "message",
       "symbolColor": "none",
       "showPill": true,
       "pillColor": "primary",
       "size": 0.9,
-      "borderRadius": 1,
+      "borderRadius": 0,
       "focusColor": "primary"
     },
     {
       "name": "dev",
-      "icon": "ghost-3-filled",
+      "icon": "brand-github",
       "symbolColor": "none",
       "showPill": true,
       "pillColor": "primary",
       "size": 0.9,
-      "borderRadius": 1,
+      "borderRadius": 0,
       "focusColor": "primary"
     }
   ],
-  "drawer": true,
+  "drawer": false,
   "hideEmptyWorkspaces": true
 }
