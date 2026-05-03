@@ -1,7 +1,6 @@
 set -g fish_prompt_pwd_dir_length 0
 set -g fish_transient_prompt 1
 set -g __fish_git_prompt_show_informative_status true
-set -g __fish_git_prompt_showuntrackedfiles true
 
 
 # eza config
