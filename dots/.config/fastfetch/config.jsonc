@@ -31,8 +31,8 @@
         },
         "bar": {
             "border": {
-                "left": "[󰮯 ",
-                "right": "]"
+                "left": "󰮯 ",
+                "right": "󰊠 "
             },
             "char": {
                 "elapsed": "",
@@ -130,16 +130,14 @@
             "format": "{#green} Hardware/{$5}"
         },
         {
-            "type": "cpu",
+            "type": "command",
             "key": "{#white}{$3}{#green} ├ ",
-            "format": "{name} {temperature}",
-            "temp": true
+            "text": "~/.config/fastfetch/cpu-temp-icon.sh"
         },
         {
-            "type": "gpu",
+            "type": "command",
             "key": "{#white}{$3}{#green} ├󰾲 ",
-            "format": "{name} {temperature}",
-            "temp": true
+            "text": "~/.config/fastfetch/gpu-temp-icon.sh"
         },
         {
             "type": "memory",
