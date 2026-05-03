@@ -47,14 +47,14 @@
         "backgroundOpacity": 1,
         "barType": "framed",
         "capsuleColorKey": "none",
-        "capsuleOpacity": 0.19,
+        "capsuleOpacity": 1,
         "contentPadding": 0,
         "density": "spacious",
         "displayMode": "non_exclusive",
         "enableExclusionZoneInset": true,
         "fontScale": 0.9,
-        "frameRadius": 24,
-        "frameThickness": 8,
+        "frameRadius": 4,
+        "frameThickness": 6,
         "hideOnOverview": false,
         "marginHorizontal": 452,
         "marginVertical": 0,
@@ -90,34 +90,34 @@
                     "center": [
                         {
                             "colorizeDistroLogo": false,
-                            "colorizeSystemIcon": "none",
+                            "colorizeSystemIcon": "primary",
                             "colorizeSystemText": "none",
-                            "customIconPath": "/home/tsora/Development/pixora-icons/pixora-icons/scalable/apps/cachy-hello.svg",
-                            "enableColorization": true,
+                            "customIconPath": "/home/tsora/Development/pixora-icons/pixora/scalable/apps/cachy-hello.svg",
+                            "enableColorization": false,
                             "icon": "noctalia",
                             "id": "ControlCenter",
                             "useDistroLogo": false
                         },
                         {
-                            "characterCount": 10,
-                            "colorizeIcons": false,
+                            "characterCount": 2,
+                            "colorizeIcons": true,
                             "emptyColor": "secondary",
                             "enableScrollWheel": true,
                             "focusedColor": "primary",
                             "followFocusedScreen": false,
-                            "fontWeight": "regular",
+                            "fontWeight": "bold",
                             "groupedBorderOpacity": 1,
                             "hideUnoccupied": false,
                             "iconScale": 0.9,
                             "id": "Workspace",
                             "labelMode": "name",
                             "occupiedColor": "secondary",
-                            "pillSize": 0.6,
-                            "showApplications": false,
+                            "pillSize": 0.8,
+                            "showApplications": true,
                             "showApplicationsHover": false,
-                            "showBadge": false,
+                            "showBadge": true,
                             "showLabelsOnlyWhenOccupied": false,
-                            "unfocusedIconsOpacity": 1
+                            "unfocusedIconsOpacity": 0.6
                         },
                         {
                             "id": "plugin:special-workspaces"
@@ -177,6 +177,19 @@
                         }
                     ],
                     "right": [
+                        {
+                            "defaultSettings": {
+                                "catColor": "default",
+                                "catOffsetY": 0,
+                                "catSize": 1,
+                                "idleTimeout": 150,
+                                "raveMode": false,
+                                "tappyMode": false,
+                                "useMprisFilter": false,
+                                "waitingTimeout": 30000
+                            },
+                            "id": "plugin:slowbongo"
+                        },
                         {
                             "compactMode": true,
                             "hideMode": "hidden",
@@ -241,8 +254,8 @@
                             "colorizeDistroLogo": false,
                             "colorizeSystemIcon": "none",
                             "colorizeSystemText": "none",
-                            "customIconPath": "/home/tsora/Development/pixora-icons/pixora-icons/scalable/apps/cachy-hello.svg",
-                            "enableColorization": true,
+                            "customIconPath": "/home/tsora/Development/pixora-icons/pixora/scalable/apps/cachy-hello.svg",
+                            "enableColorization": false,
                             "icon": "noctalia",
                             "id": "ControlCenter",
                             "useDistroLogo": false
@@ -261,12 +274,12 @@
                             "id": "Workspace",
                             "labelMode": "name",
                             "occupiedColor": "secondary",
-                            "pillSize": 0.6,
-                            "showApplications": false,
+                            "pillSize": 0.8,
+                            "showApplications": true,
                             "showApplicationsHover": false,
-                            "showBadge": false,
+                            "showBadge": true,
                             "showLabelsOnlyWhenOccupied": false,
-                            "unfocusedIconsOpacity": 1
+                            "unfocusedIconsOpacity": 0.6
                         },
                         {
                             "id": "plugin:special-workspaces"
@@ -327,6 +340,19 @@
                     ],
                     "right": [
                         {
+                            "defaultSettings": {
+                                "catColor": "default",
+                                "catOffsetY": 0,
+                                "catSize": 1,
+                                "idleTimeout": 150,
+                                "raveMode": false,
+                                "tappyMode": false,
+                                "useMprisFilter": false,
+                                "waitingTimeout": 30000
+                            },
+                            "id": "plugin:slowbongo"
+                        },
+                        {
                             "compactMode": true,
                             "hideMode": "hidden",
                             "hideWhenIdle": false,
@@ -381,11 +407,11 @@
                 }
             }
         ],
-        "showCapsule": false,
+        "showCapsule": true,
         "showOnWorkspaceSwitch": true,
-        "showOutline": false,
-        "useSeparateOpacity": true,
-        "widgetSpacing": 4,
+        "showOutline": true,
+        "useSeparateOpacity": false,
+        "widgetSpacing": 6,
         "widgets": {
             "center": [
                 {
@@ -574,7 +600,7 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": true,
+        "darkMode": false,
         "generationMethod": "faithful",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
@@ -844,7 +870,7 @@
         "allowPanelsOnScreenWithoutBar": true,
         "allowPasswordWithFprintd": false,
         "animationDisabled": false,
-        "animationSpeed": 1.5,
+        "animationSpeed": 2,
         "autoStartAuth": false,
         "avatarImage": "/home/tsora/.face/knight.png",
         "boxRadiusRatio": 1,
@@ -857,7 +883,7 @@
         "enableLockScreenMediaControls": false,
         "enableShadows": true,
         "forceBlackScreenCorners": false,
-        "iRadiusRatio": 1,
+        "iRadiusRatio": 0,
         "keybinds": {
             "keyDown": [
                 "Down"
@@ -893,7 +919,7 @@
         ],
         "lockScreenTint": 0.3,
         "passwordChars": true,
-        "radiusRatio": 1,
+        "radiusRatio": 0,
         "reverseScroll": false,
         "scaleRatio": 1.05,
         "screenRadiusRatio": 1,
@@ -1138,15 +1164,7 @@
             },
             {
                 "enabled": true,
-                "id": "code"
-            },
-            {
-                "enabled": true,
                 "id": "discord"
-            },
-            {
-                "enabled": true,
-                "id": "zenBrowser"
             },
             {
                 "enabled": true,
@@ -1159,6 +1177,14 @@
             {
                 "enabled": true,
                 "id": "gtk"
+            },
+            {
+                "enabled": true,
+                "id": "zenBrowser"
+            },
+            {
+                "enabled": true,
+                "id": "code"
             }
         ],
         "enableUserTheming": true
@@ -1169,12 +1195,12 @@
         "fontDefaultScale": 1.05,
         "fontFixed": "DepartureMono Nerd Font Mono",
         "fontFixedScale": 1.05,
-        "panelBackgroundOpacity": 0.8,
+        "panelBackgroundOpacity": 1,
         "panelsAttachedToBar": true,
         "scrollbarAlwaysVisible": true,
         "settingsPanelMode": "attached",
         "settingsPanelSideBarCardStyle": false,
-        "tooltipsEnabled": true,
+        "tooltipsEnabled": false,
         "translucentWidgets": true
     },
     "wallpaper": {
