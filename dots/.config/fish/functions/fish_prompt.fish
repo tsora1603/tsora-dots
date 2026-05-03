@@ -14,7 +14,7 @@ function fish_prompt
 
     # visible lengths: arrows + segment text
     # left side: "┌" + arrow_left + dir_text + arrow_right (git entry arrow)
-    set -l left_len (math (string length --visible $dir_text) + 17)
+    set -l left_len (math (string length --visible $dir_text) + 19)
     # right side: arrow_right + git_text + arrow_right (closing)
     set -l right_len (math (string length --visible $git_text) + 1)
 
@@ -57,7 +57,7 @@ function fish_prompt
     set_color $time_bg --background normal
     echo -n $arrow_left
     set_color $time_bg --background $time_bg
-    set -l _h (date "+%H"); set -l _t (date "+%I:%M"); echo -n (set_color black)" $_t "(if test $_h -lt 12; echo "AM "; else; echo "PM "; end)(set_color normal)
+    set -l _h (date "+%H"); set -l _t (date "+%I:%M"); echo -n (set_color black)" $_t "(if test $_h -lt 12; echo "AM  "; else; echo "PM  "; end)(set_color normal)
     set_color $time_bg --background normal
     echo -n $arrow_right
     echo -n "┐"

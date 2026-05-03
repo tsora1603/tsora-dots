@@ -3,9 +3,9 @@ function fish_right_prompt
 
     # Status indicator
     if test $last_status -ne 0
-        echo -n (set_color red)"✗ $last_status "(set_color normal)
+        echo -n (set_color red)"{✗} $last_status "(set_color normal)
     else
-        echo -n (set_color green)"✓ "(set_color normal)
+        echo -n (set_color green)"{✓}"(set_color normal)
     end
 
     # Duration — only show if command took more than 1 second
