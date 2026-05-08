@@ -1,0 +1,26 @@
+{
+  "colorHistory": [
+    "#070722"
+  ],
+  "paletteColors": [],
+  "installedLangs": [
+    "eng",
+    "por"
+  ],
+  "transAvailable": true,
+  "selectedOcrLang": "eng",
+  "screenshotPath": "",
+  "videoPath": "",
+  "filenameFormat": "",
+  "detectedRecorder": "",
+  "detectedCompositor": "niri",
+  "stateIsRunning": false,
+  "stateActiveTool": "",
+  "stateMirrorVisible": false,
+  "resultHex": "#070722",
+  "resultRgb": "rgb(7, 7, 34)",
+  "resultHsv": "hsv(240, 79%, 13%)",
+  "resultHsl": "hsl(240, 66%, 8%)",
+  "colorCapturePath": "/tmp/screen-toolkit-colorpicker.png",
+  "colorCacheBust": 1778112578924
+}

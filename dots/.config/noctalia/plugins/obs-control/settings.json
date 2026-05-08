@@ -1,0 +1,19 @@
+{
+  "pollIntervalMs": 2500,
+  "leftClickAction": "panel",
+  "launchBehavior": "minimized-to-tray",
+  "barLabelMode": "icon-only",
+  "videosPath": "",
+  "videosOpener": "xdg-open",
+  "autoCloseManagedObs": true,
+  "openVideosAfterStop": false,
+  "showBarWhenRecording": true,
+  "showBarWhenReplay": false,
+  "showBarWhenStreaming": true,
+  "showBarWhenReady": true,
+  "showControlCenterWhenRecording": true,
+  "showControlCenterWhenReplay": true,
+  "showControlCenterWhenStreaming": true,
+  "showControlCenterWhenReady": false,
+  "showElapsedInBar": false
+}

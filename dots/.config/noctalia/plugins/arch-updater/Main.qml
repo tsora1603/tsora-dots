@@ -38,27 +38,72 @@ Item {
         refresh()
     }
 
+    Process {
+        id: checkRepo
+        
+        property string _output: ""
+        property var _callback: null
+
+        stdout: SplitParser {
+            onRead: data => checkRepo._output += data + "\n"
+        }
+
+        onExited: {
+            if (_callback) _callback(_output)
+            _output = ""
+            _callback = null
+        }
+
+        function run(cmd, callback) {
+            _output = ""
+            _callback = callback
+            command = cmd
+            running = true
+        }
+    }
+
     function openURL(source, id) {
         // Opens the page for the package
         switch (source) {
             case "system":
-                var url = "https://archlinux.org/packages/extra/x86_64/" + id
+                checkRepo.run(["sh", "-c", "pacman -Si " + id + " 2>/dev/null | awk '/^Repository/{print $3; exit}'"], output => {
+                    var repo = output.trim()
+                    switch (repo) {
+                        case "cachyos-znver4":
+                            var url = "https://packages.cachyos.org/package/cachyos-znver4/x86_64_v4/" + id
+                            break
+                        case "cachyos-extra-znver4":
+                            var url = "https://packages.cachyos.org/package/cachyos-extra-znver4/x86_64_v4/" + id
+                            break
+                        case "cachyos-core-znver4":
+                            var url = "https://packages.cachyos.org/package/cachyos-core-znver4/x86_64_v4/" + id
+                            break
+                        case "extra":
+                            var url = "https://archlinux.org/packages/extra/x86_64/" + id
+                            break
+                        case "multilib":
+                            var url = "https://archlinux.org/packages/multilib/x86_64/" + id
+                            break
+                        default:
+                            var url = "https://archlinux.org/packages/core/x86_64/" + id
+                            break
+                    }
+                    Qt.openUrlExternally(url)
+                })
                 break
             case "aur":
-                var url = "https://aur.archlinux.org/packages/" + id
+                Qt.openUrlExternally("https://aur.archlinux.org/packages/" + id)
                 break
             case "flatpak":
-                var url = "https://flathub.org/en/apps/" + id
+                Qt.openUrlExternally("https://flathub.org/en/apps/" + id)
                 break
             default:
-                var url = ""
+                Logger.i("Arch Updater", "Unkown source: " + source)
                 ToastService.showNotice("Unkown source: " + source)
                 break
         }
-        Logger.i("Arch Updater", "Opening " + url)
-        Qt.openUrlExternally(url)
     }
-    
+
     function copy(text) {
         // Copy the text and send a toast
         Quickshell.execDetached(["sh", "-c", "wl-copy '" + text + "'"])
@@ -191,11 +236,12 @@ Item {
     }
 
     // Single process for all flatpak update data
+    // Refreshes metadata using --no-deploy first so that the new version numbers get fetched
     // Joins remote (new) versions with installed (old) versions by application ID
     // Output format: application\tname\tnewver\toldver
     Process {
         id: getFlatpakUpdates
-        command: ["sh", "-c", "join -t'\t' -j1 <(flatpak remote-ls --updates --columns=application,name,version 2>/dev/null | sort -t'\t' -k1,1) <(flatpak list --columns=application,version 2>/dev/null | sort -t'\t' -k1,1)"]
+        command: ["sh", "-c", "flatpak update --no-deploy --noninteractive >/dev/null 2>&1; join -t'\t' -j1 <(flatpak remote-ls --updates --columns=application,name,version 2>/dev/null | sort -t'\t' -k1,1) <(flatpak list --columns=application,version 2>/dev/null | sort -t'\t' -k1,1)"]
         onExited: (exitCode, exitStatus) => {
             if (exitCode !== 0) {
                 Logger.w("Arch Updater", "Flatpak check exited with code " + exitCode)
@@ -220,7 +266,7 @@ Item {
                     // Expected format: application\tname\tnewver\toldver
                     if (parts.length >= 4) {
                         names.push(parts[1])
-                        rows.push({id: parts[0], name: parts[1], oldVer: parts[2], newVer: parts[3], source: "flatpak" })
+                        rows.push({id: parts[0], name: parts[1], oldVer: parts[3], newVer: parts[2], source: "flatpak" })
                     }
                 }
 

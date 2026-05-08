@@ -1,7 +1,7 @@
 {
   "id": "arch-updater",
   "name": "Arch Updater",
-  "version": "2.1.1",
+  "version": "2.1.4",
   "minNoctaliaVersion": "3.6.0",
   "author": "Ast",
   "license": "MIT",
@@ -41,6 +41,8 @@
       "boldVer": true,
       "tooltip": true,
       "closeButton": true,
+      "panelTooltip": true,
+      "panelContext": true,
       "boldVerPanel": true,
       "boldVerDesktop": true,
       "hoverTip": true

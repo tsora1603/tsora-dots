@@ -52,7 +52,7 @@ Item {
                 root.pluginApi.mainInstance.copy(text) // Copy text
             }
             else if (action === "open") {
-                Logger.d("Arch Updater", "open")
+                Logger.d("Arch Updater", "Open URL")
                 root.pluginApi.mainInstance.openURL(source, packageID) // Open link
             }
         }
@@ -75,17 +75,28 @@ Item {
             height: Style.marginL
         }
 
-        onEntered: TooltipService.show(cursorProxy, text, tooltipDirection) // Show the tooltip at the cursor
+        onEntered: {
+            if (pluginApi.pluginSettings.panelTooltip ?? pluginApi.manifest.metadata.defaultSettings.panelTooltip) {
+                // Show the tooltip at the cursor
+                TooltipService.show(cursorProxy, text, tooltipDirection)
+            }
+        }
         onExited: TooltipService.hide()
         onClicked: (mouse) => {
             if (mouse.button === Qt.LeftButton) {
-                root.pluginApi.mainInstance.copy(text) // Copy text
+                // Copy text
+                root.pluginApi.mainInstance.copy(text)
             }
-            else if (mouse.button === Qt.RightButton) {
+            else if (mouse.button === Qt.RightButton && (pluginApi.pluginSettings.panelContext ?? pluginApi.manifest.metadata.defaultSettings.panelContext)) {
+                // Set information that will be used in the context menu
                 contextMenu.packageID = packageID
                 contextMenu.source = source
                 contextMenu.text = text
-                PanelService.showContextMenu(contextMenu, cursorProxy, screen) // Open context menu
+
+                // Open context menu
+                PanelService.showContextMenu(contextMenu, cursorProxy, screen)
+
+                // Context menu position relative to cursorProxy (mouse position)
                 contextMenu.anchor.rect.x = 0
                 contextMenu.anchor.rect.y = Style.marginXL
             }

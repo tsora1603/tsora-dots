@@ -32,6 +32,8 @@ ColumnLayout {
 
     // Panel
     property bool boldVerPanel: pluginApi.pluginSettings.boldVerPanel ?? pluginApi.manifest.metadata.defaultSettings.boldVerPanel
+    property bool panelTooltip: pluginApi.pluginSettings.panelTooltip ?? pluginApi.manifest.metadata.defaultSettings.panelTooltip
+    property bool panelContext: pluginApi.pluginSettings.panelContext ?? pluginApi.manifest.metadata.defaultSettings.panelContext
     property bool closeButton: pluginApi.pluginSettings.closeButton ?? pluginApi.manifest.metadata.defaultSettings.closeButton
 
     // Desktop Widget
@@ -427,6 +429,34 @@ ColumnLayout {
                 }
             }
 
+            // Tooltip Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: panelTooltipToggle.implicitHeight
+                NToggle {
+                    id: panelTooltipToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.panel.tooltip.text")
+                    description: pluginApi.tr("settings.panel.tooltip.desc")
+                    checked: root.panelTooltip
+                    onToggled: checked => root.panelTooltip = checked
+                }
+            }
+
+            // Context Menu Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: panelContextToggle.implicitHeight
+                NToggle {
+                    id: panelContextToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.panel.context.text")
+                    description: pluginApi.tr("settings.panel.context.desc")
+                    checked: root.panelContext
+                    onToggled: checked => root.panelContext = checked
+                }
+            }
+
             // Close Button Toggle
             Item {
                 Layout.fillWidth: true
@@ -521,6 +551,8 @@ ColumnLayout {
 
         // Panel
         pluginApi.pluginSettings.boldVerPanel = root.boldVerPanel
+        pluginApi.pluginSettings.panelTooltip = root.panelTooltip
+        pluginApi.pluginSettings.panelContext = root.panelContext
         pluginApi.pluginSettings.closeButton = root.closeButton
 
         // Desktop Widget
