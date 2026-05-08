@@ -101,29 +101,15 @@
         },
         {
             "type": "custom",
-            "format": "{$3}{#yellow} ├ Terminal/"
+            "format": "{$3}{#yellow} └ Terminal/"
         },
         {
             "type": "terminal",
-            "key": "{#white}{$3}{#yellow} │  ├ "
+            "key": "{#white}{$3}{#yellow}    ├ "
         },
         {
             "type": "shell",
-            "key": "{#white}{$3}{#yellow} │  └ "
-        },
-        {
-            "type": "custom",
-            "format": "{$3}{#yellow} └ UI/"
-        },
-        {
-            "type": "icons",
-            "key": "{#white}{$3}{#yellow}    ├ ",
-            "format": "{icons1}"
-        },
-        {
-            "type": "font",
-            "key": "{#white}{$3}{#yellow}    └ ",
-            "format": "{font1}"
+            "key": "{#white}{$3}{#yellow}    └ "
         },
         {
             "type": "custom",
