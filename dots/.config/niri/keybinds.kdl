@@ -1,0 +1,106 @@
+binds {
+    // Niri basics
+    Super+Q         { close-window; }
+    Super+R         { switch-preset-column-width; }
+    Super+F         { maximize-column; }
+    Super+G         { maximize-window-to-edges; }
+    Super+Shift+F   { fullscreen-window; }
+
+    // "Special Workspaces" 
+    Super+C     { spawn "~/.local/bin/niri-chat.sh"; }
+
+    // Navigation
+        // Keyboard
+        Super+up        { focus-window-up-or-column-left; }
+        Super+down      { focus-window-down-or-column-right; }
+        Super+left      { focus-column-or-monitor-left; }
+        Super+right     { focus-column-or-monitor-right; }
+
+        Super+prior         { focus-workspace-up; }
+        Super+next          { focus-workspace-down; }
+        Super+Shift+prior   { move-window-to-workspace-up; }
+        Super+Shift+next    { move-window-to-workspace-down; }
+
+        Super+Shift+up      { move-window-to-monitor-right; }
+        Super+Shift+down    { move-window-to-monitor-left; }
+        Super+Alt+up        { swap-window-left; }
+        Super+Alt+down      { swap-window-right; }
+        Super+Shift+left    { consume-or-expel-window-left; }
+        Super+Shift+right   { consume-or-expel-window-right; }
+
+        Super+Tab       { switch-focus-between-floating-and-tiling; }
+        Super+slash     { show-hotkey-overlay; }
+        Alt+Tab         { toggle-overview; }
+    //
+        // Mouse
+        Mod+WheelScrollUp   cooldown-ms=150     { focus-workspace-up; }
+        Mod+WheelScrollDown cooldown-ms=150     { focus-workspace-down; }
+    //
+
+    // Apps
+    Super+W     { spawn "zen-browser"; }
+    Super+T     { spawn-sh "piri scratchpads term toggle && ~/.local/bin/piri-kitty-yazi.sh"; }
+    Super+E     { spawn-sh "piri scratchpads yazi toggle && ~/.local/bin/piri-kitty-yazi.sh"; }
+    Super+M     { spawn-sh "piri scratchpads rmpc toggle && ~/.local/bin/piri-kitty-yazi.sh"; }
+
+    // Noctalia
+    // ==== Core Binds ====
+        // App launcher (+ calculator key)
+        Super+space hotkey-overlay-title="Open app launcher" \ 
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+        XF86Calculator \
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+        // Control center
+        Super+period hotkey-overlay-title="Open control center" \
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
+        // Settings
+        Super+comma hotkey-overlay-title="Open settings" \ 
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
+        // Session
+        Ctrl+Alt+delete hotkey-overlay-title="Open session menu" \
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
+    //
+
+    // ==== Audio Controls ====
+        // Volume up
+        XF86AudioRaiseVolume \
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"; }
+        // Volume down
+        XF86AudioLowerVolume \
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+        // Mute audio
+        XF86AudioMute \
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+        // Mute input (microphone)
+        Super+Z \
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
+    // 
+
+    // ==== Media Controls ====
+        // Previous
+        F2 \
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "previous"; }
+        // Play/Pause
+        F3 \
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "playPause"; }
+        // Next
+        F4 \
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "next"; }
+    //
+    
+    // ==== Plugins ====
+        // Clipboard (Clipper)
+        Super+V hotkey-overlay-title="Open clipboard" \
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:clipper" "toggle"; }
+        // OBS Control
+        Super+BackSpace hotkey-overlay-title="Start/Stop screen recording" \
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:obs-control" "toggleRecord"; }
+        // Screen Toolkit
+        Print hotkey-overlay-title="Take Screenshot & annotate" \
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:screen-toolkit" "annotate"; }
+        // To-Do List
+        Super+Shift+T hotkey-overlay-title="Open To-Do List" \
+        { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:todo" "togglePanel"; }
+    //
+    
+}

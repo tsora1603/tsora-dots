@@ -1,0 +1,54 @@
+// Chat
+workspace "󰡟" {
+    open-on-output "HDMI-A-1"
+}
+window-rule {
+    match app-id=r#".*vesk.*"#
+    match title=r#".*Reddit.*"#
+    match title=r#".*WhatsApp.*"#
+    match title=r#".*Discord.*"#
+    match title=r#".*GitHub.*"#
+
+    open-on-workspace "󰡟"
+    open-focused false
+}
+
+// Design
+workspace "" {
+    open-on-output "HDMI-A-1"
+}
+window-rule {
+    match app-id=r#".*libresprite.*"# 
+    match app-id=r#".*inkscape.*"# 
+
+    open-on-workspace ""
+    open-focused false
+}
+
+// Development
+workspace "" {
+    open-on-output "HDMI-A-1"
+}
+window-rule {
+    match app-id=r#".*codium.*"# 
+
+    open-on-workspace ""
+    open-focused false
+}
+
+// Tmp
+workspace "" {
+    open-on-output "DP-1"
+}
+
+// Games
+workspace "" {
+    open-on-output "DP-1"
+}
+window-rule {
+    match app-id=r#".*steam.*"#
+
+    open-on-workspace ""
+    open-focused false
+}
+

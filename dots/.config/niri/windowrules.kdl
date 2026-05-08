@@ -1,0 +1,83 @@
+// Set open-maximized to true for all windows, except:
+window-rule {
+  open-maximized false
+  open-maximized-to-edges false
+  open-fullscreen false
+
+  match app-id=r#"kitty"#
+  match app-id=r#"yazi"#
+  match at-startup=true app-id=r#".*inkscape.*"#
+  match app-id=r#".*inkscape.*"# 
+  match app-id=r#".*codium.*"#
+  match app-id=r#".*zen.*"#
+  match at-startup=true app-id=r#".*libresprite.*"#
+  match app-id=r#".*libresprite.*"#
+  match title=r#".*GitHub.*"#
+  match title=r#".*Claude.*"#
+  match title=r#".*YouTube.*"#
+}
+
+// Borderless + shadow
+window-rule {
+  focus-ring {
+    off
+  }
+
+  border {
+    off
+  }
+
+  shadow {
+    on
+    softness 1 
+    spread 0
+    offset x=8 y=8
+    draw-behind-window false
+    color "#00000072"
+    inactive-color "#0000002b"
+  }
+}
+
+// Floaties
+window-rule {
+  open-floating true
+
+  match app-id=r#"float.kitty"#
+  match app-id=r#"float.yazi"#
+  match app-id=r#"float.rmpc"#
+  match app-id=r#".*cachyos.hello.*"#
+  match title="Noctalia"
+  match title="terminal filechooser"
+}
+
+// rmpc
+window-rule { 
+  match app-id=r#"rmpc"#
+
+  open-floating true
+  default-floating-position x=0 y=1 relative-to="bottom"
+  default-window-height { fixed 500; } 
+  default-column-width  { fixed 900; }
+
+  focus-ring {
+    off
+  }
+}
+
+// Blur on inactive windows
+window-rule {
+  match is-active=false
+  
+  opacity 0.85
+  background-effect {
+    blur true
+    xray false
+  }
+}
+// Blur config
+blur {
+  passes 3        // more passes = stronger blur (default: 3)
+  offset 3.0      // sample distance per pass (default: 3.0)
+  noise 0.01      // grain overlay (default: 0.02)
+  saturation 1.0  // color saturation boost (default: 1.5)
+}

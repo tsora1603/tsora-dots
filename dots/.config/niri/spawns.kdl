@@ -1,0 +1,29 @@
+// Noctalia
+spawn-sh-at-startup "qs -c noctalia-shell"
+// Noctalia lockscreen
+spawn-at-startup "~/.local/bin/noctalia-lock.sh"
+
+// Start piri
+spawn-at-startup "piri" "daemon"
+
+// Applications
+spawn-at-startup "libresprite"
+spawn-at-startup "inkscape"
+spawn-at-startup "vscodium"
+spawn-at-startup "steam"
+spawn-at-startup "equibop"
+spawn-sh-at-startup "sleep 3 && obs --minimize-to-tray"
+
+// Web apps
+spawn-sh-at-startup "gio launch /home/tsora/.local/share/applications/FFPWA-01KNPPCC8VRE4QW70BDTH76K55.desktop"
+spawn-sh-at-startup "gio launch /home/tsora/.local/share/applications/FFPWA-01KNPPMVQDDZ3FF82P6Y6Q0AFK.desktop"
+
+// Stuff
+spawn-sh-at-startup "/usr/local/libexec/file_manager_dbus"
+spawn-sh-at-startup "systemctl --user import-environment XDG_DATA_DIRS"
+
+// Auto-consume windows vertical monitor right
+spawn-sh-at-startup "python3 ~/.local/bin/niri-vertical-consume.py DP-1"
+
+// Which workspace to focus at startup
+spawn-at-startup "niri" "msg" "action" "focus-workspace-down"

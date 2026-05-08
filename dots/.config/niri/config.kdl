@@ -1,0 +1,81 @@
+// Sourcing other config files
+include "animations.kdl"
+include "environment.kdl"
+include "keybinds.kdl"
+include "layerrules.kdl"
+include "layout.kdl"
+include "noctalia.kdl"
+include "spawns.kdl"
+include "windowrules.kdl"
+include "workspaces.kdl"
+
+// Input config
+input {
+    keyboard {
+        numlock
+        repeat-delay 250
+        repeat-rate 35
+        xkb {
+            layout "us"
+            variant "intl"
+            options "shift:both_capslock, compose:caps"
+        }
+    }
+    focus-follows-mouse
+}
+
+// Output config
+output "HDMI-A-1" {
+    mode "1920x1080@100"
+    position x=0 y=0
+    variable-refresh-rate
+    focus-at-startup
+    backdrop-color "#001100"
+
+    hot-corners { 
+      off
+    }
+}
+output "DP-1" {
+    mode "1920x1080@100"
+    transform "90"
+    position x=1920 y=-420
+    variable-refresh-rate on-demand=true
+    backdrop-color "#001100"
+
+    hot-corners { 
+      off
+    }
+
+    layout { 
+      default-column-width { proportion 0.999; }
+    }
+}
+
+cursor {
+  xcursor-theme "pixelfun2-chocolate"
+  xcursor-size 24
+
+  hide-when-typing
+  hide-after-inactive-ms 1000
+}
+
+// Optionally, disable the workspace shadows in the overview.
+overview {
+  workspace-shadow {
+    off
+  }
+}
+
+// Other stuff
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
+hotkey-overlay {
+    skip-at-startup
+    hide-not-bound
+}
+
+prefer-no-csd
