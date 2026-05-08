@@ -33,7 +33,7 @@ rules = [
   { mime = "audio/*", use = "music" },
   { mime = "video/*", use = "play" },
   { mime = "image/*", use = "view" },
-  { mime = "application/{zip,7z-compressed,rar,tar,xz}", use = "extract" },
+  { mime = "application/{zip,gzip,7z-compressed,rar,tar,xz}", use = "extract" },
   { mime = "application/{openxml*,ms*}", use = "onlyoffice" },
   { mime = "{text,application}/*", use = "edit" },
 ]
