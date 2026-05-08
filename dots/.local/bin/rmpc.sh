@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if [[ -z $(hyprctl clients | grep 'class: rmpc') ]]; then
-    kitty --class rmpc -e rmpc
-else
+if pgrep -x rmpc > /dev/null; then
     pkill rmpc
+else
+    kitty --class rmpc -e rmpc
 fi
