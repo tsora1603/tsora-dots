@@ -1,0 +1,23 @@
+#!/bin/bash
+# xdg-open-yazi.sh
+# Opens yazi for any directory passed by xdg-open.
+#
+# Install:
+#   cp xdg-open-yazi.sh ~/.local/bin/xdg-open-yazi
+#   chmod +x ~/.local/bin/xdg-open-yazi
+#   cp xdg-open-yazi.desktop ~/.local/share/applications/
+#   xdg-mime default xdg-open-yazi.desktop inode/directory
+#   xdg-mime default xdg-open-yazi.desktop x-scheme-handler/file
+
+DIR="${1:-$HOME}"
+
+# Strip file:// prefix if present
+DIR="${DIR#file://}"
+
+# Decode percent-encoded characters (e.g. %20 → space)
+DIR=$(printf '%b' "${DIR//%/\\x}")
+
+# Fall back to home if path doesn't exist
+[ -d "$DIR" ] || DIR="$HOME"
+
+exec kitty --class yazi -- yazi "$DIR"
