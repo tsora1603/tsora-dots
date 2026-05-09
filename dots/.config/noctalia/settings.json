@@ -113,7 +113,7 @@
                             "labelMode": "name",
                             "occupiedColor": "secondary",
                             "pillSize": 0.8,
-                            "showApplications": true,
+                            "showApplications": false,
                             "showApplicationsHover": false,
                             "showBadge": true,
                             "showLabelsOnlyWhenOccupied": false,
@@ -308,7 +308,7 @@
                             "labelMode": "name",
                             "occupiedColor": "secondary",
                             "pillSize": 0.8,
-                            "showApplications": true,
+                            "showApplications": false,
                             "showApplicationsHover": false,
                             "showBadge": true,
                             "showLabelsOnlyWhenOccupied": false,
@@ -571,12 +571,12 @@
     },
     "colorSchemes": {
         "darkMode": false,
-        "generationMethod": "vibrant",
+        "generationMethod": "dysfunctional",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "HDMI-A-1",
         "predefinedScheme": "Kanagawa",
-        "schedulingMode": "off",
+        "schedulingMode": "location",
         "syncGsettings": true,
         "useWallpaperColors": true
     },
@@ -805,15 +805,15 @@
     },
     "dock": {
         "animationSpeed": 1,
-        "backgroundOpacity": 0.9,
+        "backgroundOpacity": 1,
         "colorizeIcons": true,
-        "deadOpacity": 0.5,
-        "displayMode": "always_visible",
+        "deadOpacity": 0.47000000000000003,
+        "displayMode": "exclusive",
         "dockType": "floating",
         "enabled": false,
         "floatingRatio": 0,
-        "groupApps": false,
-        "groupClickAction": "cycle",
+        "groupApps": true,
+        "groupClickAction": "list",
         "groupContextMenuMode": "extended",
         "groupIndicatorStyle": "dots",
         "inactiveIndicators": false,
@@ -825,16 +825,19 @@
         "launcherPosition": "start",
         "launcherUseDistroLogo": false,
         "monitors": [
+            "HDMI-A-1",
+            "DP-1"
         ],
         "onlySameOutput": true,
         "pinnedApps": [
+            "equibop"
         ],
-        "pinnedStatic": false,
+        "pinnedStatic": true,
         "position": "bottom",
         "showDockIndicator": false,
         "showLauncherIcon": false,
         "sitOnFrame": true,
-        "size": 1.1500000000000001
+        "size": 0.9
     },
     "general": {
         "allowPanelsOnScreenWithoutBar": true,
@@ -1159,6 +1162,10 @@
             {
                 "enabled": true,
                 "id": "qt"
+            },
+            {
+                "enabled": true,
+                "id": "yazi"
             }
         ],
         "enableUserTheming": true
@@ -1178,20 +1185,160 @@
         "translucentWidgets": true
     },
     "wallpaper": {
-        "automationEnabled": false,
+        "automationEnabled": true,
         "directory": "/home/tsora/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": true,
         "enabled": true,
         "favorites": [
+            {
+                "appearance": "dark",
+                "colorScheme": "Kanagawa",
+                "darkMode": true,
+                "generationMethod": "content",
+                "paletteColors": [
+                    "#f1afff",
+                    "#e3b8ea",
+                    "#ffb1c8",
+                    "#ffb4ab"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/BlackpixelGalaxy_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Kanagawa",
+                "darkMode": true,
+                "generationMethod": "content",
+                "paletteColors": [
+                    "#a2d0bd",
+                    "#b8cbc1",
+                    "#c5c2ec",
+                    "#ffb4ab"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/BlackpixelGalaxyTeal_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Kanagawa",
+                "darkMode": true,
+                "generationMethod": "content",
+                "paletteColors": [
+                    "#66558e",
+                    "#625a73",
+                    "#874b6b",
+                    "#ba1a1a"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/FluffyGalaxiesMin_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Kanagawa",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#426e13",
+                    "#1a671a",
+                    "#206140",
+                    "#fd4663"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/ForestHouse_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Kanagawa",
+                "darkMode": true,
+                "generationMethod": "content",
+                "paletteColors": [
+                    "#a2ceda",
+                    "#b8c9cf",
+                    "#d4bee6",
+                    "#ffb4ab"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/HandsLight_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Kanagawa",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#676be4",
+                    "#d96985",
+                    "#c966cc",
+                    "#d17189"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/HoleofHeaven.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Kanagawa",
+                "darkMode": true,
+                "generationMethod": "content",
+                "paletteColors": [
+                    "#d2c2ce",
+                    "#cdc4c9",
+                    "#dbc0c0",
+                    "#ffb4ab"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/LootriverCastle_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Kanagawa",
+                "darkMode": true,
+                "generationMethod": "content",
+                "paletteColors": [
+                    "#cec6b1",
+                    "#cbc6bc",
+                    "#c2c9ba",
+                    "#ffb4ab"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/MistTower_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Kanagawa",
+                "darkMode": true,
+                "generationMethod": "content",
+                "paletteColors": [
+                    "#afcdc1",
+                    "#bec9c3",
+                    "#c2c5e0",
+                    "#ffb4ab"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/BoatWreckAqua_1920x1080.png",
+                "useWallpaperColors": true
+            },
             {
                 "appearance": "light",
                 "colorScheme": "Kanagawa",
                 "darkMode": false,
                 "generationMethod": "faithful",
                 "paletteColors": [
-                    "#f4ddbe",
-                    "#edf0c2",
-                    "#d6efc3",
+                    "#e4c467",
+                    "#bbd862",
+                    "#85ce6c",
+                    "#fd4663"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/FantasyMap_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "light",
+                "colorScheme": "Kanagawa",
+                "darkMode": false,
+                "generationMethod": "faithful",
+                "paletteColors": [
+                    "#c37e22",
+                    "#9ba329",
+                    "#528d26",
                     "#fd4663"
                 ],
                 "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/GingerPaper_1920x1080.png",
@@ -1201,14 +1348,126 @@
                 "appearance": "light",
                 "colorScheme": "Kanagawa",
                 "darkMode": false,
-                "generationMethod": "faithful",
+                "generationMethod": "vibrant",
                 "paletteColors": [
-                    "#c55fed",
-                    "#ea48c5",
-                    "#ea4876",
+                    "#6771e4",
+                    "#8d5cd6",
+                    "#c466cc",
                     "#fd4663"
                 ],
-                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/BlackpixelGalaxy_1920x1080.png",
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/JcityView_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "light",
+                "colorScheme": "Kanagawa",
+                "darkMode": false,
+                "generationMethod": "content",
+                "paletteColors": [
+                    "#426276",
+                    "#546068",
+                    "#6e5675",
+                    "#ba1a1a"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/JgardenView_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "light",
+                "colorScheme": "Kanagawa",
+                "darkMode": false,
+                "generationMethod": "dysfunctional",
+                "paletteColors": [
+                    "#d16714",
+                    "#bab012",
+                    "#62a310",
+                    "#ea7b24"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/LittleAutumn_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "light",
+                "colorScheme": "Kanagawa",
+                "darkMode": false,
+                "generationMethod": "dysfunctional",
+                "paletteColors": [
+                    "#cc9a1a",
+                    "#92b517",
+                    "#3a9e14",
+                    "#fd4663"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/MythicVillage_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "light",
+                "colorScheme": "Kanagawa",
+                "darkMode": false,
+                "generationMethod": "dysfunctional",
+                "paletteColors": [
+                    "#c38222",
+                    "#29a385",
+                    "#51862d",
+                    "#fd4663"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/LightHouse_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "light",
+                "colorScheme": "Kanagawa",
+                "darkMode": false,
+                "generationMethod": "dysfunctional",
+                "paletteColors": [
+                    "#7b2a16",
+                    "#74591d",
+                    "#2d4786",
+                    "#fd4663"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/ObeliskStood_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "light",
+                "colorScheme": "Kanagawa",
+                "darkMode": false,
+                "generationMethod": "dysfunctional",
+                "paletteColors": [
+                    "#c34c22",
+                    "#a38529",
+                    "#6f862d",
+                    "#fd4663"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/CloudPort_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "light",
+                "colorScheme": "Kanagawa",
+                "darkMode": false,
+                "generationMethod": "monochrome",
+                "paletteColors": [
+                    "#000000",
+                    "#5e5e5e",
+                    "#3b3b3b",
+                    "#ba1a1a"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/BitDoor_1920x1080.png",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "light",
+                "colorScheme": "Kanagawa",
+                "darkMode": false,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#c3a422",
+                    "#7ea329",
+                    "#3b8b28",
+                    "#fd4663"
+                ],
+                "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/BeforeAutumn.png",
                 "useWallpaperColors": true
             }
         ],
@@ -1262,6 +1521,6 @@
         "wallhavenResolutionMode": "atleast",
         "wallhavenResolutionWidth": "",
         "wallhavenSorting": "relevance",
-        "wallpaperChangeMode": "alphabetical"
+        "wallpaperChangeMode": "random"
     }
 }
