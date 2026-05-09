@@ -1,6 +1,6 @@
 [flavor]
-light = "tsora"
-dark  = "tsora"
+light = "noctalia"
+dark  = "noctalia"
 
 [icon] 
 prepend_dirs = [
