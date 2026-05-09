@@ -1,6 +1,6 @@
 animations {
     window-open { 
-        duration-ms 250
+        duration-ms 200
         curve "ease-out-cubic"
 
         custom-shader r"
@@ -24,8 +24,8 @@ animations {
         "
     }
 
-    window-close { 
-        duration-ms 250
+    window-close {
+        duration-ms 200
         curve "ease-out-cubic"
 
         custom-shader r"
@@ -44,5 +44,33 @@ animations {
                 return color * alpha;
             }
         "
+    }
+    
+    workspace-switch {
+        off
+    }
+    horizontal-view-movement {
+        off
+    }
+    window-movement {
+        off
+    }
+    window-resize {
+        off
+    }
+    config-notification-open-close {
+        off
+    }
+    exit-confirmation-open-close {
+        off
+    }
+    screenshot-ui-open {
+        off
+    }
+    overview-open-close {
+        off
+    }
+    recent-windows-close {
+        off   
     }
 }

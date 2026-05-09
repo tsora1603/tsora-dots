@@ -1,7 +1,7 @@
 // Set transparent workspace background color so you see the backdrop at all times.
 layout {
     background-color "transparent"
-    gaps 10
+    gaps 20
 
     preset-column-widths {
     // Proportion sets the width as a fraction of the output width, taking gaps into account.

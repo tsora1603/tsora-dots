@@ -10,7 +10,7 @@
 # If not specified, plugins are disabled by default
 [piri.plugins]
 scratchpads = true
-empty = true
+empty = false
 window_rule = true
 singleton = true
 window_order = true
@@ -175,30 +175,30 @@ auto_hide_on_focus_loss = true  # Optional: auto-hide when window loses focus
 # - default_weight: default weight for windows not specified (default: 0)
 # - workspaces: list of workspace names/indices to apply ordering (supports "idx@output" syntax, default: all workspaces)
 # Use 'piri window_order toggle' to manually reorder windows in current workspace
-[piri.window_order]
-enable_event_listener = false
-default_weight = 0
+# [piri.window_order]
+# enable_event_listener = false
+# default_weight = 0
 # workspaces = ["1", "2", "dev"]  # Optional: only apply to specific workspaces (empty = all)
 
-[window_order]
+# [window_order]
 # Window-specific weights
-google-chrome = 100
-code = 80
-ghostty = 70
+# google-chrome = 100
+# code = 80
+# ghostty = 70
 
-[piri.swallow]
-use_pid_matching=false
+# [piri.swallow]
+# use_pid_matching=false
 
-[piri.swallow.exclude]
-app_id = ".*mpv*."
+# [piri.swallow.exclude]
+# app_id = ".*mpv*."
 
-[[swallow]]
-child_app_id='.*google-chrome.*'
-parent_app_id='.*ghostty.*'
+# [[swallow]]
+# child_app_id='.*google-chrome.*'
+# parent_app_id='.*ghostty.*'
 
-[[swallow]]
-child_app_id='.*firefox*.'
-parent_app_id='.*ghostty.*'
+# [[swallow]]
+# child_app_id='.*firefox*.'
+# parent_app_id='.*ghostty.*'
 
 # Workspace rule: automatically adjust window widths based on window count
 # Format: [workspace_rule.{workspace}]
@@ -214,7 +214,7 @@ parent_app_id='.*ghostty.*'
 
 # Default configuration (applies to all workspaces without specific config)
 [piri.workspace_rule]
-auto_tile = true
+auto_tile = false
 auto_maximize = true
 
 # --- Monitor-scoped examples ---

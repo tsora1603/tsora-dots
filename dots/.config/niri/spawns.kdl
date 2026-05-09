@@ -26,4 +26,4 @@ spawn-sh-at-startup "systemctl --user import-environment XDG_DATA_DIRS"
 spawn-sh-at-startup "python3 ~/.local/bin/niri-vertical-consume.py DP-1"
 
 // Which workspace to focus at startup
-spawn-at-startup "niri" "msg" "action" "focus-workspace-down"
+spawn-at-startup "niri" "msg" "action" "focus-workspace" "4"

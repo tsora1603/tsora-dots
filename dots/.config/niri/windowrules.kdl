@@ -12,9 +12,18 @@ window-rule {
   match app-id=r#".*zen.*"#
   match at-startup=true app-id=r#".*libresprite.*"#
   match app-id=r#".*libresprite.*"#
+  match app-id=r#".*equibop.*"#
   match title=r#".*GitHub.*"#
   match title=r#".*Claude.*"#
   match title=r#".*YouTube.*"#
+}
+window-rule {
+  open-maximized true
+  open-maximized-to-edges false
+
+  match app-id=r#".*equibop.*"#
+  match title=r#".*GitHub.*"#
+  match title=r#".*WhatsApp.*"#
 }
 
 // Borderless + shadow
@@ -48,6 +57,12 @@ window-rule {
   match app-id=r#".*cachyos.hello.*"#
   match title="Noctalia"
   match title="terminal filechooser"
+}
+window-rule {
+  match title="terminal filechooser"
+
+  default-window-height { fixed 500; } 
+  default-column-width  { fixed 900; }
 }
 
 // rmpc
