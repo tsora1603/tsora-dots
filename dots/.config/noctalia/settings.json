@@ -570,8 +570,8 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": false,
-        "generationMethod": "dysfunctional",
+        "darkMode": true,
+        "generationMethod": "content",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "HDMI-A-1",
@@ -830,7 +830,6 @@
         ],
         "onlySameOutput": true,
         "pinnedApps": [
-            "equibop"
         ],
         "pinnedStatic": true,
         "position": "bottom",
@@ -1196,10 +1195,10 @@
                 "darkMode": true,
                 "generationMethod": "content",
                 "paletteColors": [
-                    "#f1afff",
-                    "#e3b8ea",
-                    "#ffb1c8",
-                    "#ffb4ab"
+                    "#8c39a5",
+                    "#75527d",
+                    "#a73162",
+                    "#ba1a1a"
                 ],
                 "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/BlackpixelGalaxy_1920x1080.png",
                 "useWallpaperColors": true
@@ -1210,10 +1209,10 @@
                 "darkMode": true,
                 "generationMethod": "content",
                 "paletteColors": [
-                    "#a2d0bd",
-                    "#b8cbc1",
-                    "#c5c2ec",
-                    "#ffb4ab"
+                    "#3b6757",
+                    "#51625a",
+                    "#5c5b7f",
+                    "#ba1a1a"
                 ],
                 "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/BlackpixelGalaxyTeal_1920x1080.png",
                 "useWallpaperColors": true
@@ -1322,9 +1321,9 @@
                 "darkMode": false,
                 "generationMethod": "faithful",
                 "paletteColors": [
-                    "#e4c467",
-                    "#bbd862",
-                    "#85ce6c",
+                    "#c39a22",
+                    "#86a329",
+                    "#44862d",
                     "#fd4663"
                 ],
                 "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/FantasyMap_1920x1080.png",
@@ -1432,12 +1431,12 @@
                 "appearance": "light",
                 "colorScheme": "Kanagawa",
                 "darkMode": false,
-                "generationMethod": "dysfunctional",
+                "generationMethod": "content",
                 "paletteColors": [
-                    "#c34c22",
-                    "#a38529",
-                    "#6f862d",
-                    "#fd4663"
+                    "#686000",
+                    "#645f37",
+                    "#496720",
+                    "#ba1a1a"
                 ],
                 "path": "/home/tsora/Pictures/Wallpapers/HDMI-A-1/PixelArt/CloudPort_1920x1080.png",
                 "useWallpaperColors": true
