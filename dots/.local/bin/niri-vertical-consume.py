@@ -212,7 +212,6 @@ def main(vertical_output: str) -> None:
             fire_action(
                 socket_path,
                 {"ConsumeOrExpelWindowLeft": {"id": win_id}},
-                {"MaximizeColumn": {"id": win_id}}
             )
 
         # ── WindowClosed: clean up known_windows ──────────────────────────────
