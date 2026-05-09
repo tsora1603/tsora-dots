@@ -1,9 +1,4 @@
 [[plugin.deps]]
-use = "yazi-rs/plugins:full-border"
-rev = "1962818"
-hash = "6fa6a05a81c98dd000fbca3cca6e9682"
-
-[[plugin.deps]]
 use = "stelcodes/bunny"
 rev = "6ee99bc"
 hash = "417de633d0008580b386bd3358eea56f"
@@ -62,6 +57,11 @@ hash = "85316b5e9abeae2531d3e5d02a094381"
 use = "yazi-rs/plugins:git"
 rev = "e84f4fe"
 hash = "26db011a778f261d730d4f5f8bf24b3f"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "16e8ed3"
+hash = "eff8ff12fa4e5f035a10d8aeeb4c258d"
 
 [[flavor.deps]]
 use = "gosxrgxx/flexoki-dark"
