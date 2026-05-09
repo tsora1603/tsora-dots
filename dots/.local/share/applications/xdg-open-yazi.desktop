@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Yazi File Manager
+Comment=Open directories in Yazi
+Exec=xdg-open-yazi %u
+Terminal=false
+Type=Application
+MimeType=inode/directory;x-scheme-handler/file;
+NoDisplay=true
