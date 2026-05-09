@@ -14,4 +14,10 @@ environment {
     // Default editor
     EDITOR "nano"
 
+    // AI stuff
+    HSA_OVERRIDE_GFX_VERSION "10.3.0"
+    ROC_ENABLE_PRE_VEGA "1"
+    CLAUDE_CODE_USE_OPENAI "1"
+    OPENAI_BASE_URL "http://localhost:11434/v1"
+    OPENAI_MODEL "qwen2.5-coder:14b"
 }

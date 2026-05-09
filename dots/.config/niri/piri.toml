@@ -11,13 +11,13 @@
 [piri.plugins]
 scratchpads = true
 empty = false
-window_rule = true
-singleton = true
-window_order = true
-swallow = true
-workspace_rule = true
-mark = true
-sticky = true
+window_rule = false
+singleton = false
+window_order = false
+swallow = false
+workspace_rule = false
+mark = false
+sticky = false
 
 # Plugins configuration
 # Empty plugin: executes commands when switching to empty workspaces
@@ -63,35 +63,6 @@ command = "kitty --class=float.rmpc -e rmpc"
 app_id = "float.rmpc"
 size = "50% 50%"
 margin = 8
-
-# Example: scratchpad with swallow_to_focus enabled
-# When shown, the window will be swallowed into the currently focused window
-[scratchpads.preview]
-direction = "fromRight"
-command = "imv"
-app_id = "imv"
-size = "60% 80%"
-margin = 50
-swallow_to_focus = true  # Optional: swallow into focused window when shown
-
-# Example: scratchpad with sticky behavior (delegates to sticky plugin)
-[scratchpads.note]
-direction = "fromTop"
-command = "gnome-text-editor"
-app_id = "org.gnome.TextEditor"
-size = "50% 40%"
-margin = 100
-sticky = true  # Optional: follow focused workspace (handled by sticky plugin)
-
-# Example: scratchpad that auto-hides when focus is lost
-# Note: sticky and auto_hide_on_focus_loss cannot both be enabled
-[scratchpads.calc]
-direction = "fromBottom"
-command = "gnome-calculator"
-app_id = "org.gnome.Calculator"
-size = "30% 40%"
-margin = 50
-auto_hide_on_focus_loss = true  # Optional: auto-hide when window loses focus
 
 
 # Window rules: automatically move windows to workspaces based on app_id or title
@@ -215,7 +186,7 @@ auto_hide_on_focus_loss = true  # Optional: auto-hide when window loses focus
 # Default configuration (applies to all workspaces without specific config)
 [piri.workspace_rule]
 auto_tile = false
-auto_maximize = true
+auto_maximize = false
 
 # --- Monitor-scoped examples ---
 #

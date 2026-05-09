@@ -4,6 +4,7 @@ workspace "󰡟" {
 }
 window-rule {
     match app-id=r#".*vesk.*"#
+    match app-id=r#".*equibop.*"#
     match title=r#".*Reddit.*"#
     match title=r#".*WhatsApp.*"#
     match title=r#".*Discord.*"#

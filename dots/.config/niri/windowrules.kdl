@@ -1,4 +1,4 @@
-// Set open-maximized to true for all windows, except:
+// Specifying which windows should be opened maximized
 window-rule {
   open-maximized false
   open-maximized-to-edges false
@@ -8,7 +8,6 @@ window-rule {
   match app-id=r#"yazi"#
   match at-startup=true app-id=r#".*inkscape.*"#
   match app-id=r#".*inkscape.*"# 
-  match app-id=r#".*codium.*"#
   match app-id=r#".*zen.*"#
   match at-startup=true app-id=r#".*libresprite.*"#
   match app-id=r#".*libresprite.*"#
@@ -16,14 +15,13 @@ window-rule {
   match title=r#".*GitHub.*"#
   match title=r#".*Claude.*"#
   match title=r#".*YouTube.*"#
+  match title=r#".*GitHub.*"#
+  match title=r#".*WhatsApp.*"#
 }
 window-rule {
   open-maximized true
-  open-maximized-to-edges false
 
-  match app-id=r#".*equibop.*"#
-  match title=r#".*GitHub.*"#
-  match title=r#".*WhatsApp.*"#
+  match app-id=r#".*codium.*"#
 }
 
 // Borderless + shadow
@@ -64,19 +62,13 @@ window-rule {
   default-window-height { fixed 500; } 
   default-column-width  { fixed 900; }
 }
-
-// rmpc
-window-rule { 
-  match app-id=r#"rmpc"#
+window-rule {
+  match title="Library" app-id="zen"
+  match app-id="yazi"
 
   open-floating true
-  default-floating-position x=0 y=1 relative-to="bottom"
-  default-window-height { fixed 500; } 
+  default-window-height { fixed 600; } 
   default-column-width  { fixed 900; }
-
-  focus-ring {
-    off
-  }
 }
 
 // Blur on inactive windows
