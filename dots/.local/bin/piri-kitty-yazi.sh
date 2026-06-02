@@ -10,7 +10,7 @@ MONITOR=$(niri msg --json workspaces | jq -r ".[] | select(.id == $WS_ID) | .out
 
 # Now check both conditions
 if [ "$APP" = "float.kitty" ] && [ "$MONITOR" = "DP-1" ]; then
-  niri msg action move-floating-window -x -180
+  niri msg action move-floating-window -x -200
   niri msg action set-window-width 950
   niri msg action set-window-height 520
 fi
