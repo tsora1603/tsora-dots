@@ -1,75 +1,80 @@
 #!/usr/bin/env bash
-set -e 
+set -e
 
 # installing pacman packages
 sudo pacman -Syu \
-    cachyos-gaming-meta \
-    cachyos-gaming-applications \
-    cliphist \
-    curl \
-    equibop \
-    eza \
-    feh \
-    ffmpeg \
-    firefoxpwa \
-    greetd \
-    grim \
-    imagemagick \
-    inkscape \
-    jq \
-    kitty \
-    lact \
-    lazygit \
-    libresprite \
-    mediainfo \
-    mpd \
-    mpd-mpris \
-    niri \
-    nwg-look \
-    onlyoffice \
-    paru \
-    pascube \
-    playerctl \
-    protonplus \
-    python-lxml \
-    qt6ct \
-    resvg \
-    rmpc \
-    scour \
-    slurp \
-    stow \
-    swappy \
-    tesseract \
-    tesseract-data-eng \
-    tesseract-data-por \
-    translate-shell \
-    trash-cli \
-    vlc \
-    vscodium \
-    wf-recorder \
-    wl-clipboard \
-    wtype \
-    yazi \
-    zbar \
-    zen-browser
+  cachyos-gaming-meta \
+  cachyos-gaming-applications \
+  cliphist \
+  curl \
+  equibop \
+  eza \
+  feh \
+  ffmpeg \
+  firefoxpwa \
+  greetd \
+  grim \
+  imagemagick \
+  inkscape \
+  jq \
+  kitty \
+  lact \
+  lazygit \
+  libresprite \
+  luarocks \
+  mediainfo \
+  mpd \
+  mpd-mpris \
+  neovim \
+  niri \
+  nwg-look \
+  onlyoffice \
+  paru \
+  pascube \
+  playerctl \
+  protonplus \
+  python-lxml \
+  qt6ct \
+  resvg \
+  rmpc \
+  scour \
+  slurp \
+  stow \
+  swappy \
+  tesseract \
+  tesseract-data-eng \
+  tesseract-data-por \
+  translate-shell \
+  trash-cli \
+  vlc \
+  vscodium \
+  wf-recorder \
+  wl-clipboard \
+  wtype \
+  yazi \
+  zbar \
+  zen-browser
 
 # installing AUR packages
 paru -S \
-    gifski \
-    hydra-launcher-bin \
-    hyprshutdown \
-    millennium \
-    noctalia-shell-git \
-    otf-departure-mono-nerd \
-    parui \
-    python-pywalfox \
-    vtracer \
-    xdg-desktop-portal-termfilechooser-hunkyburrito-git \
-    zoom
+  gifski \
+  hydra-launcher-bin \
+  hyprshutdown \
+  millennium \
+  noctalia-shell-git \
+  otf-departure-mono-nerd \
+  parui \
+  python-pywalfox \
+  vtracer \
+  xdg-desktop-portal-termfilechooser-hunkyburrito-git \
+  zoom
 
 # debloat
-sudo pacman -R alacritty micro
+sudo pacman -R alacritty
 
+# setting up lazyvim
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+rm -rf ~/.config/nvim/.git
 # setting up Development directory with repos
 mkdir -p ~/Development
 cd ~/Development
@@ -92,8 +97,10 @@ git remote set-url origin git@github.com:tsora1603/pixora-icons.git
 ./install.sh
 
 # setting up fstab
+sudo mkdir -p /mnt/extrastuff1 /mnt/extrastuff2 /mnt/ventoy
 echo 'UUID=48D2B025D2B01960                     /mnt/extrastuff1   ntfs3   nofail,x-systemd.automount,noatime,uid=1000,gid=1000 0 0
-UUID=32FFB061010241EF                      /mnt/extrastuff2   ntfs3   nofail,x-systemd.automount,noatime,uid=1000,gid=1000 0 0' | sudo tee -a /etc/fstab
+UUID=32FFB061010241EF                     /mnt/extrastuff2   ntfs3   nofail,x-systemd.automount,noatime,uid=1000,gid=1000 0 0
+UUID=C6CE-DA29                            /mnt/ventoy        auto    nofail,x-systemd.automount,noatime,uid=1000,gid=1000 0 0' | sudo tee -a /etc/fstab
 
 # setting up cpu undervolt
 cd ~/.local/bin
@@ -111,7 +118,7 @@ Type=oneshot
 ExecStart=/usr/bin/python3 /home/tsora/.local/bin/ruv.py -c 8 -o -30
 
 [Install]
-WantedBy=multi-user.target" | sudo tee -a /etc/systemd/system/pbo-undervolt.service 
+WantedBy=multi-user.target" | sudo tee -a /etc/systemd/system/pbo-undervolt.service
 
 # systemd services
 systemctl --user enable mpd
@@ -127,9 +134,9 @@ firefoxpwa runtime install
 mkdir -p ~/.local/share/Steam
 
 if [ -d ~/.steam/steam ] && [ ! -L ~/.steam/steam ]; then
-    echo "Fixing broken Steam symlink..."
-    rm -rf ~/.steam/steam
-    ln -s ~/.local/share/Steam ~/.steam/steam
+  echo "Fixing broken Steam symlink..."
+  rm -rf ~/.steam/steam
+  ln -s ~/.local/share/Steam ~/.steam/steam
 fi
 
 # finishing
