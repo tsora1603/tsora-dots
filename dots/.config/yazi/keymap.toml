@@ -86,3 +86,12 @@ run  = "plugin smart-paste"
 [[mgr.prepend_keymap]]
 on  = "q"
 run = "plugin confirm-quit"
+
+# ------------------------------------------
+# ------------- YAZI STUFF -----------------
+# ------------------------------------------  
+
+[[mgr.prepend_keymap]]
+on = "<Middle>"
+run = "shell 'kitten dnd \"$@\"'"
+

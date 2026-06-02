@@ -14,6 +14,7 @@ ColumnLayout {
     property string systemCmd: pluginApi.pluginSettings.systemCmd || pluginApi.manifest.metadata.defaultSettings.systemCmd
     property string aurCmd: pluginApi.pluginSettings.aurCmd || pluginApi.manifest.metadata.defaultSettings.aurCmd
     property string updateCmd: pluginApi.pluginSettings.updateCmd || pluginApi.manifest.metadata.defaultSettings.updateCmd
+    property string aurHomepageCmd: pluginApi.pluginSettings.aurHomepageCmd || pluginApi.manifest.metadata.defaultSettings.aurHomepageCmd
     property bool flatpak: pluginApi.pluginSettings.flatpak ?? pluginApi.manifest.metadata.defaultSettings.flatpak
     property bool toast: pluginApi.pluginSettings.toast ?? pluginApi.manifest.metadata.defaultSettings.toast
     property bool refreshTimer: pluginApi.pluginSettings.refreshTimer ?? pluginApi.manifest.metadata.defaultSettings.refreshTimer
@@ -35,6 +36,7 @@ ColumnLayout {
     property bool panelTooltip: pluginApi.pluginSettings.panelTooltip ?? pluginApi.manifest.metadata.defaultSettings.panelTooltip
     property bool panelContext: pluginApi.pluginSettings.panelContext ?? pluginApi.manifest.metadata.defaultSettings.panelContext
     property bool closeButton: pluginApi.pluginSettings.closeButton ?? pluginApi.manifest.metadata.defaultSettings.closeButton
+    property bool closeOnSettings: pluginApi.pluginSettings.closeOnSettings ?? pluginApi.manifest.metadata.defaultSettings.closeOnSettings
 
     // Desktop Widget
     property bool boldVerDesktop: pluginApi.pluginSettings.boldVerDesktop ?? pluginApi.manifest.metadata.defaultSettings.boldVerDesktop
@@ -145,6 +147,18 @@ ColumnLayout {
                 onTextChanged: {
                     root.updateCmd = text
                     Logger.d("Arch Updater", "Update command set to: " + root.updateCmd)
+                }
+            }
+
+            NTextInput { // AUR Homepage Command
+                Layout.fillWidth: true
+                label: pluginApi.tr("settings.general.aurHomepageCmd.text")
+                description: pluginApi.tr("settings.general.aurHomepageCmd.desc")
+                placeholderText: pluginApi.manifest.metadata.defaultSettings.aurHomepageCmd
+                text: root.aurHomepageCmd
+                onTextChanged: {
+                    root.aurHomepageCmd = text
+                    Logger.d("Arch Updater", "Update command set to: " + root.aurHomepageCmd)
                 }
             }
 
@@ -470,6 +484,20 @@ ColumnLayout {
                     onToggled: checked => root.closeButton = checked
                 }
             }
+
+            // Close On Settings Toggle
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: closeOnSettingsToggle.implicitHeight
+                NToggle {
+                    id: closeOnSettingsToggle
+                    anchors.fill: parent
+                    label: pluginApi.tr("settings.panel.closeOnSettings.text")
+                    description: pluginApi.tr("settings.panel.closeOnSettings.desc")
+                    checked: root.closeOnSettings
+                    onToggled: checked => root.closeOnSettings = checked
+                }
+            }
         }
 
         ColumnLayout { // Desktop Widget Tab
@@ -533,6 +561,7 @@ ColumnLayout {
         pluginApi.pluginSettings.systemCmd = root.systemCmd
         pluginApi.pluginSettings.aurCmd = root.aurCmd
         pluginApi.pluginSettings.updateCmd = root.updateCmd
+        pluginApi.pluginSettings.aurHomepageCmd = root.aurHomepageCmd
         pluginApi.pluginSettings.flatpak = root.flatpak
         pluginApi.pluginSettings.toast = root.toast
         pluginApi.pluginSettings.refreshTimer = root.refreshTimer
@@ -554,6 +583,7 @@ ColumnLayout {
         pluginApi.pluginSettings.panelTooltip = root.panelTooltip
         pluginApi.pluginSettings.panelContext = root.panelContext
         pluginApi.pluginSettings.closeButton = root.closeButton
+        pluginApi.pluginSettings.closeOnSettings = root.closeOnSettings
 
         // Desktop Widget
         pluginApi.pluginSettings.boldVerDesktop = root.boldVerDesktop

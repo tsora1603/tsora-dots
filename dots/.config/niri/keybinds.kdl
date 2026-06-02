@@ -42,6 +42,7 @@ binds {
     Super+T     { spawn-sh "piri scratchpads term toggle && ~/.local/bin/piri-kitty-yazi.sh"; }
     Super+E     { spawn-sh "piri scratchpads yazi toggle && ~/.local/bin/piri-kitty-yazi.sh"; }
     Super+M     { spawn-sh "piri scratchpads rmpc toggle && ~/.local/bin/piri-kitty-yazi.sh"; }
+    Super+N     { spawn-sh "kitty --class nvim -e nvim"; }
 
     // Noctalia
     // ==== Core Binds ====

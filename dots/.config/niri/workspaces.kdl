@@ -8,7 +8,6 @@ window-rule {
     match title=r#".*Reddit.*"#
     match title=r#".*WhatsApp.*"#
     match title=r#".*Discord.*"#
-    match title=r#".*GitHub.*"#
 
     open-on-workspace "󰡟"
     open-focused false
@@ -27,13 +26,18 @@ window-rule {
 }
 
 // Development
-workspace "" {
+workspace "" {
     open-on-output "HDMI-A-1"
 }
 window-rule {
-    match app-id=r#".*codium.*"# 
+    default-column-width { proportion 0.5; }
 
-    open-on-workspace ""
+    match app-id=r#".*codium.*"# 
+    match at-startup=true app-id=r#"nvim"#
+    match at-startup=true app-id=r#".*zen.*"#
+    match title=r#".*GitHub.*"#
+
+    open-on-workspace ""
     open-focused false
 }
 
@@ -45,11 +49,5 @@ workspace "" {
 // Games
 workspace "" {
     open-on-output "DP-1"
-}
-window-rule {
-    match app-id=r#".*steam.*"#
-
-    open-on-workspace ""
-    open-focused false
 }
 

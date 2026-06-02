@@ -27,17 +27,24 @@ Item {
         id: contextMenu
         property string packageID: ""
         property string source: ""
+        property string name: ""
         property string text: ""
-        model: [
+        
+        model: [ // Spaces are added here instead of in i18n
             {
                 "label": pluginApi.tr("panel.context.copy") + ' "' + text + '"',
                 "action": "copy",
                 "icon": "copy"
             },
             {
-                "label": pluginApi.tr("panel.context.open") + ' "' + packageID + '"',
+                "label": pluginApi.tr("panel.context.open") + " " + packageID + " " + pluginApi.tr("panel.context.repo"),
                 "action": "open",
                 "icon": "external-link"
+            },
+            {
+                "label": pluginApi.tr("panel.context.open") + " " + name + " " + pluginApi.tr("panel.context.homepage"),
+                "action": "homepage",
+                "icon": "home"
             }
         ]
 
@@ -53,7 +60,11 @@ Item {
             }
             else if (action === "open") {
                 Logger.d("Arch Updater", "Open URL")
-                root.pluginApi.mainInstance.openURL(source, packageID) // Open link
+                root.pluginApi.mainInstance.openURL(source, packageID) // Open URL
+            }
+            else if (action === "homepage") {
+                Logger.d("Arch Updater", "Open Homepage")
+                root.pluginApi.mainInstance.openHomepage(source, packageID) // Open homepage
             }
         }
     }
@@ -64,6 +75,7 @@ Item {
         acceptedButtons: Qt.LeftButton | Qt.RightButton
         property string packageID: ""
         property string source: ""
+        property string name: ""
         property string text: ""
         property string tooltipDirection: "auto"
 
@@ -91,6 +103,7 @@ Item {
                 // Set information that will be used in the context menu
                 contextMenu.packageID = packageID
                 contextMenu.source = source
+                contextMenu.name = name
                 contextMenu.text = text
 
                 // Open context menu
@@ -223,6 +236,7 @@ Item {
                                         anchors.fill: parent
                                         packageID: modelData.id
                                         source: modelData.source
+                                        name: modelData.name
                                         text: modelData.name
                                         tooltipDirection: BarService.getTooltipDirection(root.screen?.name)
                                     }
@@ -240,6 +254,7 @@ Item {
                                         anchors.fill: parent
                                         packageID: modelData.id
                                         source: modelData.source
+                                        name: modelData.name
                                         text: modelData.oldVer
                                         tooltipDirection: BarService.getTooltipDirection(root.screen?.name)
                                     }
@@ -258,6 +273,7 @@ Item {
                                         anchors.fill: parent
                                         packageID: modelData.id
                                         source: modelData.source
+                                        name: modelData.name
                                         text: modelData.newVer
                                         tooltipDirection: BarService.getTooltipDirection(root.screen?.name)
                                     }
@@ -303,6 +319,9 @@ Item {
                             onClicked: {
                                 Logger.d("Arch Updater", "Opening settings from panel...")
                                 BarService.openPluginSettings(pluginApi.panelOpenScreen, pluginApi.manifest)
+                                if (pluginApi.pluginSettings.closeOnSettings ?? pluginApi.manifest.metadata.closeOnSettings.boldVerPanel) {
+                                    pluginApi.closePanel(pluginApi.panelOpenScreen)
+                                }
                             }
                         }
                     }

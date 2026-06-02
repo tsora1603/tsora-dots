@@ -11,4 +11,8 @@ layout {
     proportion 0.5
     proportion 0.66667
     }    
+
+    struts {
+      top 36
+    }
 }

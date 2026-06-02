@@ -1,74 +1,119 @@
 {
   "todos": [
     {
-      "id": 1777390248414,
-      "text": "KDE Partition Manager",
+      "id": 1779460194792,
+      "text": "Totem",
       "completed": false,
-      "createdAt": "2026-04-28T15:30:48.414Z",
-      "pageId": 0,
+      "createdAt": "2026-05-22T14:29:54.792Z",
+      "pageId": 1,
       "priority": "medium",
       "details": ""
     },
     {
-      "id": 1777390242904,
-      "text": "Manage Printing",
+      "id": 1779460191624,
+      "text": "Evince",
       "completed": false,
-      "createdAt": "2026-04-28T15:30:42.904Z",
-      "pageId": 0,
+      "createdAt": "2026-05-22T14:29:51.624Z",
+      "pageId": 1,
       "priority": "medium",
       "details": ""
     },
     {
-      "id": 1777390234060,
-      "text": "HP Device Manager",
+      "id": 1779460188977,
+      "text": "Cinny",
       "completed": false,
-      "createdAt": "2026-04-28T15:30:34.060Z",
-      "pageId": 0,
+      "createdAt": "2026-05-22T14:29:48.977Z",
+      "pageId": 1,
       "priority": "medium",
       "details": ""
     },
     {
-      "id": 1777390228140,
-      "text": "Filelight",
-      "completed": false,
-      "createdAt": "2026-04-28T15:30:28.140Z",
-      "pageId": 0,
-      "priority": "medium",
-      "details": ""
-    },
-    {
-      "id": 1777390222101,
-      "text": "Kvantum",
-      "completed": false,
-      "createdAt": "2026-04-28T15:30:22.101Z",
-      "pageId": 0,
-      "priority": "medium",
-      "details": ""
-    },
-    {
-      "id": 1777390219774,
-      "text": "Haruna",
-      "completed": false,
-      "createdAt": "2026-04-28T15:30:19.774Z",
-      "pageId": 0,
-      "priority": "medium",
-      "details": ""
-    },
-    {
-      "id": 1777390214164,
-      "text": "KDE Connect",
-      "completed": false,
-      "createdAt": "2026-04-28T15:30:14.164Z",
-      "pageId": 0,
-      "priority": "medium",
-      "details": ""
-    },
-    {
-      "id": 1777390189827,
-      "text": "Gwenview",
+      "id": 1779460232674,
+      "text": "ZapZap",
       "completed": true,
-      "createdAt": "2026-04-28T15:29:49.827Z",
-      "pageId": 0,
+      "createdAt": "2026-05-22T14:30:32.674Z",
+      "pageId": 1,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1779460230265,
+      "text": "TETR.IO",
+      "completed": true,
+      "createdAt": "2026-05-22T14:30:30.265Z",
+      "pageId": 1,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1779460226907,
+      "text": "Rnote",
+      "completed": true,
+      "createdAt": "2026-05-22T14:30:26.907Z",
+      "pageId": 1,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1779460225151,
+      "text": "Musescore",
+      "completed": true,
+      "createdAt": "2026-05-22T14:30:25.151Z",
+      "pageId": 1,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1779460221529,
+      "text": "OpenTabletDriver",
+      "completed": true,
+      "createdAt": "2026-05-22T14:30:21.529Z",
+      "pageId": 1,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1779460217512,
+      "text": "Olympus (Celeste thing)",
+      "completed": true,
+      "createdAt": "2026-05-22T14:30:17.512Z",
+      "pageId": 1,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1779460210357,
+      "text": "Mullvad VPN",
+      "completed": true,
+      "createdAt": "2026-05-22T14:30:10.357Z",
+      "pageId": 1,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1779460203896,
+      "text": "iwgtk",
+      "completed": true,
+      "createdAt": "2026-05-22T14:30:03.896Z",
+      "pageId": 1,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1779460201367,
+      "text": "Helium Browser",
+      "completed": true,
+      "createdAt": "2026-05-22T14:30:01.367Z",
+      "pageId": 1,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1779460197019,
+      "text": "Flatseal",
+      "completed": true,
+      "createdAt": "2026-05-22T14:29:57.019Z",
+      "pageId": 1,
       "priority": "medium",
       "details": ""
     }
@@ -77,19 +122,23 @@
     {
       "id": 0,
       "name": "General"
+    },
+    {
+      "id": 1,
+      "name": "App Icons"
     }
   ],
-  "current_page_id": 0,
-  "count": 8,
-  "completedCount": 1,
+  "current_page_id": 1,
+  "count": 13,
+  "completedCount": 10,
   "showCompleted": true,
   "showBackground": true,
   "isExpanded": false,
   "useCustomColors": false,
   "priorityColors": {
-    "high": "#fd4663",
-    "medium": "#c37e22",
-    "low": "#5c5854"
+    "high": "#783e22",
+    "medium": "#e49d67",
+    "low": "#b6b2af"
   },
   "exportPath": "~/Documents",
   "exportFormat": "markdown",

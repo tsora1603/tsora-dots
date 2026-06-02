@@ -28,11 +28,11 @@ sticky = false
 # - idx@output: workspace index on specific monitor, e.g., "1@DP-2", "1@HDMI-A-1"
 # - name@output: workspace name on specific monitor, e.g., "browser@DP-2"
 # Note: Matching order is idx@output first, then name@output, then name, then idx. ID (u64) is not used for matching.
-[empty.1] # workspace index
-command = "notify-send 'Workspace 1 is empty'"
+# [empty.1] # workspace index
+# command = "notify-send 'Workspace 1 is empty'"
 
-[empty.browser] # workspace name
-command = "google-chrome-stable"
+# [empty.browser] # workspace name
+# command = "google-chrome-stable"
 
 
 # Scratchpads configuration
